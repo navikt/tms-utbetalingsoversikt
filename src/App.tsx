@@ -6,11 +6,11 @@ import UtbetalingLinkPanel from "./components/utbetalingLinkPanel/UtbetalingLink
 
 const relatertInnholdLinks = [
   {
-    titleId: "satser",
+    title: "satser",
     href: "http://localhost:3000/satser",
   },
   {
-    titleId: "utbetalingsdatoer",
+    title: "utbetalingsdatoer",
     href: "http://localhost:3000/utbetalingsdatoer",
   },
   {
@@ -95,14 +95,24 @@ function App() {
             </li>
           ))}
         </ul>
-        {/* TODO: fikse design etter skisse, trekke til egen komponent? */}
-        <ul>
-          {relatertInnholdLinks.map((linkObject) => (
-            <li>
-              <Link href={linkObject.href}>{linkObject.titleId}</Link>
-            </li>
-          ))}
-        </ul>
+        <div className={style.relatertInnholdContainer}>
+          <Heading
+            className={style.relatertInnholdHeader}
+            level="2"
+            size="xsmall"
+          >
+            Relart Innhold
+          </Heading>
+          <ul className={style.relatertInnholdLinkList}>
+            {relatertInnholdLinks.map((linkObject) => (
+              <li>
+                <a className={style.relatertInnholdLink} href={linkObject.href}>
+                  {linkObject.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
