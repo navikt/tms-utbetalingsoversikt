@@ -1,14 +1,9 @@
-.pageTitle{
-
-}
-
-.utbetalingPeriod ul{
+.utbetalingerList {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-.utbetalingPeriod a{
-  list-style-type: none;
-  text-decoration: none;
+.utbetalingerOneMonth {
+  margin-top: 1rem;
 }
-
-

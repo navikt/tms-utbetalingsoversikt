@@ -1,6 +1,8 @@
 import style from "./App.module.css";
-import { BodyLong, BodyShort, Heading, LinkPanel, Link } from "@navikt/ds-react";
+import { BodyShort, Heading, Link } from "@navikt/ds-react";
 import text from "./language/text.jsx";
+import UtbetalingInMonth from "./components/utbetalingerInMonth/UtbetalingerInMonth.tsx";
+import UtbetalingLinkPanel from "./components/utbetalingLinkPanel/UtbetalingLinkPanel.tsx";
 
 const relatertInnholdLinks = [
   {
@@ -20,74 +22,87 @@ const relatertInnholdLinks = [
     href: "http://localhost:3000/endreSkattekort",
   },
 ];
+const getAllUtbetalinger = [
+  {
+    month: "Mars",
+    year: "2023",
+    beløp_utbetalt: 2100,
+    utbetalinger: [
+      {
+        ytelse: "Arbeidsavklaringspenger",
+        ytelse_dato: "2021-03-10T22:46:01.204+02:00",
+        beløp_utbetalt: 1200,
+      },
+      {
+        ytelse: "Dagpenger",
+        ytelse_dato: "2021-03-09T22:46:01.204+02:00",
+        beløp_utbetalt: 900,
+      },
+    ],
+  },
+  {
+    month: "Februar",
+    year: "2023",
+    beløp_utbetalt: 2100,
+    utbetalinger: [
+      {
+        ytelse: "Arbeidsavklaringspenger",
+        ytelse_dato: "2023-02-10T22:46:01.204+02:00",
+        beløp_utbetalt: 1200,
+      },
+      {
+        ytelse: "Dagpenger",
+        ytelse_dato: "2023-02-09T22:46:01.204+02:00",
+        beløp_utbetalt: 900,
+      },
+    ],
+  },
+];
 
-export type Utbetaling = {
-  ytelse: string;
-  ytelse_dato: string;
-};
-
-export interface UtbetalingerProps {
-  month: string;
-  year: string;
-  utbetalinger: Utbetaling[];
-}
-
-const UtbetalingPeriod = ({
-  month,
-  year,
-  utbetalinger,
-}: UtbetalingerProps) => {
-  return (
-    <div className={style.utbetalingPeriod}>
-      <Heading level="2" size="large">
-        {`${month} ${year}`}
-      </Heading>
-      <ul>
-        {utbetalinger.map((o) => {
-          return (
-            <li>
-              <a className={style.utbetalingLink} href="http://localhost:3000/utbetaling">
-                {<BodyShort>{o.ytelse_dato}</BodyShort>}
-                {<BodyLong>{o.ytelse}</BodyLong>}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
+const nesteUtbetaling = {
+  ytelse: "Arbeidsavklaringspenger",
+  ytelse_dato: "2023-02-10T22:46:01.204+02:00",
+  beløp_utbetalt: 1200,
 };
 
 function App() {
-  const utbetalinger = [
-    {
-      ytelse: "Arbeidsavklaringspenger",
-      ytelse_dato: "2021-06-09T22:46:01.204+02:00",
-    },
-    {
-      ytelse: "Dagpenger",
-      ytelse_dato: "2021-06-09T22:46:01.204+02:00",
-    },
-  ];
-
   return (
     <div>
       <Heading className={style.pageTitle} level="1" size="large">
         {text.sideTittel["nb"]}
       </Heading>
-      <div className={style.pageBody}>
-        <UtbetalingPeriod month="Januar" year="2021" utbetalinger={utbetalinger}/>
-          
-        {/* TODO: fikse design etter skisse, trekke til egen komponent? */}
-        <div className={style.relatertInnholdContainer}>
-          <ul>
-            {relatertInnholdLinks.map((linkObject) => (
-              <li>
-                <Link href={linkObject.href}>{linkObject.titleId}</Link>
-              </li>
-            ))}
-          </ul>
+      {nesteUtbetaling && (
+        <div>
+          <BodyShort>Neste utbetaling</BodyShort>{" "}
+          <UtbetalingLinkPanel
+            ytelse={nesteUtbetaling.ytelse}
+            beløp={nesteUtbetaling.beløp_utbetalt}
+            dato={nesteUtbetaling.ytelse_dato}
+            nesteUtbetaling={true}
+          />{" "}
         </div>
+      )}
+      <div className={style.pageBody}>
+        <ul className={style.utbetalingerList}>
+          {getAllUtbetalinger.map((o) => (
+            <li className={style.utbetalingerOneMonth}>
+              <UtbetalingInMonth
+                month={o.month}
+                year={o.year}
+                utbetaltIPeriode={o.beløp_utbetalt}
+                utbetalinger={o.utbetalinger}
+              />
+            </li>
+          ))}
+        </ul>
+        {/* TODO: fikse design etter skisse, trekke til egen komponent? */}
+        <ul>
+          {relatertInnholdLinks.map((linkObject) => (
+            <li>
+              <Link href={linkObject.href}>{linkObject.titleId}</Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

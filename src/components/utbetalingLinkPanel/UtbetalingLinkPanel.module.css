@@ -1,0 +1,28 @@
+#utbetalingLink {
+  background-color: initial;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+#nesteUtbetalingLink{
+  background-color: var(--surface-success-subtle, #CCF1D6);
+  border-radius: 8px;
+}
+
+.betalingDato {
+  color: var(--a-grayalpha-700);
+}
+
+.betalingYtelse {
+  color: var(--a-gray-900);
+}
+
+.betalingRight {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#utbetalingLink:hover #chevronRight{
+  transform: translateX(4px);
+}
