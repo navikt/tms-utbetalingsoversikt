@@ -3,6 +3,7 @@ import { BodyShort, Heading, Link } from "@navikt/ds-react";
 import text from "./language/text.jsx";
 import UtbetalingInMonth from "./components/utbetalingerInMonth/UtbetalingerInMonth.tsx";
 import UtbetalingLinkPanel from "./components/utbetalingLinkPanel/UtbetalingLinkPanel.tsx";
+import Filter from "./components/filter/Filter.tsx";
 
 const relatertInnholdLinks = [
   {
@@ -71,6 +72,7 @@ function App() {
       <Heading className={style.pageTitle} level="1" size="large">
         {text.sideTittel["nb"]}
       </Heading>
+      <Filter/>
       {nesteUtbetaling && (
         <div>
           <BodyShort>Neste utbetaling</BodyShort>{" "}

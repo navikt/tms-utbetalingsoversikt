@@ -1,0 +1,6 @@
+.datePicketInputs{
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap
+}
