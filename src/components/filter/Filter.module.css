@@ -1,6 +1,22 @@
+.filterContainer{
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
 .datePicketInputs{
   display: flex;
   gap: 4px;
   justify-content: center;
   flex-wrap: wrap
+}
+
+.pengestøtteChips{
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 480px)	{
+  .filterContainer{
+    margin-top: 1.5rem;
+    margin-bottom: 2.75rem;
+  }
 }

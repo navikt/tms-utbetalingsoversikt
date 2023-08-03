@@ -36,7 +36,7 @@ const Filter = () => {
   };
 
   return (
-    <>
+    <div className={style.filterContainer}>
       <Heading size="xsmall" level="3">
         Velg periode
       </Heading>
@@ -59,21 +59,23 @@ const Filter = () => {
           </div>
         </DatePicker>
       )}
-      <Heading size="xsmall" level="3">
-        Velg pengestøtte
-      </Heading>
-      <Chips>
-        {Object.keys(ytelser).map((p) => (
-          <Chips.Toggle
-            onClick={() => toggleYtelseFilter(p)}
-            key={p}
-            selected={ytelser[p] === true}
-          >
-            {p}
-          </Chips.Toggle>
-        ))}
-      </Chips>
-    </>
+      <div className={style.pengestøtteChips}>
+        <Heading size="xsmall" level="3">
+          Velg pengestøtte
+        </Heading>
+        <Chips>
+          {Object.keys(ytelser).map((p) => (
+            <Chips.Toggle
+              onClick={() => toggleYtelseFilter(p)}
+              key={p}
+              selected={ytelser[p] === true}
+            >
+              {p}
+            </Chips.Toggle>
+          ))}
+        </Chips>
+      </div>
+    </div>
   );
 };
 
