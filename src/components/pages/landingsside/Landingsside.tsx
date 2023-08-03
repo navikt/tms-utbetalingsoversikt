@@ -3,7 +3,7 @@ import { BodyShort, Heading, Link } from "@navikt/ds-react";
 import UtbetalingInMonth from "../../utbetalingerInMonth/UtbetalingerInMonth.tsx";
 import UtbetalingLinkPanel from "../../utbetalingLinkPanel/UtbetalingLinkPanel.tsx";
 import Filter from "../../filter/Filter.tsx";
-import text from "../../../language/text.ts"
+import text from "../../../language/text.ts";
 const relatertInnholdLinks = [
   {
     title: "satser",
@@ -71,31 +71,33 @@ function Landingsside() {
       <Heading className={style.pageTitle} level="1" size="large">
         {text.sideTittel["nb"]}
       </Heading>
-      <Filter/>
-      {nesteUtbetaling && (
-        <div>
-          <BodyShort>Neste utbetaling</BodyShort>{" "}
-          <UtbetalingLinkPanel
-            ytelse={nesteUtbetaling.ytelse}
-            beløp={nesteUtbetaling.beløp_utbetalt}
-            dato={nesteUtbetaling.ytelse_dato}
-            nesteUtbetaling={true}
-          />{" "}
-        </div>
-      )}
       <div className={style.pageBody}>
-        <ul className={style.utbetalingerList}>
-          {getAllUtbetalinger.map((o) => (
-            <li className={style.utbetalingerOneMonth}>
-              <UtbetalingInMonth
-                month={o.month}
-                year={o.year}
-                utbetaltIPeriode={o.beløp_utbetalt}
-                utbetalinger={o.utbetalinger}
-              />
-            </li>
-          ))}
-        </ul>
+        <div className={style.utbetalingerAndFilter}>
+          <Filter />
+          {nesteUtbetaling && (
+            <div>
+              <BodyShort>Neste utbetaling</BodyShort>{" "}
+              <UtbetalingLinkPanel
+                ytelse={nesteUtbetaling.ytelse}
+                beløp={nesteUtbetaling.beløp_utbetalt}
+                dato={nesteUtbetaling.ytelse_dato}
+                nesteUtbetaling={true}
+              />{" "}
+            </div>
+          )}
+          <ul className={style.utbetalingerList}>
+            {getAllUtbetalinger.map((o) => (
+              <li className={style.utbetalingerOneMonth}>
+                <UtbetalingInMonth
+                  month={o.month}
+                  year={o.year}
+                  utbetaltIPeriode={o.beløp_utbetalt}
+                  utbetalinger={o.utbetalinger}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className={style.relatertInnholdContainer}>
           <Heading
             className={style.relatertInnholdHeader}

@@ -27,3 +27,14 @@
   color: rgba(38, 38, 38, 1);
 }
 
+@media (min-width: 768px)	{
+  .pageBody{
+    display: flex;
+    flex-direction: row;
+    gap:6rem;
+  }
+  
+  .utbetalingerAndFilter{
+    flex-grow: 1;
+  }
+}
