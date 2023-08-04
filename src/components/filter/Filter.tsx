@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useStore } from "@nanostores/react";
 import dayjs from "dayjs";
-import { Heading, Chips } from "@navikt/ds-react";
+import { Heading, Chips, Button } from "@navikt/ds-react";
 import { DatePicker, useRangeDatepicker } from "@navikt/ds-react";
 import { ytelserFilterAtom, toggleYtelseFilter } from "../../store/filter";
 import { setPeriodeFilter } from "../../store/filter";
@@ -52,12 +52,15 @@ const Filter = () => {
         ))}
       </Chips>
       {periode === "Egendefinert" && (
-        <DatePicker {...datepickerProps}>
-          <div className={style.datePicketInputs}>
-            <DatePicker.Input {...fromInputProps} size="small" label="Fra" />
-            <DatePicker.Input {...toInputProps} size="small" label="Til" />
-          </div>
-        </DatePicker>
+        <>
+          <DatePicker{...datepickerProps}>
+            <div className={style.datePicketInputs}>
+              <DatePicker.Input {...fromInputProps} size="small" label="Fra" />
+              <DatePicker.Input {...toInputProps} size="small" label="Til" />
+            </div>
+          </DatePicker>
+          <Button id={style.oppdaterButton} size="small">Oppdater</Button>
+        </>
       )}
       <div className={style.pengestøtteChips}>
         <Heading size="xsmall" level="3">
