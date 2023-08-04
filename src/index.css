@@ -7,9 +7,3 @@ body {
   background-color: var(--a-bg-default);
   align-items: center;
 }
-
-.page-wrapper{
-  max-width: 912px;
-  margin-left: 1rem;
-  margin-right: 1rem;
-}

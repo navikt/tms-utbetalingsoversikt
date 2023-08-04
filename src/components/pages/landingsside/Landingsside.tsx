@@ -66,6 +66,7 @@ const nesteUtbetaling = {
 };
 
 function Landingsside() {
+  const utbetalingerPeriod = "Siste tre måneder"
   return (
     <div>
       <Heading className={style.pageTitle} level="1" size="large">
@@ -75,7 +76,7 @@ function Landingsside() {
         <div className={style.utbetalingerAndFilter}>
           <Filter />
           {nesteUtbetaling && (
-            <div>
+            <div className={style.nesteUtbetaling}>
               <BodyShort>Neste utbetaling</BodyShort>{" "}
               <UtbetalingLinkPanel
                 ytelse={nesteUtbetaling.ytelse}
@@ -85,6 +86,8 @@ function Landingsside() {
               />{" "}
             </div>
           )}
+          <div className={style.tidligereUtbetalinger}>
+          <BodyShort className={style.utbetalingerPeriod}>{utbetalingerPeriod}</BodyShort>
           <ul className={style.utbetalingerList}>
             {getAllUtbetalinger.map((o) => (
               <li className={style.utbetalingerOneMonth}>
@@ -97,6 +100,7 @@ function Landingsside() {
               </li>
             ))}
           </ul>
+          </div>
         </div>
         <div className={style.relatertInnholdContainer}>
           <Heading

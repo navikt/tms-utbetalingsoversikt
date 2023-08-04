@@ -1,40 +1,52 @@
+.utbetalingerAndFilter {
+  max-width: 632px;
+}
+.tidligereUtbetalinger {
+  margin-top: 2rem;
+}
 .utbetalingerList {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-
 .utbetalingerOneMonth {
   margin-top: 1rem;
 }
 
-.relatertInnholdContainer{
+.relatertInnholdContainer {
   margin-top: 3rem;
-  padding: 0 1rem
+  padding: 0 1rem;
 }
 
-.relatertInnholdLinkList{
+.relatertInnholdLinkList {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.relatertInnholdContainer li{
+.relatertInnholdContainer li {
   margin-top: 1rem;
 }
 
-.relatertInnholdLink{
+.relatertInnholdLink {
   color: rgba(38, 38, 38, 1);
 }
 
-@media (min-width: 768px)	{
-  .pageBody{
+@media (min-width: 768px) {
+  .pageBody {
     display: flex;
     flex-direction: row;
-    gap:6rem;
+    gap: 6rem;
   }
-  
-  .utbetalingerAndFilter{
+
+  .utbetalingerAndFilter {
     flex-grow: 1;
+  }
+  .tidligereUtbetalinger {
+    margin-top: 2.75rem;
+  }
+  .relatertInnholdContainer {
+    margin-top: 2rem;
+    padding: 0 1rem;
   }
 }
