@@ -4,6 +4,12 @@ import UtbetalingInMonth from "../../utbetalingerInMonth/UtbetalingerInMonth.tsx
 import UtbetalingLinkPanel from "../../utbetalingLinkPanel/UtbetalingLinkPanel.tsx";
 import Filter from "../../filter/Filter.tsx";
 import text from "../../../language/text.ts";
+import useSWR from "swr";
+import { fetcher } from "../../../api/api.ts";
+import { utbetalingerAPIUrl } from "../../../utils/urls.ts";
+import { groupUtbetalingInMonths } from "../../../utils/groupUtbetalingYearAndMonth.ts";
+import UtbetalingerInMonth from "../../utbetalingerInMonth/UtbetalingerInMonth.tsx";
+import { summerYtelser } from "../../../utils/summering.ts";
 const relatertInnholdLinks = [
   {
     title: "satser",
@@ -22,51 +28,30 @@ const relatertInnholdLinks = [
     href: "http://localhost:3000/endreSkattekort",
   },
 ];
-const getAllUtbetalinger = [
-  {
-    month: "Mars",
-    year: "2023",
-    beløp_utbetalt: 2100,
-    utbetalinger: [
-      {
-        ytelse: "Arbeidsavklaringspenger",
-        ytelse_dato: "2021-03-10T22:46:01.204+02:00",
-        beløp_utbetalt: 1200,
-      },
-      {
-        ytelse: "Dagpenger",
-        ytelse_dato: "2021-03-09T22:46:01.204+02:00",
-        beløp_utbetalt: 900,
-      },
-    ],
-  },
-  {
-    month: "Februar",
-    year: "2023",
-    beløp_utbetalt: 2100,
-    utbetalinger: [
-      {
-        ytelse: "Arbeidsavklaringspenger",
-        ytelse_dato: "2023-02-10T22:46:01.204+02:00",
-        beløp_utbetalt: 1200,
-      },
-      {
-        ytelse: "Dagpenger",
-        ytelse_dato: "2023-02-09T22:46:01.204+02:00",
-        beløp_utbetalt: 900,
-      },
-    ],
-  },
-];
-
-const nesteUtbetaling = {
-  ytelse: "Arbeidsavklaringspenger",
-  ytelse_dato: "2023-02-10T22:46:01.204+02:00",
-  beløp_utbetalt: 1200,
-};
 
 function Landingsside() {
-  const utbetalingerPeriod = "Siste tre måneder"
+  const utbetalingerPeriod = "Siste tre måneder";
+  
+  const {
+    data: utbetalinger,
+    isLoading,
+    mutate,
+  } = useSWR({ path: utbetalingerAPIUrl }, fetcher, {
+    shouldRetryOnError: false,
+  });
+
+  if (isLoading) {
+    return "isLoading";
+  }
+
+  const pastUtbetalinger = groupUtbetalingInMonths(
+    utbetalinger.utbetalteUtbetalinger
+  );
+
+  const nesteUtbetaling = utbetalinger?.kommendeUtbetalinger[0];
+
+  
+
   return (
     <div>
       <Heading className={style.pageTitle} level="1" size="large">
@@ -80,26 +65,29 @@ function Landingsside() {
               <BodyShort>Neste utbetaling</BodyShort>{" "}
               <UtbetalingLinkPanel
                 ytelse={nesteUtbetaling.ytelse}
-                beløp={nesteUtbetaling.beløp_utbetalt}
+                beløp={summerYtelser(nesteUtbetaling.underytelser, nesteUtbetaling.trekk)}
                 dato={nesteUtbetaling.ytelse_dato}
                 nesteUtbetaling={true}
               />{" "}
             </div>
           )}
           <div className={style.tidligereUtbetalinger}>
-          <BodyShort className={style.utbetalingerPeriod}>{utbetalingerPeriod}</BodyShort>
-          <ul className={style.utbetalingerList}>
-            {getAllUtbetalinger.map((o) => (
-              <li className={style.utbetalingerOneMonth}>
-                <UtbetalingInMonth
-                  month={o.month}
-                  year={o.year}
-                  utbetaltIPeriode={o.beløp_utbetalt}
-                  utbetalinger={o.utbetalinger}
-                />
-              </li>
-            ))}
-          </ul>
+            <BodyShort className={style.utbetalingerPeriod}>
+              {utbetalingerPeriod}
+            </BodyShort>
+            {Object.keys(pastUtbetalinger).map((year) =>
+              Object.keys(pastUtbetalinger[year]).map((month) => (
+                <ul className={style.utbetalingerList}>
+                  <li className={style.utbetalingerOneMonth}>
+                    <UtbetalingerInMonth
+                      monthIndex={month}
+                      year={year}
+                      utbetalinger={pastUtbetalinger[year][month]}
+                    />
+                  </li>
+                </ul>
+              ))
+            )}
           </div>
         </div>
         <div className={style.relatertInnholdContainer}>

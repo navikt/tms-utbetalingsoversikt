@@ -3,12 +3,12 @@ import { BodyLong, BodyShort } from "@navikt/ds-react";
 import { formatToReadableDate } from "../../../utils/date.js";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 
-type UtbetalingLinkPanelProps = {
+interface UtbetalingLinkPanelProps {
   ytelse: string;
   beløp: number;
   dato: string;
-  nesteUtbetaling:boolean;
-};
+  nesteUtbetaling?: boolean;
+}
 
 const UtbetalingLinkPanel = ({
   ytelse,
@@ -18,7 +18,7 @@ const UtbetalingLinkPanel = ({
 }: UtbetalingLinkPanelProps) => {
   return (
     <a
-      id={nesteUtbetaling ? style.nesteUtbetalingLink  : style.utbetalingLink}
+      id={nesteUtbetaling ? style.nesteUtbetalingLink : style.utbetalingLink}
       className={"navds-panel navds-link-panel"}
       href="http://localhost:3000/utbetaling"
     >
@@ -31,7 +31,7 @@ const UtbetalingLinkPanel = ({
         {<BodyLong className={style.betalingYtelse}>{ytelse}</BodyLong>}
       </div>
       <div className={style.betalingRight}>
-        <BodyShort className={style.betalingDato}>{beløp}</BodyShort>
+        <BodyShort className={style.betalingDato}>{`${beløp} kr`}</BodyShort>
         <ChevronRightIcon
           id="chevronRight"
           className="navds-link-panel__chevron"
