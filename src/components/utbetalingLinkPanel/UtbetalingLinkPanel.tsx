@@ -8,6 +8,7 @@ interface UtbetalingLinkPanelProps {
   beløp: number;
   dato: string;
   nesteUtbetaling?: boolean;
+  id?: string;
 }
 
 const UtbetalingLinkPanel = ({

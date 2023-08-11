@@ -25,7 +25,6 @@ export interface props {
 }
 
 const UtbetalingerInMonth = ({ monthIndex, year, utbetalinger }: props) => {
-  console.log(utbetalinger);
   const monthText: string = months[monthIndex];
   const sumYtelser = summerUtbetaling(utbetalinger);
 
@@ -38,7 +37,7 @@ const UtbetalingerInMonth = ({ monthIndex, year, utbetalinger }: props) => {
       <ul className={style.utbetalingPeriodList}>
         {utbetalinger.map((o) => {
           return (
-            <li className={style.utbetalingListElement}>
+            <li className={style.utbetalingListElement} key={o.id}>
               <UtbetalingLinkPanel
                 ytelse={o.ytelse}
                 dato={o.ytelse_dato}

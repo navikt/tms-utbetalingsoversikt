@@ -31,7 +31,7 @@ const relatertInnholdLinks = [
 
 function Landingsside() {
   const utbetalingerPeriod = "Siste tre måneder";
-  
+
   const {
     data: utbetalinger,
     isLoading,
@@ -50,8 +50,6 @@ function Landingsside() {
 
   const nesteUtbetaling = utbetalinger?.kommendeUtbetalinger[0];
 
-  
-
   return (
     <div>
       <Heading className={style.pageTitle} level="1" size="large">
@@ -65,7 +63,10 @@ function Landingsside() {
               <BodyShort>Neste utbetaling</BodyShort>{" "}
               <UtbetalingLinkPanel
                 ytelse={nesteUtbetaling.ytelse}
-                beløp={summerYtelser(nesteUtbetaling.underytelser, nesteUtbetaling.trekk)}
+                beløp={summerYtelser(
+                  nesteUtbetaling.underytelser,
+                  nesteUtbetaling.trekk
+                )}
                 dato={nesteUtbetaling.ytelse_dato}
                 nesteUtbetaling={true}
               />{" "}
@@ -75,19 +76,22 @@ function Landingsside() {
             <BodyShort className={style.utbetalingerPeriod}>
               {utbetalingerPeriod}
             </BodyShort>
-            {Object.keys(pastUtbetalinger).map((year) =>
-              Object.keys(pastUtbetalinger[year]).map((month) => (
-                <ul className={style.utbetalingerList}>
-                  <li className={style.utbetalingerOneMonth}>
+            <ul className={style.utbetalingerList}>
+              {Object.keys(pastUtbetalinger).map((year) =>
+                Object.keys(pastUtbetalinger[year]).map((month) => (
+                  <li
+                    className={style.utbetalingerOneMonth}
+                    key={`${month}${year}`}
+                  >
                     <UtbetalingerInMonth
                       monthIndex={month}
                       year={year}
                       utbetalinger={pastUtbetalinger[year][month]}
                     />
                   </li>
-                </ul>
-              ))
-            )}
+                ))
+              )}
+            </ul>
           </div>
         </div>
         <div className={style.relatertInnholdContainer}>
@@ -100,7 +104,7 @@ function Landingsside() {
           </Heading>
           <ul className={style.relatertInnholdLinkList}>
             {relatertInnholdLinks.map((linkObject) => (
-              <li>
+              <li key={linkObject.title}>
                 <a className={style.relatertInnholdLink} href={linkObject.href}>
                   {linkObject.title}
                 </a>

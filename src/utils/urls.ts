@@ -19,5 +19,15 @@ const BASE_URL = {
   production: "https://www.nav.no",
 };
 
+const UtbetalingsoversiktAPIUrl = {
+  local: "http://localhost:3000/api",
+  development: "https://www.intern.dev.nav.no/tms-utbetalingsoversikt-api",
+  production: "https://www.nav.no/tms-utbetalingsoversikt-api",
+};
 
-export const utbetalingerAPIUrl = `${BASE_URL[getEnvironment()]}/utbetalinger`
+export const utbetalingerAPIUrl = `${
+  UtbetalingsoversiktAPIUrl[getEnvironment()]
+}/utbetalinger`;
+
+export const enkelUtbetalingAPIUrl = (id: string) =>
+  `${UtbetalingsoversiktAPIUrl[getEnvironment()]}/utbetaling`;
