@@ -4,6 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import "@navikt/ds-css";
 import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler/csr";
+import Authentication from './components/authentication/Authentication.tsx';
 
 
 if (true) {
@@ -15,6 +16,8 @@ if (true) {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <Authentication>
+      <App />
+    </Authentication>
   </React.StrictMode>,
 )

@@ -339,4 +339,15 @@ export default [
       );
     },
   },
+  {
+    url: "/api/login/status",
+    method: "get",
+    response: () => {
+      return {
+        "authenticated": true,
+        "level": 4,
+        "levelOfAssurance": null
+      }
+    }
+  },
 ];
