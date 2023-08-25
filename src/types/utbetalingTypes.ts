@@ -34,6 +34,7 @@ export interface HovedYtelse {
   er_utbetalt: boolean;
   rettighetshaver: Rettighetshaver;
   melding: string;
+  id:string;
 }
 
 export interface Bruker {

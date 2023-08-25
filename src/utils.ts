@@ -1,4 +1,8 @@
 import dayjs from "dayjs";
+export type GetDatePeriodType = () => {
+  fom:string;
+  tom: string;
+}
 
 export const getDateThreemonthsBack = (): { fom: string; tom: string } => {
   const currentDate = dayjs();

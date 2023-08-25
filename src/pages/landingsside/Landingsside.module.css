@@ -1,0 +1,16 @@
+.pageContainer{
+  width: 100%;
+  max-width: 632px;
+  margin: 0 auto;
+}
+
+
+@media (min-width: 768px) {
+  .pageBody {
+    max-width: 632px;
+  }
+
+  .utbetalingerAndFilter {
+    flex-grow: 1;
+  }
+}

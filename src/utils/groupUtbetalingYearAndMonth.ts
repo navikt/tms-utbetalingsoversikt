@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { HovedYtelse } from "../types/utbetalingTypes";
 
-interface GroupedUtbetaling {
+export interface GroupedUtbetaling {
     [key: string]: {
         [key: string]: HovedYtelse[];
     };
@@ -13,6 +13,7 @@ export const groupUtbetalingInMonths = (utbetalinger: HovedYtelse[]): GroupedUtb
   utbetalinger.forEach((hovedytelse: HovedYtelse) => {
       const year = dayjs(hovedytelse.ytelse_dato).year().toString();
       const month = dayjs(hovedytelse.ytelse_dato).month().toString();
+      
 
       if (!(year in groupedUtbetaling)) {
         groupedUtbetaling[year] = {};

@@ -5,30 +5,35 @@ import { Heading, Chips, Button } from "@navikt/ds-react";
 import { DatePicker, useRangeDatepicker } from "@navikt/ds-react";
 import { ytelserFilterAtom, toggleYtelseFilter } from "../../store/filter";
 import { setPeriodeFilter } from "../../store/filter";
-import { getDateThreemonthsBack, getDateCurrentlyThisYear } from "../../utils";
+import { getDateThreemonthsBack, getDateCurrentlyThisYear, GetDatePeriodType } from "../../utils";
 import { getDateLastYear, formatDateToDayjs } from "../../utils";
 import style from "./Filter.module.css";
 
-const periodeOptions = [
-  ["Siste 3 måneder", getDateThreemonthsBack],
-  ["Hittil i år", getDateCurrentlyThisYear],
-  ["I fjor", getDateLastYear],
-  ["Egendefinert", formatDateToDayjs],
+type PeriodeOptionsType = {
+  label: string;
+  dateFunction: GetDatePeriodType;
+};
+const periodeOptions: PeriodeOptionsType[] = [
+  { label: "Siste 3 måneder", dateFunction: getDateThreemonthsBack },
+  { label: "Hittil i år", dateFunction: getDateCurrentlyThisYear },
+  { label: "I fjor", dateFunction: getDateLastYear },
+  { label: "Egendefinert", dateFunction: getDateLastYear} //TODO change getDateLastYear with formatDateToDayjs, Fix typescript errors 
 ];
-
 const Filter = () => {
   const [periode, setPeriode] = useState("Siste 3 måneder");
   const ytelser = useStore(ytelserFilterAtom);
 
-  const { datepickerProps, toInputProps, fromInputProps, selectedRange } =
-    useRangeDatepicker({
-      fromDate: dayjs().subtract(3, "years").toDate(),
-      toDate: dayjs().toDate(),
-      onRangeChange: (date) =>
-        setPeriodeFilter(formatDateToDayjs(date?.from, date?.to)),
-    });
+  const { datepickerProps, toInputProps, fromInputProps } = useRangeDatepicker({
+    fromDate: dayjs().subtract(3, "years").toDate(),
+    toDate: dayjs().toDate(),
+    onRangeChange: (date) =>
+      setPeriodeFilter(formatDateToDayjs(date?.from, date?.to)),
+  });
 
-  const handlePeriodeClick = (selectedOption, periodeTomFom) => {
+  const handlePeriodeClick = (
+    selectedOption: string,
+    periodeTomFom: GetDatePeriodType
+  ) => {
     setPeriode(selectedOption);
     if (selectedOption !== "Egendefinert") {
       setPeriodeFilter(periodeTomFom());
@@ -37,33 +42,36 @@ const Filter = () => {
 
   return (
     <div className={style.filterContainer}>
-      <Heading size="xsmall" level="3">
+      <Heading className={style.filterLabel} size="xsmall" level="3">
         Velg periode
       </Heading>
       <Chips>
         {periodeOptions.map((p) => (
           <Chips.Toggle
-            onClick={() => handlePeriodeClick(p[0], p[1])}
-            key={p[0]}
-            selected={p[0] === periode}
+            checkmark={false}
+            onClick={() => handlePeriodeClick(p.label, p.dateFunction)}
+            key={p.label}
+            selected={p.label === periode}
           >
-            {p[0]}
+            {p.label}
           </Chips.Toggle>
         ))}
       </Chips>
       {periode === "Egendefinert" && (
         <>
-          <DatePicker{...datepickerProps}>
+          <DatePicker {...datepickerProps}>
             <div className={style.datePicketInputs}>
               <DatePicker.Input {...fromInputProps} size="small" label="Fra" />
               <DatePicker.Input {...toInputProps} size="small" label="Til" />
             </div>
           </DatePicker>
-          <Button id={style.oppdaterButton} size="small">Oppdater</Button>
+          <Button id={style.oppdaterButton} size="small">
+            Oppdater
+          </Button>
         </>
       )}
       <div className={style.pengestøtteChips}>
-        <Heading size="xsmall" level="3">
+        <Heading className={style.filterLabel} size="xsmall" level="3">
           Velg pengestøtte
         </Heading>
         <Chips>

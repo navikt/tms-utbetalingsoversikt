@@ -1,0 +1,22 @@
+.tidligereUtbetalinger {
+  margin-top: 2rem;
+}
+
+.utbetalingerPeriodLabel{
+  padding-bottom: 0.75rem;
+}
+
+.utbetalingerList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.utbetalingerOneMonth:not(:first-child) {
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .tidligereUtbetalinger {
+    margin-top: 2.75rem;
+  }
+}

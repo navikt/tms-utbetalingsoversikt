@@ -3,6 +3,10 @@
   margin-bottom: 2rem;
 }
 
+.filterLabel{
+  padding-bottom: 0.75rem;
+}
+
 .datePicketInputs {
   display: flex;
   gap: 4px;

@@ -2,26 +2,28 @@ import style from "./UtbetalingLinkPanel.module.css";
 import { BodyLong, BodyShort } from "@navikt/ds-react";
 import { formatToReadableDate } from "../../../utils/date.js";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
+import { baseUrl } from "../../utils/urls.js";
 
 interface UtbetalingLinkPanelProps {
   ytelse: string;
   beløp: number;
   dato: string;
   nesteUtbetaling?: boolean;
-  id?: string;
+  id: string;
 }
 
 const UtbetalingLinkPanel = ({
   ytelse,
   beløp,
   dato,
+  id,
   nesteUtbetaling,
 }: UtbetalingLinkPanelProps) => {
   return (
     <a
       id={nesteUtbetaling ? style.nesteUtbetalingLink : style.utbetalingLink}
       className={"navds-panel navds-link-panel"}
-      href="http://localhost:3000/utbetaling"
+      href={`${baseUrl}/utbetaling/${id}`}
     >
       <div className={style.betalingLeft}>
         {

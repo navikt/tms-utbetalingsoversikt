@@ -8,7 +8,7 @@ type Props = {
   children?: React.ReactNode;
 };
 
-export const redirectToIdPorten = (redirectUri: string) => {
+const redirectToIdPorten = (redirectUri: string) => {
   window.location.assign(`${loginUrl}?redirect_uri=${redirectUri}`);
 };
 
@@ -20,8 +20,7 @@ const Authentication = ({ children }: Props) => {
       shouldRetryOnError: false,
     }
   );
-  const redirectUrl = baseUrl + window.location.pathname;
-  console.log(data)
+  const redirectUrl = baseUrl;
 
   if (isLoading) {
     return <ContentLoader />;

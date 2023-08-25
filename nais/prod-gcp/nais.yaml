@@ -1,0 +1,38 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: tms-utbetalingsoversikt
+  namespace: min-side
+  labels:
+    team: min-side
+  annotations:
+    config.linkerd.io/proxy-memory-limit: "512Mi"
+    config.linkerd.io/proxy-memory-request: "128Mi"
+spec:
+  envFrom:
+    - secret: tms-utbetalingsoversikt-secrets
+  image: {{image}}
+  port: 8080
+  liveness:
+    path: /tms-utbetalingsoversikt/internal/isAlive
+    initialDelay: 10
+  readiness:
+    path: /tms-utbetalingsoversikt/internal/isReady
+    initialDelay: 10
+  replicas:
+    min: 2
+    max: 6
+  ingresses:
+    - "https://www.intern.nav.no/tms-utbetalingsoversikt"
+  accessPolicy:
+    outbound:
+      external:
+        - host: "https://appres.nav.no"
+        - host: "https://www.nav.no"
+  resources:
+    limits:
+      cpu: "3"
+      memory: 1268Mi
+    requests:
+      cpu: "500m"
+      memory: 1024Mi

@@ -7,7 +7,7 @@ import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler/csr";
 import Authentication from './components/authentication/Authentication.tsx';
 
 
-if (true) {
+if (process.env.NODE_ENV === "development") {
   await injectDecoratorClientSide({
     env: "dev",
     urlLookupTable: false,

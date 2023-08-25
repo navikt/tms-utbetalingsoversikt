@@ -51,7 +51,7 @@ export default [
   },
   {
 
-    url: "/api/utbetalinger",
+    url: '/api/utbetalinger',
     method: "get",
     response: () => {
       return (

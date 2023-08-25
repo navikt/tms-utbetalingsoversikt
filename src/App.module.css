@@ -1,7 +1,6 @@
 .pageWrapper{
   display: flex;
   justify-content: center;
-  max-width: 1200px;
   padding-left: 1rem;
   padding-right: 1rem;
   margin-bottom: 6.67rem;
@@ -9,5 +8,9 @@
 
 .pageContainer{
   flex-grow: 1;
-  max-width: 920px;
+  max-width: 632px;
+  margin: 1rem auto 0 auto;
+}
+.pageContainer{
+  margin-top: 1rem;
 }

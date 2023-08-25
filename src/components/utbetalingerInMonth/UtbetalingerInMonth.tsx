@@ -2,6 +2,7 @@ import { Heading } from "@navikt/ds-react";
 import UtbetalingLinkPanel from "../utbetalingLinkPanel/UtbetalingLinkPanel";
 import style from "./UtbetalingerInMonth.module.css";
 import { summerUtbetaling, summerYtelser } from "../../utils/summering";
+import { HovedYtelse } from "../../types/utbetalingTypes";
 
 const months = [
   "Januar",
@@ -21,11 +22,11 @@ const months = [
 export interface props {
   monthIndex: string;
   year: string;
-  utbetalinger: Utbetaling[];
+  utbetalinger: HovedYtelse[];
 }
 
 const UtbetalingerInMonth = ({ monthIndex, year, utbetalinger }: props) => {
-  const monthText: string = months[monthIndex];
+  const monthText: string = months[Number(monthIndex)];
   const sumYtelser = summerUtbetaling(utbetalinger);
 
   return (
@@ -42,6 +43,7 @@ const UtbetalingerInMonth = ({ monthIndex, year, utbetalinger }: props) => {
                 ytelse={o.ytelse}
                 dato={o.ytelse_dato}
                 beløp={summerYtelser(o.underytelser, o.trekk)}
+                id={o.id}
               />
             </li>
           );

@@ -1,0 +1,52 @@
+.utbetalPeriodeContainer{
+  margin-top: 2rem;
+}
+
+.utbetaltIPeriodenHeading{
+  padding-top: 1.25rem ;
+}
+
+.periodeYtelseList{
+  list-style: none;
+  margin: 1rem 0 0.5rem 0;
+  padding: 0;
+  border-top: 2px solid rgba(0, 0, 0, 0.05); 
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05); 
+}
+
+.periodeYtelseElement{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.periodeYtelseElement:last-child{
+  margin-bottom: 0.56rem;
+}
+
+.periodeBrutto{
+  display: flex;
+  justify-content: space-between;
+}
+
+.periodeTrekk{
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.periodeNetto{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0 0.5rem 0;
+  border-top: 2px solid rgba(0, 0, 0, 0.05); 
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05); 
+}
+
+@media (min-width: 480px) {
+  .utbetalPeriodeContainer{
+    margin-top: 2.75rem;
+  }
+}

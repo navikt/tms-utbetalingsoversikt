@@ -1,0 +1,35 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: tms-utbetalingsoversikt
+  namespace: min-side
+  labels:
+    team: min-side
+spec:
+  image: {{image}}
+  port: 8080
+  liveness:
+    path: /tms-utbetalingsoversikt/internal/isAlive
+    initialDelay: 10
+  readiness:
+    path: /tms-utbetalingsoversikt/internal/isReady
+    initialDelay: 10
+  replicas:
+    min: 2
+    max: 4
+  ingresses:
+    - "https://www.intern.dev.nav.no/tms-utbetalingsoversikt"
+  accessPolicy:
+    outbound:
+      external:
+        - host: "www.dev.nav.no"
+        - host: "www.intern.dev.no"
+        - host: "dekoratoren.dev.nav.no"
+        - host: "dekoratoren.ekstern.dev.nav.no"
+  resources:
+    limits:
+      cpu: "3"
+      memory: 768Mi
+    requests:
+      cpu: "50m"
+      memory: 256Mi
