@@ -26,7 +26,7 @@ const Authentication = ({ children }: Props) => {
     return <ContentLoader />;
   }
 
-  if (!data?.authenticated || error) {
+  if (data?.authenticated === false || error) {
     redirectToIdPorten(redirectUrl);
     return null;
   }
