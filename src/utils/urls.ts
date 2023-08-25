@@ -16,7 +16,7 @@ export const getEnvironment = () => {
 const BASE_URL = {
   local: "http://localhost:3000",
   development: "https://www.intern.dev.nav.no/tms-utbetalingsoversikt",
-  production: "https://www.nav.no/tms-utbetalingsoversikt",
+  production: "https://www.intern.nav.no/tms-utbetalingsoversikt",
 };
 
 const UTBETALINGSOVERSIKT_API_URL = {
