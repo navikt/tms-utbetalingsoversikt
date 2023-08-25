@@ -9,8 +9,6 @@ metadata:
     config.linkerd.io/proxy-memory-limit: "512Mi"
     config.linkerd.io/proxy-memory-request: "128Mi"
 spec:
-  envFrom:
-    - secret: tms-utbetalingsoversikt-secrets
   image: {{image}}
   port: 8080
   liveness:
