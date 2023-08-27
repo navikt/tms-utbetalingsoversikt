@@ -12,8 +12,9 @@ function App() {
       <section className={styles.pageContainer}>
         <Router>
           <Routes>
+            <Route path={"/"} element={<Landingsside />} />
             <Route path={"/utbetaling/:utbetalingsId"} element={<UtbetalingSide />} />
-            <Route path={"*"} element={<Landingsside />} />
+
           </Routes>
         </Router>
       </section>
