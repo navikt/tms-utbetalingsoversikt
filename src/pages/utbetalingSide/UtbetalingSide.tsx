@@ -38,7 +38,6 @@ const UtbetalingDetail = ({ className, strongLabel, label, data }: props) => {
 
 const UtbetalingSide = () => {
   const { utbetalingsId } = useParams();
-  console.log(enkelUtbetalingAPIUrl(utbetalingsId ? utbetalingsId : ""))
 
   const { data, isLoading, error } = useSWRImmutable(
     { path: enkelUtbetalingAPIUrl(utbetalingsId ? utbetalingsId : "") },

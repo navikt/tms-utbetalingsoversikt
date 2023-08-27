@@ -25,7 +25,6 @@ const Authentication = ({ children }: Props) => {
   if (isLoading) {
     return <ContentLoader />;
   }
-  console.log(data?.authenticated , error)
 
   if (false) {
     redirectToIdPorten(redirectUrl);

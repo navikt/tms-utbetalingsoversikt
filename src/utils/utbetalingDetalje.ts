@@ -3,7 +3,6 @@ import { UnderYtelse } from "../types/utbetalingTypes";
 const utbetalingerMedSats = ['ARBEIDSAVKLARINGSPENGER', 'DAGPENGER'];
 
 export function visSatsForUtbetaling(type: string): boolean {
-  console.log(type)
 
   for (const ytelse of utbetalingerMedSats) {
       if (ytelse.toUpperCase() === type.toUpperCase()) {

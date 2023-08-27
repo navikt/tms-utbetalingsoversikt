@@ -14,7 +14,6 @@ import ContentLoader from "../../components/contentLoader/ContentLoader.tsx";
 
 function Landingsside() {
   const utbetalingerPeriod = "Siste tre måneder";
-  console.log("landet")
 
   const { data: utbetalinger, isLoading } = useSWR(
     { path: utbetalingerAPIUrl("?&fom=20230525&tom=20230825") },
