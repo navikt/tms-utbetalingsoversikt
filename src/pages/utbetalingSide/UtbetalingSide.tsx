@@ -61,6 +61,10 @@ const UtbetalingSide = () => {
   const summeringTekst: string = underytelser ? "Netto utbetalt" : "Sum";
   //const visSats: boolean = visSatsForUtbetaling(data.ytelse); TODO legge inn å vise sats for DAG og AAP
 
+  const hasUnderytelser = underytelser.length > 0;
+  const hasTrekk = data.trekk.length > 0;
+
+
   const pageTittel = data.ytelse;
   const utbetaltDato = data.ytelse_dato;
   return (
@@ -100,7 +104,7 @@ const UtbetalingSide = () => {
                 />
               );
             })}
-            {underytelser.length && data.trekk.length && (
+            {hasTrekk && hasUnderytelser && (
               <UtbetalingDetail
                 className={style.detaljeElement}
                 label={"Brutto"}
@@ -108,7 +112,7 @@ const UtbetalingSide = () => {
                 strongLabel={true}
               />
             )}
-            {data.trekk.map((trekk: Trekk) => (
+            {hasTrekk && data.trekk.map((trekk: Trekk) => (
               <UtbetalingDetail
                 className={`${style.detaljeElement} ${style.trekkElement}`}
                 label={trekk.trekk_type}
