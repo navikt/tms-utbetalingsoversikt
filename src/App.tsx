@@ -6,15 +6,15 @@ import { useBreadcrumbs } from "./hooks/useBreadcrums";
 import UtbetalingSide from "./pages/utbetalingSide/UtbetalingSide";
 
 function App() {
+  const BASE_PATH = "/tms-utbetalingsoversikt"
   useBreadcrumbs();
   return (
     <div className={styles.pageWrapper}>
       <section className={styles.pageContainer}>
         <Router>
           <Routes>
-            <Route path={"/"} element={<Landingsside />} />
-            <Route path={"/utbetaling/:utbetalingsId"} element={<UtbetalingSide />} />
-
+            <Route path={BASE_PATH} element={<Landingsside />} />
+            <Route path={BASE_PATH+"/utbetaling/:utbetalingsId"} element={<UtbetalingSide />} />
           </Routes>
         </Router>
       </section>
