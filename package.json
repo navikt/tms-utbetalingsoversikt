@@ -12,7 +12,6 @@
   "dependencies": {
     "@nanostores/react": "^0.7.1",
     "@navikt/aksel-icons": "4.7.2",
-    "@navikt/ds-css": "4.7.2",
     "@navikt/ds-react": "4.7.2",
     "dayjs": "^1.11.8",
     "nanostores": "^0.9.3",
