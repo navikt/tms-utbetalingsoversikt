@@ -13,7 +13,7 @@ const redirectToIdPorten = (redirectUri: string) => {
 };
 
 const Authentication = ({ children }: Props) => {
-  const { data, isLoading } = useSWRImmutable(
+  const { data, isLoading, error } = useSWRImmutable(
     { path: authenticationUrl },
     fetcher,
     {
@@ -26,11 +26,10 @@ const Authentication = ({ children }: Props) => {
     return <ContentLoader />;
   }
 
-  if (false) { //TO FIX, evig loop med status-sjekk
+  if(!data?.authenticated || error){
     redirectToIdPorten(redirectUrl);
     return null;
   }
-
   return <React.Fragment>{children}</React.Fragment>;
 };
 
