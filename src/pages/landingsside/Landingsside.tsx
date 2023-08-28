@@ -11,6 +11,8 @@ import TidligereUtbetalinger from "../../components/tidligereUtbetalinger/Tidlig
 import RelatertInnhold from "../../components/relatertInnhold/RelatertInnhold.tsx";
 import UtbetaltPeriode from "../../components/utbetaltPeriode/UtbetaltPeriode.tsx";
 import ContentLoader from "../../components/contentLoader/ContentLoader.tsx";
+import getUniqueYtelser from "../../utils/getUniqueYtelser.tsx";
+import { setYtelseFilter } from "../../store/filter.ts";
 
 function Landingsside() {
   const utbetalingerPeriod = "Siste tre måneder";
@@ -30,6 +32,8 @@ function Landingsside() {
   const tidligereUtbetalinger = groupUtbetalingInMonths(
     utbetalinger.utbetalteUtbetalinger
   );
+
+  setYtelseFilter(getUniqueYtelser(utbetalinger.utbetalteUtbetalinger))
 
   const kommendeUtbetalinger =
     utbetalinger?.kommendeUtbetalinger; /* TODO Endre til å vise kun for 30 dager frem i tid*/
