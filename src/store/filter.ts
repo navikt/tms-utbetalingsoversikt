@@ -9,13 +9,10 @@ export const periodeFilterAtom = atom<{ fom: string; tom: string }>(
 
 export function setPeriodeFilter(date: { tom: string; fom: string }) {
   periodeFilterAtom.set(date);
+  console.log(date)
 }
 
-export const ytelserFilterAtom = atom<{ [key: string]: boolean }>({
-  Barnetrygd: false,
-  Foreldrepenger: false,
-  kontantstøtte: false,
-});
+export const ytelserFilterAtom = atom<{ [key: string]: boolean }>({});
 
 export function setYtelseFilter(ytelser: { [key: string]: boolean }) {
   ytelserFilterAtom.set(ytelser);

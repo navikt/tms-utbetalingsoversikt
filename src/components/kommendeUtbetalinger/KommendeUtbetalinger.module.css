@@ -1,3 +1,12 @@
+.nesteUtbetaling{
+  margin-top: 2rem;
+}
 .kommendeUtbetalingerLabel{
   padding-bottom: 0.75rem;
+}
+
+@media (min-width: 480px) {
+  .nesteUtbetaling{
+    margin-top: 2.75rem;
+  }
 }
