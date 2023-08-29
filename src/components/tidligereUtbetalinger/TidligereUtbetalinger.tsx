@@ -1,32 +1,41 @@
+import { useStore } from "@nanostores/react";
 import { BodyShort } from "@navikt/ds-react";
-import style from "./TidligereUtbetalinger.module.css";
+import { ytelserFilterAtom } from "../../store/filter";
+import { HovedYtelse } from "../../types/utbetalingTypes";
+import filterUtbetalinger from "../../utils/filterUtbetaling";
+import { groupUtbetalingInMonths } from "../../utils/groupUtbetalingYearAndMonth";
 import UtbetalingerInMonth from "../utbetalingerInMonth/UtbetalingerInMonth";
-import { GroupedUtbetaling } from "../../utils/groupUtbetalingYearAndMonth";
+import style from "./TidligereUtbetalinger.module.css";
 
 interface Props {
-  tidligereUtbetalinger: GroupedUtbetaling;
+  tidligereUtbetalinger: HovedYtelse[];
   periode: string;
 }
 
-const TidligereUtbetalinger = ({ tidligereUtbetalinger, periode }: Props) => (
-  <div className={style.tidligereUtbetalinger}>
-    <BodyShort className={style.utbetalingerPeriodLabel}>
-      {periode}
-    </BodyShort>
-    <ul className={style.utbetalingerList}>
-      {Object.keys(tidligereUtbetalinger).map((year) =>
-        Object.keys(tidligereUtbetalinger[year]).map((month) => (
-          <li className={style.utbetalingerOneMonth} key={`${month}${year}`}>
-            <UtbetalingerInMonth
-              monthIndex={month}
-              year={year}
-              utbetalinger={tidligereUtbetalinger[year][month]}
-            />
-          </li>
-        ))
-      )}
-    </ul>
-  </div>
-);
+const TidligereUtbetalinger = ({ tidligereUtbetalinger, periode }: Props) => {
+  const selectedYtelser = useStore(ytelserFilterAtom);
+  const utbetalinger = groupUtbetalingInMonths(
+    filterUtbetalinger(tidligereUtbetalinger, selectedYtelser)
+  );
+
+  return (
+    <div className={style.tidligereUtbetalinger}>
+      <BodyShort className={style.utbetalingerPeriodLabel}>{periode}</BodyShort>
+      <ul className={style.utbetalingerList}>
+        {Object.keys(utbetalinger).map((year) =>
+          Object.keys(utbetalinger[year]).map((month) => (
+            <li className={style.utbetalingerOneMonth} key={`${month}${year}`}>
+              <UtbetalingerInMonth
+                monthIndex={month}
+                year={year}
+                utbetalinger={utbetalinger[year][month]}
+              />
+            </li>
+          ))
+        )}
+      </ul>
+    </div>
+  );
+};
 
 export default TidligereUtbetalinger;

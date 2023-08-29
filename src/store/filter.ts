@@ -1,11 +1,11 @@
 import { getDateThreemonthsBack } from "./../utils";
 import { atom } from "nanostores";
-export const isErrorAtom = atom<boolean>(false);
+
+export type SelectedYtelser = { [key: string]: boolean };
 
 export const selctedPeriode = atom<string>("Siste 3 måneder");
 
 export function setSlectedPeriode(label: string) {
-  console.log(label);
   selctedPeriode.set(label);
 }
 
@@ -17,9 +17,9 @@ export function setPeriodeFilter(date: { tom: string; fom: string }) {
   periodeFilterAtom.set(date);
 }
 
-export const ytelserFilterAtom = atom<{ [key: string]: boolean }>({});
+export const ytelserFilterAtom = atom<SelectedYtelser>({});
 
-export function setYtelseFilter(ytelser: { [key: string]: boolean }) {
+export function setYtelseFilter(ytelser: SelectedYtelser) {
   ytelserFilterAtom.set(ytelser);
 }
 
