@@ -1,7 +1,7 @@
-import { BodyLong, Button, Chips, DatePicker, Label, useRangeDatepicker } from "@navikt/ds-react";
+import { Button, Chips, DatePicker, Label, useRangeDatepicker } from "@navikt/ds-react";
 import dayjs from "dayjs";
 import { useState } from "react";
-import { setPeriodeFilter } from "../../../store/filter";
+import { setPeriodeFilter, setSlectedPeriode } from "../../../store/filter";
 import {
   GetDatePeriodType,
   formatDateToDayjs,
@@ -34,6 +34,7 @@ const PeriodeFilter = () => {
 
   const handlePeriodeClick = (selectedOption: string, periodeTomFom: GetDatePeriodType) => {
     setPeriode(selectedOption);
+    setSlectedPeriode(selectedOption)
     if (selectedOption !== "Egendefinert") {
       setPeriodeFilter(periodeTomFom());
     }

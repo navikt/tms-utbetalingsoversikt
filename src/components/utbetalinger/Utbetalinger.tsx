@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/react";
 import useSWR from "swr";
 import { fetcher } from "../../api/api";
-import { periodeFilterAtom, setYtelseFilter } from "../../store/filter";
+import { periodeFilterAtom, selctedPeriode, setYtelseFilter } from "../../store/filter";
 import getUniqueYtelser from "../../utils/getUniqueYtelser";
 import { groupUtbetalingInMonths } from "../../utils/groupUtbetalingYearAndMonth";
 import { utbetalingerAPIUrl } from "../../utils/urls";
@@ -10,10 +10,13 @@ import YtelserFilter from "../filter/ytelseFilter/YtelserFilter";
 import KommendeUtbetalinger from "../kommendeUtbetalinger/KommendeUtbetalinger";
 import TidligereUtbetalinger from "../tidligereUtbetalinger/TidligereUtbetalinger";
 import UtbetaltPeriode from "../utbetaltPeriode/UtbetaltPeriode";
+import dayjs from "dayjs";
 
 const Utbetalinger = () => {
-  const utbetalingerPeriod = "Siste tre måneder";
+  const utbetalingerPeriod = useStore(selctedPeriode);
   const selectedPeriodFilter = useStore(periodeFilterAtom);
+  const utbetalingerPeriodDato = `${dayjs(selectedPeriodFilter.fom).format("DD.MM.YYYY")}-${dayjs(selectedPeriodFilter.tom).format("DD.MM.YYYY")}`
+
   const { data: utbetalinger, isLoading } = useSWR(
     {
       path: utbetalingerAPIUrl(
@@ -50,11 +53,11 @@ const Utbetalinger = () => {
             tidligereUtbetalinger={groupUtbetalingInMonths(
               utbetalinger.utbetalteUtbetalinger
             )}
-            periode={utbetalingerPeriod}
+            periode={utbetalingerPeriod === "Egendefinert" ? utbetalingerPeriodDato : utbetalingerPeriod}
           />
           <UtbetaltPeriode
             utbetalinger={utbetalinger.utbetalteUtbetalinger}
-            periode={utbetalingerPeriod}
+            periode={utbetalingerPeriodDato}
           />
         </>
       )}
