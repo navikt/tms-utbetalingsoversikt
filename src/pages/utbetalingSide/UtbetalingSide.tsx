@@ -133,7 +133,7 @@ const UtbetalingSide = () => {
             )}
             <li className={style.periodeElement}>
               <Label as="p" className={style.periodLabel}>
-                Period
+                Periode
               </Label>
               <BodyShort className={style.ytelsePeriode}>
                 {`${formatToDetailedDate(

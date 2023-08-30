@@ -3,21 +3,8 @@ import UtbetalingLinkPanel from "../utbetalingLinkPanel/UtbetalingLinkPanel";
 import style from "./UtbetalingerInMonth.module.css";
 import { summerUtbetaling, summerYtelser } from "../../utils/summering";
 import { HovedYtelse } from "../../types/utbetalingTypes";
+import { getMonth } from "../../../utils/date";
 
-const months = [
-  "Januar",
-  "Februar",
-  "Mars",
-  "April",
-  "Mai",
-  "Juni",
-  "Juli",
-  "August",
-  "September",
-  "Oktober",
-  "November",
-  "Desember",
-];
 
 export interface props {
   monthIndex: string;
@@ -26,7 +13,7 @@ export interface props {
 }
 
 const UtbetalingerInMonth = ({ monthIndex, year, utbetalinger }: props) => {
-  const monthText: string = months[Number(monthIndex)];
+  const monthText: string = getMonth(parseInt(monthIndex), true);
   const sumYtelser = summerUtbetaling(utbetalinger);
 
   return (

@@ -46,7 +46,7 @@ const RelatertInnhold = () => {
   return (
     <div className={style.relatertInnholdContainer}>
       <Heading className={style.relatertInnholdHeader} level="2" size="xsmall">
-        Relart Innhold
+        Relatert innhold
       </Heading>
       <ul className={style.relatertInnholdLinkList}>
         {relatertInnholdLinks.map((linkObject) => (
