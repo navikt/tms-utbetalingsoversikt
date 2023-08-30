@@ -34,10 +34,24 @@ const Utbetalinger = () => {
     }
   );
 
+  const { data: nyUtbetaling } = useSWR(
+    {
+      path: `https://person.nav.no/tms-utbetalingsoversikt-api/utbetalinger/alle?fom=${selectedPeriodFilter.fom}&tom=${selectedPeriodFilter.tom}`,
+    },
+    fetcher,
+    {
+      shouldRetryOnError: false,
+    }
+  );
+
+  if(nyUtbetaling){
+    console.log(nyUtbetaling)
+  }
+
+
   if (isLoading) {
     return <ContentLoader />;
   }
-
   const showKommendeUtbetalinger =
     utbetalinger?.kommendeUtbetalinger.length > 0;
 
