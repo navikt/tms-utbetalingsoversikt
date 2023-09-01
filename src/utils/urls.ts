@@ -81,7 +81,7 @@ const ÅRSOPPGAVER_URL = {
 
 export const utbetalingerAPIUrl = (period:string) => `${
   UTBETALINGSOVERSIKT_API_URL[getEnvironment()]
-}/utbetalinger${period}`;
+}/utbetalinger/alle${period}`;
 
 
 export const enkelUtbetalingAPIUrl = (id: string) =>

@@ -25,7 +25,7 @@ const Utbetalinger = () => {
   const { data: utbetalinger, isLoading } = useSWR(
     {
       path: utbetalingerAPIUrl(
-        `?&fom=${selectedPeriodFilter.fom}&tom=${selectedPeriodFilter.tom}`
+        `?fom=${selectedPeriodFilter.fom}&tom=${selectedPeriodFilter.tom}`
       ),
     },
     fetcher,
@@ -34,45 +34,30 @@ const Utbetalinger = () => {
     }
   );
 
-  const { data: nyUtbetaling } = useSWR(
-    {
-      path: `https://person.nav.no/tms-utbetalingsoversikt-api/utbetalinger/alle?fom=${selectedPeriodFilter.fom}&tom=${selectedPeriodFilter.tom}`,
-    },
-    fetcher,
-    {
-      shouldRetryOnError: false,
-    }
-  );
-
-  if(nyUtbetaling){
-    console.log(nyUtbetaling)
-  }
-
-
   if (isLoading) {
     return <ContentLoader />;
   }
   const showKommendeUtbetalinger =
-    utbetalinger?.kommendeUtbetalinger.length > 0;
+  utbetalinger?.neste.length > 0;
 
   const hasTidligereUtbetalinger =
-    utbetalinger?.utbetalteUtbetalinger.length > 0;
+  utbetalinger?.tidligere.length > 0;
 
   hasTidligereUtbetalinger &&
-    setYtelseFilter(getUniqueYtelser(utbetalinger.utbetalteUtbetalinger));
+    setYtelseFilter(getUniqueYtelser(utbetalinger.utbetalingerIPeriode.ytelser));
 
   return (
     <>
       <YtelserFilter />
       {showKommendeUtbetalinger && (
         <KommendeUtbetalinger
-          utbetalinger={utbetalinger.kommendeUtbetalinger}
+          utbetalinger={utbetalinger.neste}
         />
       )}
       {hasTidligereUtbetalinger && (
         <>
           <TidligereUtbetalinger
-            tidligereUtbetalinger={utbetalinger.utbetalteUtbetalinger}
+            utbetalingGroups={utbetalinger.tidligere}
             periode={
               utbetalingerPeriod === "Egendefinert"
                 ? utbetalingerPeriodDato
@@ -80,7 +65,7 @@ const Utbetalinger = () => {
             }
           />
           <UtbetaltPeriode
-            utbetalinger={utbetalinger.utbetalteUtbetalinger}
+            data={utbetalinger.utbetalingerIPeriode}
             periode={utbetalingerPeriodDato}
           />
         </>

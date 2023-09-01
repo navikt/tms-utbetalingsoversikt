@@ -1,25 +1,17 @@
 import { Heading } from "@navikt/ds-react";
 import UtbetalingLinkPanel from "../utbetalingLinkPanel/UtbetalingLinkPanel";
 import style from "./UtbetalingerInMonth.module.css";
-import { summerUtbetaling, summerYtelser } from "../../utils/summering";
-import { HovedYtelse } from "../../types/utbetalingTypes";
 import { getMonth } from "../../../utils/date";
+import { UtbetalingGroup } from "../../types/alleUtbetalinger";
 
-
-export interface props {
-  monthIndex: string;
-  year: string;
-  utbetalinger: HovedYtelse[];
-}
-
-const UtbetalingerInMonth = ({ monthIndex, year, utbetalinger }: props) => {
-  const monthText: string = getMonth(parseInt(monthIndex), true);
-  const sumYtelser = summerUtbetaling(utbetalinger);
+const UtbetalingerInMonth = ({ måned, år, utbetalinger }: UtbetalingGroup) => {
+  const månedText: string = getMonth(måned, true);
+  const sumYtelser = utbetalinger.reduce((sum, utbetaling) => sum + utbetaling.beløp,0);
 
   return (
     <div className={style.utbetalingPeriod}>
       <Heading className={style.utbetalingTitle} level="2" size="xsmall">
-        <span>{`${monthText} ${year}`}</span>
+        <span>{`${månedText} ${år}`}</span>
         <span>{sumYtelser + " kr"}</span>
       </Heading>
       <ul className={style.utbetalingPeriodList}>
@@ -28,8 +20,8 @@ const UtbetalingerInMonth = ({ monthIndex, year, utbetalinger }: props) => {
             <li className={style.utbetalingListElement} key={o.id}>
               <UtbetalingLinkPanel
                 ytelse={o.ytelse}
-                dato={o.ytelse_dato}
-                beløp={summerYtelser(o.underytelser, o.trekk)}
+                dato={o.dato}
+                beløp={o.beløp}
                 id={o.id}
               />
             </li>

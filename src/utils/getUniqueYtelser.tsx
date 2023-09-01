@@ -1,14 +1,13 @@
-import { HovedYtelse } from "../types/utbetalingTypes";
+import { Ytelse } from "../types/alleUtbetalinger";
+
 
 export type YtelserListFilter = { [key: string]: boolean };
-const getUniqueytelser = (utbetalinger: HovedYtelse[]): YtelserListFilter =>
-  utbetalinger.reduce(
-    (ytelserList: YtelserListFilter, currentYtelser: HovedYtelse) => {
-      return {
-      [currentYtelser.ytelse]: false,
-      ...ytelserList,
-    }},
-    {}
-  );
+const getUniqueytelser = (ytelser: Ytelse[]): YtelserListFilter =>
+  ytelser.reduce((filteredList: YtelserListFilter, ytelse: Ytelse) => {
+    return {
+      [ytelse.ytelse]: false,
+      ...filteredList,
+    };
+  }, {});
 
 export default getUniqueytelser;

@@ -1,8 +1,8 @@
 import { SelectedYtelser } from "../store/filter";
-import { HovedYtelse } from "../types/utbetalingTypes";
+import { UtbetalingGroups } from "../types/alleUtbetalinger";
 
 const filterUtbetalinger = (
-  utbetalinger: HovedYtelse[],
+  utbetalinger: UtbetalingGroups,
   selectedYtelser: SelectedYtelser
 ) => {
   const showAll = Object.values(selectedYtelser).every(
@@ -10,7 +10,9 @@ const filterUtbetalinger = (
   );
   if (showAll) return utbetalinger;
 
-  return utbetalinger.filter((u) => selectedYtelser[u.ytelse]);
+  return utbetalinger.filter((period) =>
+    period.utbetalinger.find((utbetaling) => selectedYtelser[utbetaling.ytelse])
+  );
 };
 
 export default filterUtbetalinger;
