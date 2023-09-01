@@ -1,10 +1,16 @@
 import { Heading } from "@navikt/ds-react";
-import UtbetalingLinkPanel from "../utbetalingLinkPanel/UtbetalingLinkPanel";
+import UtbetalingLinkPanel, { UtbetalingType } from "../utbetalingLinkPanel/UtbetalingLinkPanel";
 import style from "./UtbetalingGroup.module.css";
 import { getMonth } from "../../../utils/date";
-import { UtbetalingGroup } from "../../types/alleUtbetalinger";
 
-const UtbetalingGroup = ({ måned, år, utbetalinger }: UtbetalingGroup) => {
+export interface UtbetalingGroupProps {
+  år: number;
+  måned: number;
+  utbetalinger: UtbetalingType[];
+}
+
+
+const UtbetalingGroup = ({ måned, år, utbetalinger }: UtbetalingGroupProps) => {
   const månedText: string = getMonth(måned, true);
   const sumYtelser = utbetalinger.reduce((sum, utbetaling) => sum + utbetaling.beløp,0);
 
@@ -23,6 +29,7 @@ const UtbetalingGroup = ({ måned, år, utbetalinger }: UtbetalingGroup) => {
                 dato={o.dato}
                 beløp={o.beløp}
                 id={o.id}
+                nesteUtbetaling={false}
               />
             </li>
           );

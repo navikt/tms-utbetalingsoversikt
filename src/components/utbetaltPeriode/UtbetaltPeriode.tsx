@@ -1,10 +1,17 @@
 import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import style from "./UtbetaltPeriode.module.css";
 import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje";
-import { UtbetaltInPeriod } from "../../types/alleUtbetalinger";
+
+export type Ytelse = { ytelse: string; beløp: number };
 
 interface PropsType {
-  data: UtbetaltInPeriod;
+  data: {
+    harUtbetalinger: boolean;
+    brutto: number;
+    netto: number;
+    trekk: number;
+    ytelser: Ytelse[];
+  };
   periode: string;
 }
 

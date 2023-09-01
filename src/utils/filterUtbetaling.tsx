@@ -1,8 +1,8 @@
+import { UtbetalingGroupProps } from "../components/UtbetalingGroup/UtbetalingGroup";
 import { SelectedYtelser } from "../store/filter";
-import { UtbetalingGroups } from "../types/alleUtbetalinger";
 
 const filterUtbetalinger = (
-  utbetalinger: UtbetalingGroups,
+  utbetalinger: UtbetalingGroupProps[],
   selectedYtelser: SelectedYtelser
 ) => {
   const showAll = Object.values(selectedYtelser).every(

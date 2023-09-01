@@ -1,10 +1,9 @@
 import { BodyShort } from "@navikt/ds-react";
-import UtbetalingLinkPanel from "../utbetalingLinkPanel/UtbetalingLinkPanel";
+import UtbetalingLinkPanel, { UtbetalingType } from "../utbetalingLinkPanel/UtbetalingLinkPanel";
 import style from "./KommendeUtbetalinger.module.css";
-import { Utbetaling } from "../../types/alleUtbetalinger";
 
 interface Props {
-  utbetalinger: Utbetaling[];
+  utbetalinger: UtbetalingType[];
 }
 
 const KommendeUtbetalinger = ({ utbetalinger }: Props) => {
@@ -13,7 +12,7 @@ const KommendeUtbetalinger = ({ utbetalinger }: Props) => {
       <BodyShort className={style.kommendeUtbetalingerLabel}>
         Neste utbetaling
       </BodyShort>{" "}
-      {utbetalinger.map((u: Utbetaling) => (
+      {utbetalinger.map((u: UtbetalingType) => (
         <UtbetalingLinkPanel
           ytelse={u.ytelse}
           beløp={u.beløp}

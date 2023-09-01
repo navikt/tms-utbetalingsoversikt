@@ -1,9 +1,9 @@
-import { Ytelse } from "../types/alleUtbetalinger";
+import { UtbetalingType } from "../components/utbetalingLinkPanel/UtbetalingLinkPanel";
 
 
 export type YtelserListFilter = { [key: string]: boolean };
-const getUniqueytelser = (ytelser: Ytelse[]): YtelserListFilter =>
-  ytelser.reduce((filteredList: YtelserListFilter, ytelse: Ytelse) => {
+const getUniqueytelser = (ytelser: UtbetalingType[]): YtelserListFilter =>
+  ytelser.reduce((filteredList: YtelserListFilter, ytelse: UtbetalingType) => {
     return {
       [ytelse.ytelse]: false,
       ...filteredList,

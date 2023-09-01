@@ -1,13 +1,14 @@
 import { useStore } from "@nanostores/react";
 import { BodyShort } from "@navikt/ds-react";
 import { ytelserFilterAtom } from "../../store/filter";
-import { UtbetalingGroups } from "../../types/alleUtbetalinger";
 import filterUtbetalinger from "../../utils/filterUtbetaling";
-import UtbetalingGroup from "../UtbetalingGroup/UtbetalingGroup";
+import UtbetalingGroup, {
+  UtbetalingGroupProps,
+} from "../UtbetalingGroup/UtbetalingGroup";
 import style from "./TidligereUtbetalinger.module.css";
 
 interface Props {
-  utbetalingGroups: UtbetalingGroups;
+  utbetalingGroups: UtbetalingGroupProps[];
   periode: string;
 }
 
@@ -22,7 +23,7 @@ const TidligereUtbetalinger = ({ utbetalingGroups, periode }: Props) => {
     <div className={style.tidligereUtbetalinger}>
       <BodyShort className={style.utbetalingerPeriodLabel}>{periode}</BodyShort>
       <ul className={style.utbetalingerList}>
-        {selectedUtbetalinger.map((utbetalingGroup) => (
+        {selectedUtbetalinger.map((utbetalingGroup: UtbetalingGroupProps) => (
           <li
             className={style.utbetalingerOneMonth}
             key={`${utbetalingGroup.måned}${utbetalingGroup.år}`}

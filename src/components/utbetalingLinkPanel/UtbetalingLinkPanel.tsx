@@ -4,13 +4,14 @@ import { formatToReadableDate } from "../../../utils/date.js";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { baseUrl } from "../../utils/urls.js";
 
-interface UtbetalingLinkPanelProps {
-  ytelse: string;
+export type UtbetalingType = {
+  id: string;
   beløp: number;
   dato: string;
-  nesteUtbetaling?: boolean;
-  id: string;
+  ytelse: string;
 }
+
+type UtbetalingProps = UtbetalingType & {nesteUtbetaling: boolean}
 
 const UtbetalingLinkPanel = ({
   ytelse,
@@ -18,7 +19,7 @@ const UtbetalingLinkPanel = ({
   dato,
   id,
   nesteUtbetaling,
-}: UtbetalingLinkPanelProps) => {
+}: UtbetalingProps) => {
   return (
     <a
       id={nesteUtbetaling ? style.nesteUtbetalingLink : style.utbetalingLink}
