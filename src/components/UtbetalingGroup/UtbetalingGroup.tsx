@@ -1,10 +1,10 @@
 import { Heading } from "@navikt/ds-react";
 import UtbetalingLinkPanel from "../utbetalingLinkPanel/UtbetalingLinkPanel";
-import style from "./UtbetalingerInMonth.module.css";
+import style from "./UtbetalingGroup.module.css";
 import { getMonth } from "../../../utils/date";
 import { UtbetalingGroup } from "../../types/alleUtbetalinger";
 
-const UtbetalingerInMonth = ({ måned, år, utbetalinger }: UtbetalingGroup) => {
+const UtbetalingGroup = ({ måned, år, utbetalinger }: UtbetalingGroup) => {
   const månedText: string = getMonth(måned, true);
   const sumYtelser = utbetalinger.reduce((sum, utbetaling) => sum + utbetaling.beløp,0);
 
@@ -32,4 +32,4 @@ const UtbetalingerInMonth = ({ måned, år, utbetalinger }: UtbetalingGroup) => 
   );
 };
 
-export default UtbetalingerInMonth;
+export default UtbetalingGroup;

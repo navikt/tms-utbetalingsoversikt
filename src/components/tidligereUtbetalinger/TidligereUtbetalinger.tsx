@@ -3,7 +3,7 @@ import { BodyShort } from "@navikt/ds-react";
 import { ytelserFilterAtom } from "../../store/filter";
 import { UtbetalingGroups } from "../../types/alleUtbetalinger";
 import filterUtbetalinger from "../../utils/filterUtbetaling";
-import UtbetalingerInMonth from "../utbetalingerInMonth/UtbetalingerInMonth";
+import UtbetalingGroup from "../UtbetalingGroup/UtbetalingGroup";
 import style from "./TidligereUtbetalinger.module.css";
 
 interface Props {
@@ -27,7 +27,7 @@ const TidligereUtbetalinger = ({ utbetalingGroups, periode }: Props) => {
             className={style.utbetalingerOneMonth}
             key={`${utbetalingGroup.måned}${utbetalingGroup.år}`}
           >
-            <UtbetalingerInMonth
+            <UtbetalingGroup
               måned={utbetalingGroup.måned}
               år={utbetalingGroup.år}
               utbetalinger={utbetalingGroup.utbetalinger}
