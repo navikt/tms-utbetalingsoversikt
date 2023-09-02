@@ -54,7 +54,20 @@ export default [
     method: "get",
     response: () => {
       return {
-        neste: [],
+        neste: [
+          {
+            id: "4c7f-648e37e7a1f402fa",
+            beløp: 724.0,
+            dato: "2024-08-15",
+            ytelse: "Grunn- og hjelpestønad",
+          },
+          {
+            id: "4c7f-648e37e7a1f402fa",
+            beløp: 724.0,
+            dato: "2024-08-15",
+            ytelse: "Grunn- og hjelpestønad",
+          },
+        ],
         tidligere: [
           {
             år: 2023,

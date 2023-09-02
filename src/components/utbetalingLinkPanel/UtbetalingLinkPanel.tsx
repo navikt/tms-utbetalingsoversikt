@@ -20,9 +20,13 @@ const UtbetalingLinkPanel = ({
   id,
   nesteUtbetaling,
 }: UtbetalingProps) => {
+
+  const linkHtmlID = `${nesteUtbetaling ? style.nesteUtbetalingLink : style.tidligereUtbetalingLink}`
+  
+  
   return (
     <a
-      id={nesteUtbetaling ? style.nesteUtbetalingLink : style.utbetalingLink}
+      id={linkHtmlID}
       className={"navds-panel navds-link-panel"}
       href={`${baseUrl}/utbetaling/${id}`}
     >
