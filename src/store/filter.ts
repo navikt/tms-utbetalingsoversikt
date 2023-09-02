@@ -5,7 +5,7 @@ export type SelectedYtelser = { [key: string]: boolean };
 
 export const selctedPeriode = atom<string>("Siste 3 måneder");
 
-export function setSlectedPeriode(label: string) {
+export function setSelectedPeriode(label: string) {
   selctedPeriode.set(label);
 }
 
