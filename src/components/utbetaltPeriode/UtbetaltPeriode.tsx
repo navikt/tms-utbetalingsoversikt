@@ -32,29 +32,29 @@ const UtbetaltPeriode = ({ data, periode }: PropsType) => {
         {periode}
       </Heading>
       <ul className={style.periodeYtelseList}>
-        {ytelser.map((o) => (
-          <li className={style.periodeYtelseElement}>
+        {ytelser.map((o, index) => (
+          <li key={index} className={style.periodeYtelseElement}>
             <BodyShort>{o.ytelse}</BodyShort>
             <BodyShort>{`${formaterTallUtenDesimaler(o.beløp)} kr`}</BodyShort>
           </li>
         ))}
+        <li className={style.periodeBrutto}>
+            <BodyShort>Brutto</BodyShort>
+            <BodyShort>{`${formaterTallUtenDesimaler(
+              bruttoUtbetalt
+            )} kr`}</BodyShort>
+        </li>
+        <li className={style.periodeTrekk}>
+          <BodyShort>Trekk</BodyShort>
+          <BodyShort>{`${formaterTallUtenDesimaler(trekk)} kr`}</BodyShort>
+        </li>
+        <li className={style.periodeNetto}>
+          <BodyShort>Netto utbetalt</BodyShort>
+          <BodyShort>{`${formaterTallUtenDesimaler(
+            nettoUtbetalt
+          )} kr`}</BodyShort>
+        </li>
       </ul>
-      <div className={style.periodeBrutto}>
-        <BodyShort>Brutto</BodyShort>
-        <BodyShort>{`${formaterTallUtenDesimaler(
-          bruttoUtbetalt
-        )} kr`}</BodyShort>
-      </div>
-      <div className={style.periodeTrekk}>
-        <BodyShort>Trekk</BodyShort>
-        <BodyShort>{`${formaterTallUtenDesimaler(trekk)} kr`}</BodyShort>
-      </div>
-      <div className={style.periodeNetto}>
-        <BodyShort>Netto utbetalt</BodyShort>
-        <BodyShort>{`${formaterTallUtenDesimaler(
-          nettoUtbetalt
-        )} kr`}</BodyShort>
-      </div>
     </div>
   );
 };

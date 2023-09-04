@@ -16,7 +16,7 @@ const KommendeUtbetalinger = ({ utbetalinger }: Props) => {
       </BodyShort>{" "}
       <ul className={style.kommendeUtbetlaingList}>
         {utbetalinger.map((u: UtbetalingType) => (
-          <li className={style.kommendeUtbetlaingElement}>
+          <li key={u.id} className={style.kommendeUtbetlaingElement}>
             <UtbetalingLinkPanel
               ytelse={u.ytelse}
               beløp={u.beløp}

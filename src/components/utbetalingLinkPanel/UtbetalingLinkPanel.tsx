@@ -9,9 +9,9 @@ export type UtbetalingType = {
   beløp: number;
   dato: string;
   ytelse: string;
-}
+};
 
-type UtbetalingProps = UtbetalingType & {nesteUtbetaling: boolean}
+type UtbetalingProps = UtbetalingType & { nesteUtbetaling: boolean };
 
 const UtbetalingLinkPanel = ({
   ytelse,
@@ -20,10 +20,10 @@ const UtbetalingLinkPanel = ({
   id,
   nesteUtbetaling,
 }: UtbetalingProps) => {
+  const linkHtmlID = `${
+    nesteUtbetaling ? style.nesteUtbetalingLink : style.tidligereUtbetalingLink
+  }`;
 
-  const linkHtmlID = `${nesteUtbetaling ? style.nesteUtbetalingLink : style.tidligereUtbetalingLink}`
-  
-  
   return (
     <a
       id={linkHtmlID}
@@ -41,6 +41,7 @@ const UtbetalingLinkPanel = ({
       <div className={style.betalingRight}>
         <BodyShort className={style.betalingDato}>{`${beløp} kr`}</BodyShort>
         <ChevronRightIcon
+          aria-hidden="true"
           id="chevronRight"
           className="navds-link-panel__chevron"
         />

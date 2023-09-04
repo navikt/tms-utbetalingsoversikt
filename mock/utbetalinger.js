@@ -56,13 +56,13 @@ export default [
       return {
         neste: [
           {
-            id: "4c7f-648e37e7a1f402fa",
+            id: "4c7f-648e37e33a1f402fa",
             beløp: 724.0,
             dato: "2024-08-15",
             ytelse: "Grunn- og hjelpestønad",
           },
           {
-            id: "4c7f-648e37e7a1f402fa",
+            id: "4c7f-648e37e7ffef402fa",
             beløp: 724.0,
             dato: "2024-08-15",
             ytelse: "Grunn- og hjelpestønad",
@@ -74,7 +74,7 @@ export default [
             måned: 8,
             utbetalinger: [
               {
-                id: "4c7f-648e37e7a1f402fa",
+                id: "4c7f-448e37e7a8f402fa",
                 beløp: 724.0,
                 dato: "2023-08-15",
                 ytelse: "Grunn- og hjelpestønad",
