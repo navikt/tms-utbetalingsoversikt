@@ -1,5 +1,5 @@
 import style from "./UtbetalingLinkPanel.module.css";
-import { BodyLong, BodyShort } from "@navikt/ds-react";
+import { BodyLong, BodyShort, Label } from "@navikt/ds-react";
 import { formatToReadableDate } from "../../../utils/date.js";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { baseUrl } from "../../utils/urls.js";
@@ -20,25 +20,24 @@ const UtbetalingLinkPanel = ({
   id,
   nesteUtbetaling,
 }: UtbetalingProps) => {
-  const linkClassName = `${
-    nesteUtbetaling ? style.nesteUtbetalingLink : style.tidligereUtbetalingLink
-  }`;
-
+  const linkClassName = nesteUtbetaling
+    ? style.nesteUtbetalingLink
+    : style.tidligereUtbetalingLink;
   return (
     <a
-      className={"navds-panel navds-link-panel "+linkClassName}
+      className={"navds-panel navds-link-panel " + linkClassName}
       href={`${baseUrl}/utbetaling/${id}`}
     >
       <div className={style.betalingLeft}>
         {
-          <BodyShort className={style.betalingDato}>
+          <BodyShort textColor="subtle" className={style.betalingDato}>
             {formatToReadableDate(dato)}
           </BodyShort>
         }
         {<BodyLong className={style.betalingYtelse}>{ytelse}</BodyLong>}
       </div>
       <div className={style.betalingRight}>
-        <BodyShort className={style.betalingDato}>{`${beløp} kr`}</BodyShort>
+        <BodyShort weight="semibold" className={style.betalingDato}>{`${beløp} kr`}</BodyShort>
         <ChevronRightIcon
           aria-hidden="true"
           className="navds-link-panel__chevron chevronRight"

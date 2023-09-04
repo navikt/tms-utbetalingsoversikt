@@ -23,14 +23,12 @@ const UtbetaltPeriode = ({ data, periode }: PropsType) => {
 
   return (
     <div className={style.utbetalPeriodeContainer}>
-      <BodyLong>Utbetalt i perioden</BodyLong>
-      <Heading
+      <Heading className="navds-body-short " level="2" size="small">Utbetalt i perioden</Heading>
+      <BodyShort
         className={style.utbetaltIPeriodenHeading}
-        size="xsmall"
-        level="3"
       >
         {periode}
-      </Heading>
+      </BodyShort>
       <ul className={style.periodeYtelseList}>
         {ytelser.map((o, index) => (
           <li key={index} className={style.periodeYtelseElement}>

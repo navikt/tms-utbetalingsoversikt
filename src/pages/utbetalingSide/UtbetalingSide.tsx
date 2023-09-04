@@ -69,7 +69,7 @@ const UtbetalingSide = () => {
   return (
     <div className={style.pageWrapper}>
       <div className={style.utbetalingSideContainer}>
-        <Heading className={style.pageTitle} level="1" size="large">
+        <Heading className={style.pageTitle} level="1" size="xlarge">
           {pageTittel}
         </Heading>
         <div className={style.beløpOgDatoWrapper}>

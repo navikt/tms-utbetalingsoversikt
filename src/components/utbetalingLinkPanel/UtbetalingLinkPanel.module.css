@@ -1,20 +1,15 @@
-.tidligereUtbetalingLink {
-  background-color: initial;
-  padding-top: 0.75rem;
+.tidligereUtbetalingLink, .nesteUtbetalingLink {
+  padding-top: 1rem;
   padding-bottom: 0.75rem;
 }
 
-.nesteUtbetalingLink{
+.tidligereUtbetalingLink {
+  background-color: initial;
+}
+
+.nesteUtbetalingLink {
   background-color: var(--a-surface-success-subtle);
   border-radius: 8px;
-}
-
-.betalingDato {
-  color: var(--a-grayalpha-700);
-}
-
-.betalingYtelse {
-  color: var(--a-gray-900);
 }
 
 .betalingRight {
@@ -23,15 +18,16 @@
   align-items: center;
 }
 
-#nesteUtbetalingLink:hover{
+.nesteUtbetalingLink:hover {
   background: var(--a-surface-success-subtle-hover);
 }
 
-#tidligereUtbetalingLink:hover{
+.tidligereUtbetalingLink:hover {
   background: var(--a-surface-neutral-subtle-hover);
 }
 
-#nesteUtbetalingLink:hover svg,#tidligereUtbetalingLink:hover svg{
+.nesteUtbetalingLink:hover svg,
+.tidligereUtbetalingLink:hover svg {
   transition-duration: 0.2s;
   transform: translateX(4px);
 }

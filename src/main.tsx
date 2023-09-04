@@ -1,9 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
 import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler/csr";
-import Authentication from './components/authentication/Authentication.tsx';
+import Authentication from "./components/authentication/Authentication.tsx";
+import { BodyShort, Heading } from "@navikt/ds-react";
 
 
 if (process.env.NODE_ENV === "development") {
@@ -13,10 +14,10 @@ if (process.env.NODE_ENV === "development") {
   });
 }
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Authentication>
       <App />
     </Authentication>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

@@ -1,4 +1,4 @@
-import { Chips, Label } from "@navikt/ds-react";
+import { BodyShort, Chips, Label } from "@navikt/ds-react";
 import { useState } from "react";
 import { setPeriodeFilter, setSelectedPeriode } from "../../../store/filter";
 import {
@@ -38,9 +38,9 @@ const PeriodeFilter = () => {
 
   return (
     <div className={style.periodeFilterContainer}>
-      <Label as={"p"} className={style.periodeFilterLabel}>
+      <BodyShort weight="semibold" className={style.periodeFilterLabel}>
         Velg periode
-      </Label>
+      </BodyShort>
       <Chips>
         {periodeOptions.map((p) => (
           <Chips.Toggle

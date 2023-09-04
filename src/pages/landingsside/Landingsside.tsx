@@ -8,7 +8,7 @@ import Utbetalinger from "../../components/utbetalinger/Utbetalinger.tsx";
 function Landingsside() {
   return (
     <>
-      <Heading className={style.pageTitle} level="1" size="large">
+      <Heading className={style.pageTitle} level="1" size="Xlarge">
         {text.sideTittel["nb"]}
       </Heading>
       <div className={style.pageBody}>

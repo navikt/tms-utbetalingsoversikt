@@ -1,4 +1,4 @@
-import { BodyShort } from "@navikt/ds-react";
+import { Heading } from "@navikt/ds-react";
 import UtbetalingLinkPanel, {
   UtbetalingType,
 } from "../utbetalingLinkPanel/UtbetalingLinkPanel";
@@ -11,9 +11,9 @@ interface Props {
 const KommendeUtbetalinger = ({ utbetalinger }: Props) => {
   return (
     <div className={style.kommendeUtbetalinger}>
-      <BodyShort className={style.kommendeUtbetalingerLabel}>
+      <Heading level="2" size="small" className={"navds-body-short  " + style.heading}>
         Neste utbetaling
-      </BodyShort>{" "}
+      </Heading>{" "}
       <ul className={style.kommendeUtbetlaingList}>
         {utbetalinger.map((u: UtbetalingType) => (
           <li key={u.id} className={style.kommendeUtbetlaingElement}>

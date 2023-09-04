@@ -1,4 +1,4 @@
-import { Chips, Label } from "@navikt/ds-react";
+import { BodyShort, Chips, Label } from "@navikt/ds-react";
 import { toggleYtelseFilter, ytelserFilterAtom } from "../../../store/filter";
 import { useStore } from "@nanostores/react";
 import style from "./YtelserFilter.module.css"
@@ -7,9 +7,9 @@ const YtelserFilter = () => {
   const ytelser = useStore(ytelserFilterAtom);
   return (
     <div className={style.pengestøtteChips}>
-      <Label as={"p"} className={style.ytelseFilterLabel} >
+      <BodyShort weight="semibold" className={style.ytelseFilterLabel} >
         Velg pengestøtte
-      </Label>
+      </BodyShort>
       <Chips>
         {Object.keys(ytelser).map((p) => (
           <Chips.Toggle

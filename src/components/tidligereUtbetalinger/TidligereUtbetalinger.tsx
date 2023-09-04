@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react";
-import { BodyShort } from "@navikt/ds-react";
+import { Heading } from "@navikt/ds-react";
 import { ytelserFilterAtom } from "../../store/filter";
 import filterUtbetalinger from "../../utils/filterUtbetaling";
 import UtbetalingGroup, {
@@ -21,7 +21,7 @@ const TidligereUtbetalinger = ({ utbetalingGroups, periode }: Props) => {
 
   return (
     <div className={style.tidligereUtbetalinger}>
-      <BodyShort className={style.utbetalingerPeriodLabel}>{periode}</BodyShort>
+      <Heading level="2" size="small" className={"navds-body-short "+style.utbetalingerPeriodLabel}>{periode}</Heading>
       <ul className={style.utbetalingerList}>
         {selectedUtbetalinger.map((utbetalingGroup: UtbetalingGroupProps) => (
           <li
