@@ -1,10 +1,10 @@
-#tidligereUtbetalingLink {
+.tidligereUtbetalingLink {
   background-color: initial;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
 
-#nesteUtbetalingLink{
+.nesteUtbetalingLink{
   background-color: var(--a-surface-success-subtle);
   border-radius: 8px;
 }

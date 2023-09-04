@@ -20,14 +20,13 @@ const UtbetalingLinkPanel = ({
   id,
   nesteUtbetaling,
 }: UtbetalingProps) => {
-  const linkHtmlID = `${
+  const linkClassName = `${
     nesteUtbetaling ? style.nesteUtbetalingLink : style.tidligereUtbetalingLink
   }`;
 
   return (
     <a
-      id={linkHtmlID}
-      className={"navds-panel navds-link-panel"}
+      className={"navds-panel navds-link-panel "+linkClassName}
       href={`${baseUrl}/utbetaling/${id}`}
     >
       <div className={style.betalingLeft}>
@@ -42,8 +41,7 @@ const UtbetalingLinkPanel = ({
         <BodyShort className={style.betalingDato}>{`${beløp} kr`}</BodyShort>
         <ChevronRightIcon
           aria-hidden="true"
-          id="chevronRight"
-          className="navds-link-panel__chevron"
+          className="navds-link-panel__chevron chevronRight"
         />
       </div>
     </a>
