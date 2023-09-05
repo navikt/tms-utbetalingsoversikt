@@ -2,6 +2,7 @@ import { Heading } from "@navikt/ds-react";
 import UtbetalingLinkPanel, { UtbetalingType } from "../utbetalingLinkPanel/UtbetalingLinkPanel";
 import style from "./UtbetalingGroup.module.css";
 import { getMonth } from "../../../utils/date";
+import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje";
 
 export interface UtbetalingGroupProps {
   år: number;
@@ -18,7 +19,7 @@ const UtbetalingGroup = ({ måned, år, utbetalinger }: UtbetalingGroupProps) =>
     <div className={style.utbetalingPeriod}>
       <Heading className={style.utbetalingTitle} level="2" size="xsmall">
         <span>{`${månedText} ${år}`}</span>
-        <span>{sumYtelser + " kr"}</span>
+        <span>{formaterTallUtenDesimaler(sumYtelser) + " kr"}</span>
       </Heading>
       <ul className={style.utbetalingPeriodList}>
         {utbetalinger.map((o) => {

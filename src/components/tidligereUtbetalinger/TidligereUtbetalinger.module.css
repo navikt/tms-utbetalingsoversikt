@@ -19,4 +19,7 @@
   .tidligereUtbetalinger {
     margin-top: 2.75rem;
   }
+  .utbetalingerOneMonth:not(:first-child) {
+    margin-top: 1.5rem;
+  }
 }

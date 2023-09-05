@@ -22,33 +22,36 @@ const UtbetaltPeriode = ({ data, periode }: PropsType) => {
   const trekk = data.trekk;
 
   return (
-    <div className={style.utbetalPeriodeContainer}>
-      <Heading className="navds-body-short " level="2" size="small">Utbetalt i perioden</Heading>
-      <BodyShort
-        className={style.utbetaltIPeriodenHeading}
-      >
+    <div className={style.container}>
+      <Heading className="navds-body-short " level="2" size="small">
+        Utbetalt i perioden
+      </Heading>
+      <BodyShort weight="semibold" className={style.perideDate}>
         {periode}
       </BodyShort>
-      <ul className={style.periodeYtelseList}>
+      <ul className={style.list}>
         {ytelser.map((o, index) => (
-          <li key={index} className={style.periodeYtelseElement}>
+          <li
+            key={index}
+            className={`${style.ytelseElementsstyle} ${style.listElement}`}
+          >
             <BodyShort>{o.ytelse}</BodyShort>
             <BodyShort>{`${formaterTallUtenDesimaler(o.beløp)} kr`}</BodyShort>
           </li>
         ))}
-        <li className={style.periodeBrutto}>
-            <BodyShort>Brutto</BodyShort>
-            <BodyShort>{`${formaterTallUtenDesimaler(
-              bruttoUtbetalt
-            )} kr`}</BodyShort>
+        <li className={`${style.bruttoElement} ${style.listElement}`}>
+          <BodyShort>Brutto</BodyShort>
+          <BodyShort>{`${formaterTallUtenDesimaler(
+            bruttoUtbetalt
+          )} kr`}</BodyShort>
         </li>
-        <li className={style.periodeTrekk}>
+        <li className={`${style.trekkElement} ${style.listElement}`}>
           <BodyShort>Trekk</BodyShort>
           <BodyShort>{`${formaterTallUtenDesimaler(trekk)} kr`}</BodyShort>
         </li>
-        <li className={style.periodeNetto}>
-          <BodyShort>Netto utbetalt</BodyShort>
-          <BodyShort>{`${formaterTallUtenDesimaler(
+        <li className={`${style.nettoElement} ${style.listElement}`}>
+          <BodyShort weight="semibold">Netto utbetalt</BodyShort>
+          <BodyShort weight="semibold">{`${formaterTallUtenDesimaler(
             nettoUtbetalt
           )} kr`}</BodyShort>
         </li>

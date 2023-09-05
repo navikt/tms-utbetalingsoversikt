@@ -1,6 +1,7 @@
 .tidligereUtbetalingLink, .nesteUtbetalingLink {
   padding-top: 1rem;
   padding-bottom: 0.75rem;
+  --ac-link-panel-hover-border: var(--a-transparent);
 }
 
 .tidligereUtbetalingLink {

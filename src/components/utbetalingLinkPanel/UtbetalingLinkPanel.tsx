@@ -3,6 +3,7 @@ import { BodyLong, BodyShort, Label } from "@navikt/ds-react";
 import { formatToReadableDate } from "../../../utils/date.js";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { baseUrl } from "../../utils/urls.js";
+import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje.js";
 
 export type UtbetalingType = {
   id: string;
@@ -37,7 +38,7 @@ const UtbetalingLinkPanel = ({
         {<BodyLong className={style.betalingYtelse}>{ytelse}</BodyLong>}
       </div>
       <div className={style.betalingRight}>
-        <BodyShort weight="semibold" className={style.betalingDato}>{`${beløp} kr`}</BodyShort>
+        <BodyShort weight="semibold" className={style.betalingDato}>{`${formaterTallUtenDesimaler(beløp)} kr`}</BodyShort>
         <ChevronRightIcon
           aria-hidden="true"
           className="navds-link-panel__chevron chevronRight"
