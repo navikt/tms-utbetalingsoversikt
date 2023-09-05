@@ -29,7 +29,7 @@ const TidligereUtbetalinger = ({ utbetalingGroups, periode }: Props) => {
             key={`${utbetalingGroup.måned}${utbetalingGroup.år}`}
           >
             <UtbetalingGroup
-              måned={utbetalingGroup.måned}
+              måned={utbetalingGroup.måned-1}
               år={utbetalingGroup.år}
               utbetalinger={utbetalingGroup.utbetalinger}
             />
