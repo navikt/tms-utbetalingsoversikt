@@ -1,9 +1,6 @@
-.pageContainer{
-  width: 100%;
-  max-width: 632px;
-  margin: 0 auto;
+.pageTitle{
+  margin-top: 1.5rem;
 }
-
 
 @media (min-width: 768px) {
   .pageBody {

@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  margin-top: 3.5rem;
+}
+
+.link {
+  text-decoration: none;
+  line-height: 20px; /* 125% */
+  letter-spacing: 0.032px;
+}
+
+.minSideLink {
+  color: var(--a-surface-action) ;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.linkWrapper {
+  display: flex;
+  border-left: 2px solid var(--a-blue-600);
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

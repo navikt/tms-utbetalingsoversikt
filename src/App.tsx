@@ -1,13 +1,12 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
-import Landingsside from "./pages/landingsside/Landingsside";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import styles from "./App.module.css";
-import { useBreadcrumbs } from "./hooks/useBreadcrums";
+import Landingsside from "./pages/landingsside/Landingsside";
 import UtbetalingSide from "./pages/utbetalingSide/UtbetalingSide";
 
 function App() {
   const BASE_PATH = "/tms-utbetalingsoversikt";
-  useBreadcrumbs();
+
+
   return (
     <div className={styles.pageWrapper}>
       <section className={styles.pageContainer}>

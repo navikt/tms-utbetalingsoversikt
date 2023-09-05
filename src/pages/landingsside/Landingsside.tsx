@@ -1,15 +1,16 @@
 import { Heading } from "@navikt/ds-react";
 import RelatertInnhold from "../../components/relatertInnhold/RelatertInnhold.tsx";
-import text from "../../language/text.ts";
 import style from "./Landingsside.module.css";
 import PeriodeFilter from "../../components/filter/periodeFilter/PeriodeFilter.tsx";
 import Utbetalinger from "../../components/utbetalinger/Utbetalinger.tsx";
+import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs.tsx";
 
 function Landingsside() {
   return (
     <>
-      <Heading className={style.pageTitle} level="1" size="Xlarge">
-        {text.sideTittel["nb"]}
+      <Breadcrumbs showUtbetalinger={false}/>
+      <Heading className={style.pageTitle} level="1" size="xlarge">
+        Utbetalinger
       </Heading>
       <div className={style.pageBody}>
         <PeriodeFilter />

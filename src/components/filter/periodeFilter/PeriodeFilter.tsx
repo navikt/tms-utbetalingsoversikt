@@ -1,4 +1,4 @@
-import { BodyShort, Chips, Label } from "@navikt/ds-react";
+import { BodyShort, Chips } from "@navikt/ds-react";
 import { useState } from "react";
 import { setPeriodeFilter, setSelectedPeriode } from "../../../store/filter";
 import {

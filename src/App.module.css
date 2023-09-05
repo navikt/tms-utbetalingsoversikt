@@ -9,8 +9,5 @@
 .pageContainer{
   flex-grow: 1;
   max-width: 632px;
-  margin: 1rem auto 0 auto;
-}
-.pageContainer{
-  margin-top: 1rem;
+  margin: 0 auto 0 auto;
 }

@@ -1,7 +1,7 @@
-import { BodyShort, Chips, Label } from "@navikt/ds-react";
-import { toggleYtelseFilter, ytelserFilterAtom } from "../../../store/filter";
 import { useStore } from "@nanostores/react";
-import style from "./YtelserFilter.module.css"
+import { BodyShort, Chips } from "@navikt/ds-react";
+import { toggleYtelseFilter, ytelserFilterAtom } from "../../../store/filter";
+import style from "./YtelserFilter.module.css";
 
 const YtelserFilter = () => {
   const ytelser = useStore(ytelserFilterAtom);

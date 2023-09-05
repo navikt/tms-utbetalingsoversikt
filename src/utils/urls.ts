@@ -19,6 +19,12 @@ const BASE_URL = {
   production: "https://www.intern.nav.no/tms-utbetalingsoversikt",
 };
 
+const MIN_SIDE_URL = {
+  local: "http://localhost:3000/minside",
+  development: "https://www.intern.dev.nav.no/minside",
+  production: "https://www.nav.no/minside",
+}
+
 const UTBETALINGSOVERSIKT_API_URL = {
   local: "http://localhost:3000/api",
   development: "https://www.intern.dev.nav.no/tms-utbetalingsoversikt-api",
@@ -100,3 +106,4 @@ export const endreSkattekortUrl = ENDRE_SKATTEKORT_URL[getEnvironment()];
 export const sosialhjelpUrl = SOSIALHJELP_URL[getEnvironment()];
 export const dagpengerUrl = DAGPENGER_URL[getEnvironment()];
 export const årsoppgaverUrl = ÅRSOPPGAVER_URL[getEnvironment()];
+export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
