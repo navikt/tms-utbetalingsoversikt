@@ -20,10 +20,12 @@
 }
 
 .nesteUtbetalingLink:hover {
+  box-shadow:none;
   background: var(--a-surface-success-subtle-hover);
 }
 
 .tidligereUtbetalingLink:hover {
+  box-shadow:none;
   background: var(--a-surface-neutral-subtle-hover);
 }
 
