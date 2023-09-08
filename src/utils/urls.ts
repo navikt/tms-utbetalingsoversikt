@@ -1,4 +1,6 @@
-const isProduction = window.location.href.includes("www.nav.no") || window.location.href.includes("www.intern.nav.no");
+const isProduction =
+  window.location.href.includes("www.nav.no") ||
+  window.location.href.includes("www.intern.nav.no");
 const isDevelopment = window.location.href.includes("www.intern.dev.nav.no");
 
 export const getEnvironment = () => {
@@ -23,7 +25,7 @@ const MIN_SIDE_URL = {
   local: "http://localhost:3000/minside",
   development: "https://www.intern.dev.nav.no/minside",
   production: "https://www.nav.no/minside",
-}
+};
 
 const UTBETALINGSOVERSIKT_API_URL = {
   local: "http://localhost:3000/api",
@@ -63,32 +65,30 @@ const ENDRE_SKATTEKORT_URL = {
 
 const SOSIALHJELP_URL = {
   local: "https://www.nav.no/sosialhjelp/innsyn/utbetaling",
-  development:
-    "https://www.intern.dev.nav.no/sosialhjelp/innsyn/utbetaling",
-  production:
-    "https://www.nav.no/sosialhjelp/innsyn/utbetaling",
+  development: "https://www.intern.dev.nav.no/sosialhjelp/innsyn/utbetaling",
+  production: "https://www.nav.no/sosialhjelp/innsyn/utbetaling",
 };
 
 const DAGPENGER_URL = {
   local: "https://www.nav.no/dagpenger/forskudd/oversikt",
-  development:
-    "https://www.intern.dev.nav.no/dagpenger/forskudd/oversikt",
-  production:
-    "https://www.nav.no/dagpenger/forskudd/oversikt",
+  development: "https://www.intern.dev.nav.no/dagpenger/forskudd/oversikt",
+  production: "https://www.nav.no/dagpenger/forskudd/oversikt",
 };
 
 const ÅRSOPPGAVER_URL = {
   local: "https://www.nav.no/dokumentarkiv/tema/STO",
-  development:
-    "https://intern.dev.nav.no/dokumentarkiv/tema/STO",
-  production:
-    "https://www.nav.no/dokumentarkiv/tema/STO",
+  development: "https://intern.dev.nav.no/dokumentarkiv/tema/STO",
+  production: "https://www.nav.no/dokumentarkiv/tema/STO",
 };
 
-export const utbetalingerAPIUrl = (period:string) => `${
-  UTBETALINGSOVERSIKT_API_URL[getEnvironment()]
-}/utbetalinger/alle${period}`;
+const OM_UTBETALINGER_URL = {
+  local: "http://localhost:3000/om-utbetalinger",
+  development: "https://www.intern.dev.nav.no/utbetalinger",
+  production: "https://www.nav.no/utbetalinger",
+};
 
+export const utbetalingerAPIUrl = (period: string) =>
+  `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}/utbetalinger/alle${period}`;
 
 export const enkelUtbetalingAPIUrl = (id: string) =>
   `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}/utbetaling?ytelseId=${id}`;
@@ -107,3 +107,4 @@ export const sosialhjelpUrl = SOSIALHJELP_URL[getEnvironment()];
 export const dagpengerUrl = DAGPENGER_URL[getEnvironment()];
 export const årsoppgaverUrl = ÅRSOPPGAVER_URL[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
+export const omUtbetalinger = OM_UTBETALINGER_URL[getEnvironment()];

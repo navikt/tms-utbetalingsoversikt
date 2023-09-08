@@ -1,6 +1,6 @@
 import { BodyShort, Chips } from "@navikt/ds-react";
 import { useState } from "react";
-import { setPeriodeFilter, setSelectedPeriode } from "../../../store/filter";
+import { setPeriodeFilter, setSelectedPeriode, showFilterAtom } from "../../../store/filter";
 import {
   GetDatePeriodType,
   getDateCurrentlyThisYear,
@@ -9,6 +9,7 @@ import {
 } from "../../../utils";
 import style from "./PeriodeFilter.module.css";
 import EgendefinertPeriode from "./egendefinertPeriode/EgendefinertPeriode";
+import { useStore } from "@nanostores/react";
 
 type PeriodeOptionsType = {
   label: string;
@@ -23,6 +24,7 @@ const periodeOptions: PeriodeOptionsType[] = [
 ];
 
 const PeriodeFilter = () => {
+  const showContent = useStore(showFilterAtom)
   const [selected, setSelected] = useState("Siste 3 måneder");
 
   const handlePeriodeClick = (
@@ -37,7 +39,7 @@ const PeriodeFilter = () => {
   };
 
   return (
-    <div className={style.periodeFilterContainer}>
+    <div className={`${style.periodeFilterContainer} ${!showContent && style.hideContent}`}>
       <BodyShort weight="semibold" className={style.periodeFilterLabel}>
         Velg periode
       </BodyShort>

@@ -1,6 +1,9 @@
 .periodeFilterContainer{
   margin-top:1.5rem;
+}
 
+.hideContent{
+  display: none;
 }
 
 .periodeFilterLabel{
@@ -14,5 +17,9 @@
 @media (min-width: 480px) {
   .periodeFilterContainer{
     margin-top: 2rem;
+  }
+
+  .hideContent{
+    display: block;
   }
 }

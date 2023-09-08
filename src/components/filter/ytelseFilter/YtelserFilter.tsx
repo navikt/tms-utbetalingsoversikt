@@ -1,13 +1,19 @@
 import { useStore } from "@nanostores/react";
 import { BodyShort, Chips } from "@navikt/ds-react";
-import { toggleYtelseFilter, ytelserFilterAtom } from "../../../store/filter";
+import { showFilterAtom, toggleYtelseFilter, ytelserFilterAtom } from "../../../store/filter";
 import style from "./YtelserFilter.module.css";
 
 const YtelserFilter = () => {
   const ytelser = useStore(ytelserFilterAtom);
+  const showContent = useStore(showFilterAtom);
+
   return (
-    <div className={style.pengestøtteChips}>
-      <BodyShort weight="semibold" className={style.ytelseFilterLabel} >
+    <div
+      className={`${style.container} ${
+        !showContent && style.hideContent
+      }`}
+    >
+      <BodyShort weight="semibold" className={style.ytelseFilterLabel}>
         Velg pengestøtte
       </BodyShort>
       <Chips>
