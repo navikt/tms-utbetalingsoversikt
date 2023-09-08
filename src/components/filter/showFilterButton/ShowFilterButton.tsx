@@ -12,13 +12,13 @@ const ShowFilterButton = () => {
 
   return (
     <Button
-      className={`${style.showFilterButton} ${selected && style.buttonSelected}`}
+      className={style.showFilterButton}
       size="small"
       variant="primary"
       icon={<FilterIcon aria-hidden />}
       onClick={handleClick}
     >
-      Vis filter
+      {selected ? "Skjul filter": "Vis filter" }
     </Button>
   );
 };
