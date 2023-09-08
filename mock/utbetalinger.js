@@ -56,13 +56,13 @@ export default [
       return {
         neste: [
           {
-            id: "4c7f-648e37e33a1f402fa",
+            id: "e33f402fa",
             beløp: 724.0,
             dato: "2024-08-15",
             ytelse: "Grunn- og hjelpestønad",
           },
           {
-            id: "4c7f-648e37e7ffef402fa",
+            id: "130fdv",
             beløp: 724.0,
             dato: "2024-08-15",
             ytelse: "Grunn- og hjelpestønad",
@@ -71,17 +71,35 @@ export default [
         tidligere: [
           {
             år: 2023,
+            måned: 9,
+            utbetalinger: [
+              {
+                id: "wefw2",
+                beløp: 5240,
+                dato: "2023-09-01",
+                ytelse: "Barnetrygd",
+              },
+            ],
+          },
+          {
+            år: 2023,
             måned: 8,
             utbetalinger: [
               {
-                id: "4c7f-448e37e7a8f402fa",
-                beløp: 724.0,
+                id: "q3w3",
+                beløp: 1448,
                 dato: "2023-08-15",
                 ytelse: "Grunn- og hjelpestønad",
               },
               {
-                id: "4c79-ce279c7ae43428c8",
-                beløp: 724.0,
+                id: "wefwef2",
+                beløp: 6152,
+                dato: "2023-08-08",
+                ytelse: "Barnetrygd",
+              },
+              {
+                id: "124wef",
+                beløp: 1448,
                 dato: "2023-08-08",
                 ytelse: "Grunn- og hjelpestønad",
               },
@@ -89,23 +107,154 @@ export default [
           },
           {
             år: 2023,
-            måned: 6,
+            måned: 5,
             utbetalinger: [
               {
-                id: "4c3c-a86f06fc661b402d",
-                beløp: 705.0,
-                dato: "2023-06-19",
+                id: "we124",
+                beløp: 5612,
+                dato: "2023-05-31",
+                ytelse: "Barnetrygd",
+              },
+              {
+                id: "wefw",
+                beløp: 14276,
+                dato: "2023-05-23",
+                ytelse: "Arbeidsavklaringspenger",
+              },
+              {
+                id: "vswe3",
+                beløp: 1410,
+                dato: "2023-05-15",
                 ytelse: "Grunn- og hjelpestønad",
+              },
+              {
+                id: "qewdq",
+                beløp: 236,
+                dato: "2023-05-08",
+                ytelse: "Skattetrekk",
+              },
+              {
+                id: "1532",
+                beløp: 7216,
+                dato: "2023-05-08",
+                ytelse: "Arbeidsavklaringspenger",
+              },
+              {
+                id: "1234",
+                beløp: 7138,
+                dato: "2023-05-08",
+                ytelse: "Arbeidsavklaringspenger",
+              },
+            ],
+          },
+          {
+            år: 2023,
+            måned: 4,
+            utbetalinger: [
+              {
+                id: "4dgcvc-QWDQW",
+                beløp: 5612,
+                dato: "2023-04-28",
+                ytelse: "Barnetrygd",
+              },
+              {
+                id: "0b3c4-QDRQ",
+                beløp: 1410,
+                dato: "2023-04-27",
+                ytelse: "Grunn- og hjelpestønad",
+              },
+              {
+                id: "4cRR0f-fwfqa",
+                beløp: 14276,
+                dato: "2023-04-25",
+                ytelse: "Arbeidsavklaringspenger",
+              },
+              {
+                id: "4c0vfwe-1231",
+                beløp: 1410,
+                dato: "2023-04-19",
+                ytelse: "Grunn- og hjelpestønad",
+              },
+              {
+                id: "4wedwe-5",
+                beløp: 6332,
+                dato: "2023-04-12",
+                ytelse: "Arbeidsavklaringspenger",
+              },
+              {
+                id: "4cqwdqwdq01-45",
+                beløp: 7138,
+                dato: "2023-04-12",
+                ytelse: "Arbeidsavklaringspenger",
+              },
+            ],
+          },
+          {
+            år: 2023,
+            måned: 3,
+            utbetalinger: [
+              {
+                id: "43e75c9f11",
+                beløp: 5612,
+                dato: "2023-03-31",
+                ytelse: "Barnetrygd",
+              },
+              {
+                id: "c53c1fa78e",
+                beløp: 14432,
+                dato: "2023-03-27",
+                ytelse: "Arbeidsavklaringspenger",
+              },
+              {
+                id: "1679e2c45db",
+                beløp: 2898,
+                dato: "2023-03-14",
+                ytelse: "Arbeidsavklaringspenger",
+              },
+              {
+                id: "8dae144",
+                beløp: 11664,
+                dato: "2023-03-14",
+                ytelse: "Arbeidsavklaringspenger",
+              },
+            ],
+          },
+          {
+            år: 2023,
+            måned: 1,
+            utbetalinger: [
+              {
+                id: "14ae16c0e7cee",
+                beløp: 5460,
+                dato: "2023-01-31",
+                ytelse: "Barnetrygd",
               },
             ],
           },
         ],
         utbetalingerIPeriode: {
           harUtbetalinger: true,
-          brutto: 2153,
-          netto: 2153,
-          trekk: "0",
-          ytelser: [{ ytelse: "Grunn- og hjelpestønad", beløp: 2153 }],
+          brutto: 179238,
+          netto: 179238,
+          trekk: 0,
+          ytelser: [
+            {
+              ytelse: "Barnetrygd",
+              beløp: 44760,
+            },
+            {
+              ytelse: "Arbeidsavklaringspenger",
+              beløp: 125706,
+            },
+            {
+              ytelse: "Grunn- og hjelpestønad",
+              beløp: 8536,
+            },
+            {
+              ytelse: "Skattetrekk",
+              beløp: 236,
+            },
+          ],
         },
       };
     },
