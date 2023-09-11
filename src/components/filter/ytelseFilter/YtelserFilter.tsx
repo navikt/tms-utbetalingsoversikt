@@ -6,7 +6,7 @@ import {
   ytelserFilterAtom,
 } from "../../../store/filter";
 import style from "./YtelserFilter.module.css";
-import {  } from "../../../utils/amplitude";
+import { logEvent } from "../../../utils/amplitude";
 
 const YtelserFilter = () => {
   const ytelser = useStore(ytelserFilterAtom);
