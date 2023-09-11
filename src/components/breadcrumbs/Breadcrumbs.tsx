@@ -10,7 +10,7 @@ const Breadcrumbs = ({ showUtbetalinger }: { showUtbetalinger: boolean }) => (
     </a>
     {showUtbetalinger && (
       <div className={style.linkWrapper}>
-        <Link className={style.link} onClick={() => logEvent("breadcrum", "utbetalingsoversikt")} to="/tms-utbetalingsoversikt">
+        <Link className={style.link} onClick={() => logEvent("breadcrum", "utbetalinger")} to="/tms-utbetalingsoversikt">
           Utbetalinger
         </Link>
       </div>
