@@ -10,7 +10,7 @@ interface Props {
 
 const KommendeUtbetalinger = ({ utbetalinger }: Props) => {
   return (
-    <div className={style.kommendeUtbetalinger}>
+    <div className={style.container}>
       <Heading level="2" size="small" className={"navds-body-short  " + style.heading}>
         Neste utbetaling
       </Heading>{" "}

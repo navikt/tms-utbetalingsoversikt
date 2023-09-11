@@ -26,7 +26,7 @@ const UtbetaltPeriode = ({ data, periode }: PropsType) => {
       <Heading className="navds-body-short " level="2" size="small">
         Utbetalt i perioden
       </Heading>
-      <BodyShort weight="semibold" className={style.perideDate}>
+      <BodyShort weight="semibold" className={style.periodeDate}>
         {periode}
       </BodyShort>
       <ul className={style.list}>

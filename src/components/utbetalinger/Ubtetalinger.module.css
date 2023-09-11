@@ -1,9 +1,9 @@
-.tidligerPeriodeHeading{
+.tidligereUtbetalingerHeading{
   margin: 2rem 0 0.75rem;
 }
 
 @media (min-width: 480px) {
-  .tidligerPeriodeHeading {
-    margin-top: 2.75rem;
+  .tidligereUtbetalingerHeading {
+    margin-top: 3rem;
   }
 }

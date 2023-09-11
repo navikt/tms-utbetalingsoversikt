@@ -1,6 +1,7 @@
-.kommendeUtbetalinger{
+.container{
   margin-top: 2rem;
 }
+
 .heading{
   padding-bottom: 0.75rem;
 }
@@ -16,7 +17,7 @@
 }
 
 @media (min-width: 480px) {
-  .nesteUtbetaling{
-    margin-top: 2.75rem;
+  .container{
+    margin-top: 3rem;
   }
 }

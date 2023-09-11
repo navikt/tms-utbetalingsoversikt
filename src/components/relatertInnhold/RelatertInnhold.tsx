@@ -44,14 +44,14 @@ const relatertInnholdLinks = [
 
 const RelatertInnhold = () => {
   return (
-    <div className={style.relatertInnholdContainer}>
-      <Heading className={style.relatertInnholdHeader} level="2" size="xsmall">
+    <div className={style.container}>
+      <Heading className={style.hrefeading} level="2" size="xsmall">
         Relatert innhold
       </Heading>
-      <ul className={style.relatertInnholdLinkList}>
+      <ul className={style.linkList}>
         {relatertInnholdLinks.map((linkObject) => (
           <li key={linkObject.title}>
-            <a className={style.relatertInnholdLink} href={linkObject.href}>
+            <a className={style.link} href={linkObject.href}>
               {linkObject.title}
             </a>
           </li>

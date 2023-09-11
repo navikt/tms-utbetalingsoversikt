@@ -1,17 +1,20 @@
-.relatertInnholdContainer {
-  margin-top: 3rem;
+.container {
+  margin-top: 2rem;
   padding: 0;
 }
 
-.relatertInnholdLinkList {
+.linkList {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.relatertInnholdContainer li {
+.container li {
   margin-top: 1rem;
 }
 
 @media (min-width: 768px) {
+  .container {
+    margin-top: 3rem;
+  }
 }

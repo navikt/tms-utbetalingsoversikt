@@ -60,7 +60,7 @@ const Utbetalinger = () => {
           <Heading
             level="2"
             size="small"
-            className={`navds-body-short ${style.tidligerPeriodeHeading}`}
+            className={`navds-body-short ${style.tidligereUtbetalingerHeading}`}
           >
             {utbetalingerPeriod === "Egendefinert"
               ? utbetalingerPeriodDato
