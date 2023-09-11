@@ -17,6 +17,7 @@ import NoUtbetalinger from "../noUtbetalinger/NoUtbetalinger";
 import TidligereUtbetalinger from "../tidligereUtbetalinger/TidligereUtbetalinger";
 import UtbetaltPeriode from "../utbetaltPeriode/UtbetaltPeriode";
 import style from "./Ubtetalinger.module.css";
+import ErrorPanel from "../errorPanel/ErrorPanel";
 
 const Utbetalinger = () => {
   const utbetalingerPeriod = useStore(selctedPeriodeAtom);
@@ -25,7 +26,7 @@ const Utbetalinger = () => {
     "DD.MM.YYYY"
   )}-${dayjs(selectedPeriodFilter.tom).format("DD.MM.YYYY")}`;
 
-  const { data: utbetalinger, isLoading } = useSWR(
+  const { data: utbetalinger, isLoading, error } = useSWR(
     {
       path: utbetalingerAPIUrl(
         `?fom=${selectedPeriodFilter.fom}&tom=${selectedPeriodFilter.tom}`
@@ -80,6 +81,9 @@ const Utbetalinger = () => {
           ) : (
             <NoUtbetalinger />
           )}
+          {
+            error ? <ErrorPanel /> : null
+          }
         </>
       }
     </>
