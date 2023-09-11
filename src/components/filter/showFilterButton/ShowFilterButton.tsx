@@ -2,13 +2,15 @@ import { useStore } from "@nanostores/react";
 import { showFilterAtom, toggleShowFilter } from "../../../store/filter";
 import { FilterIcon } from "@navikt/aksel-icons";
 import { Button } from "@navikt/ds-react";
-import style from "./ShowFilterButton.module.css"
+import style from "./ShowFilterButton.module.css";
+import { logEvent } from "../../../utils/amplitude";
 
 const ShowFilterButton = () => {
-  const selected = useStore(showFilterAtom)
+  const selected = useStore(showFilterAtom);
   const handleClick = () => {
-    toggleShowFilter()
-  }
+    logEvent("filter-button", selected ? "Vis filter" : "Skjul filter");
+    toggleShowFilter();
+  };
 
   return (
     <Button
@@ -18,9 +20,9 @@ const ShowFilterButton = () => {
       icon={<FilterIcon aria-hidden />}
       onClick={handleClick}
     >
-      {selected ? "Skjul filter": "Vis filter" }
+      {selected ? "Skjul filter" : "Vis filter"}
     </Button>
   );
 };
 
-export default ShowFilterButton
+export default ShowFilterButton;

@@ -9,6 +9,7 @@ import {
   årsoppgaverUrl,
   sosialhjelpUrl,
 } from "../../utils/urls";
+import { logEvent } from "../../utils/amplitude";
 
 const relatertInnholdLinks = [
   {
@@ -34,8 +35,7 @@ const relatertInnholdLinks = [
   {
     title: "Se årsoppgavene mine",
     href: årsoppgaverUrl,
-  }
-  ,
+  },
   {
     title: "Endre skattekort",
     href: endreSkattekortUrl,
@@ -51,7 +51,13 @@ const RelatertInnhold = () => {
       <ul className={style.linkList}>
         {relatertInnholdLinks.map((linkObject) => (
           <li key={linkObject.title}>
-            <a className={style.link} href={linkObject.href}>
+            <a
+              className={style.link}
+              onClick={() =>
+                logEvent("relatert-innhold-link", linkObject.title)
+              }
+              href={linkObject.href}
+            >
               {linkObject.title}
             </a>
           </li>

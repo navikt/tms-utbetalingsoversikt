@@ -10,6 +10,7 @@ import {
 import style from "./PeriodeFilter.module.css";
 import EgendefinertPeriode from "./egendefinertPeriode/EgendefinertPeriode";
 import { useStore } from "@nanostores/react";
+import { logEvent } from "../../../utils/amplitude";
 
 type PeriodeOptionsType = {
   label: string;
@@ -31,6 +32,7 @@ const PeriodeFilter = () => {
     selectedOption: string,
     periodeTomFom?: GetDatePeriodType
   ) => {
+    logEvent("filter-periode",selectedOption)
     setSelected(selectedOption);
     if (selectedOption !== "Egendefinert") {
       setSelectedPeriode(selectedOption);

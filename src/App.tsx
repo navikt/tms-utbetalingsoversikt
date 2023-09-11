@@ -2,10 +2,11 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import styles from "./App.module.css";
 import Landingsside from "./pages/landingsside/Landingsside";
 import UtbetalingSide from "./pages/utbetalingSide/UtbetalingSide";
+import { initializeAmplitude } from "./utils/amplitude";
 
 function App() {
   const BASE_PATH = "/tms-utbetalingsoversikt";
-
+  initializeAmplitude();
 
   return (
     <div className={styles.pageWrapper}>

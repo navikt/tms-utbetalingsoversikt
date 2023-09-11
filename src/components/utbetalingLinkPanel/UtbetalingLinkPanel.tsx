@@ -4,6 +4,7 @@ import { formatToReadableDate } from "../../../utils/date.js";
 import { baseUrl } from "../../utils/urls.js";
 import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje.js";
 import style from "./UtbetalingLinkPanel.module.css";
+import { logEvent } from "../../utils/amplitude.js";
 
 export type UtbetalingType = {
   id: string;
@@ -28,6 +29,12 @@ const UtbetalingLinkPanel = ({
     <a
       className={"navds-panel navds-link-panel " + linkClassName}
       href={`${baseUrl}/utbetaling/${id}`}
+      onClick={() =>
+        logEvent(
+          "utbetaling-link-panel",
+          nesteUtbetaling ? "kommende" : "tidligere"
+        )
+      }
     >
       <div className={style.betalingLeft}>
         {
@@ -38,7 +45,10 @@ const UtbetalingLinkPanel = ({
         {<BodyLong className={style.betalingYtelse}>{ytelse}</BodyLong>}
       </div>
       <div className={style.betalingRight}>
-        <BodyShort weight="semibold" className={style.betalingDato}>{`${formaterTallUtenDesimaler(beløp)} kr`}</BodyShort>
+        <BodyShort
+          weight="semibold"
+          className={style.betalingDato}
+        >{`${formaterTallUtenDesimaler(beløp)} kr`}</BodyShort>
         <ChevronRightIcon
           aria-hidden="true"
           className="navds-link-panel__chevron chevronRight"
