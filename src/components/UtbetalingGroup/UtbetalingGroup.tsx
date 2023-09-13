@@ -1,7 +1,7 @@
 import { Heading } from "@navikt/ds-react";
 import UtbetalingLinkPanel, { UtbetalingType } from "../utbetalingLinkPanel/UtbetalingLinkPanel";
 import style from "./UtbetalingGroup.module.css";
-import { getMonth } from "../../../utils/date";
+import { getMonth } from "../../utils/date";
 import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje";
 
 export interface UtbetalingGroupProps {

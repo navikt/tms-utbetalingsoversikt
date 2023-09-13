@@ -1,6 +1,6 @@
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort } from "@navikt/ds-react";
-import { formatToReadableDate } from "../../../utils/date.js";
+import { formatToReadableDate } from "../../utils/date.js";
 import { baseUrl } from "../../utils/urls.js";
 import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje.js";
 import style from "./UtbetalingLinkPanel.module.css";

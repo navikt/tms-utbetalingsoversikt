@@ -3,7 +3,7 @@ import useSWRImmutable from "swr";
 import { fetcher } from "../../api/api";
 import { enkelUtbetalingAPIUrl } from "../../utils/urls";
 import { BodyShort, Heading, Label, Loader } from "@navikt/ds-react";
-import { formatToDetailedDate } from "../../../utils/date";
+import { formatToDetailedDate } from "../../utils/date";
 import { summerBruttoYtelser, summerTrekk } from "../../utils/summering";
 import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje";
 import { useParams } from "react-router-dom";
