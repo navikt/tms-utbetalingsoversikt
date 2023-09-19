@@ -8,7 +8,16 @@ import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 import { formatToDetailedDate } from "../../utils/date";
 import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje";
 
-const DetaljeElement = ({ label, beløp, isBold = false }: any) => (
+interface DetaljeElementProps {
+  label: "string";
+  beløp: "number";
+  isBold: boolean;
+}
+const DetaljeElement = ({
+  label,
+  beløp,
+  isBold = false,
+}: DetaljeElementProps) => (
   <li>
     <BodyShort weight={isBold ? "semibold" : "regular"}>{label}</BodyShort>
     <BodyShort weight={isBold ? "semibold" : "regular"}>{beløp}</BodyShort>
