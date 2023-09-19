@@ -14,5 +14,5 @@ const handleGet = (url, response) =>
 export const handlers = [
   handleGet(authenticationUrl, autentication),
   handleGet(utbetalingerAPIUrl(""), alleUtbetalinger),
-  handleGet(enkelUtbetalingAPIUrl(""), utbetalingDetalje),
+  handleGet(enkelUtbetalingAPIUrl("e33f402fa"), utbetalingDetalje),
 ];

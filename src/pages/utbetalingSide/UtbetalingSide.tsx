@@ -48,6 +48,7 @@ const UtbetalingSide = () => {
   if (isLoading) {
     return <Loader size="3xlarge" title="Henter data..." />;
   }
+  
   if (error) {
     return "Feil side";
   }
