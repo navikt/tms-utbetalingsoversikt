@@ -44,12 +44,18 @@ const UtbetalingDetaljeSide = () => {
         {pageTittel}
       </Heading>
       <div className={style.beløpOgDatoContainer}>
-        <BodyShort
-          className={style.utbetaltDato}
-        >{`Utbetalt ${formatToDetailedDate(ytelseDato)}`}</BodyShort>
-        <Heading className={style.belopUtbetaltHeader} level="2" size="xlarge">
-          {`${formaterTallUtenDesimaler(sumUtbetalt)} kr`}
-        </Heading>
+        <div>
+          <BodyShort
+            className={style.utbetaltDato}
+          >{`Utbetalt ${formatToDetailedDate(ytelseDato)}`}</BodyShort>
+          <Heading
+            className={style.belopUtbetaltHeader}
+            level="2"
+            size="xlarge"
+          >
+            {`${formaterTallUtenDesimaler(sumUtbetalt)} kr`}
+          </Heading>
+        </div>
       </div>
       <div className={style.detaljeListeContainer}>
         <BodyShort weight="semibold" className={style.detaljerLabel}>
@@ -81,7 +87,7 @@ const UtbetalingDetaljeSide = () => {
             />
           }
           {data?.melding && (
-            <li className={style.addedDetailElement}>
+            <li className={style.meldingElement}>
               <BodyShort weight="semibold" className={style.meldingLabel}>
                 Melding
               </BodyShort>
@@ -89,7 +95,7 @@ const UtbetalingDetaljeSide = () => {
             </li>
           )}
           {
-            <li className={style.addedDetailElement}>
+            <li>
               <BodyShort weight="semibold" className={style.periodeLabel}>
                 Periode
               </BodyShort>
