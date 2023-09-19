@@ -1,45 +1,34 @@
 {
-  "id": "2131123",
+  "kontonummer": "xxxx6543",
   "ytelse": "Arbeidsavklaringspenger",
-  "status": "Utbetalt",
-  "ytelse_dato": "2023-04-09T22:46:01.204+02:00",
-  "forfall_dato": "2023-04-09T22:46:01.204+02:00",
-  "ytelse_periode": {
-    "fom": "2023-04-26T22:46:01.204+02:00",
-    "tom": "2023-05-26T22:46:01.204+02:00"
+  "erUtbetalt": true,
+  "ytelsePeriode": {
+    "fom": "2023-08-21",
+    "tom": "2023-08-31"
   },
-  "utbetalt_til": "Ola Nordmann  ",
-  "kontonummer": "xx34567",
-  "underytelser": [
+  "ytelseDato": "2023-09-07",
+  "underytelse": [
     {
-      "beskrivelse": "Grunnsats",
-      "sats": 100.0,
-      "antall": 6.0,
-      "belop": 600.0
+      "beskrivelse": "AAP",
+      "sats": 2052,
+      "antall": 4,
+      "beløp": 8208
     },
     {
       "beskrivelse": "Testytelse",
-      "sats": 200.0,
-      "antall": 2.0,
-      "belop": 400.0
-    },
-    {
-      "beskrivelse": "Tilleggspensjon",
-      "sats": 100.0,
-      "antall": 3.0,
-      "belop": 300.0
+      "sats": 0,
+      "antall": 0,
+      "beløp": 1005
     }
   ],
   "trekk": [
     {
       "trekk_type": "Skattetrekk",
-      "trekk_belop": -350.0
-    }
+      "trekk_belop": -4104
+    },
+    { "trekk_type": "Test-trekk", "trekk_belop": -503 }
   ],
-  "er_utbetalt": true,
-  "rettighetshaver": {
-    "aktoerId": "12345",
-    "navn": "Ola Nordmann      "
-  },
-  "melding": "6 uker igjen av stønadsperioden"
+  "melding": "210823-030923 (10 dager a kr 912), Skatt %: 50,00,",
+  "bruttoUtbetalt": 9213,
+  "nettoUtbetalt": 4104
 }
