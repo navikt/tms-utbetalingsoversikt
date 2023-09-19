@@ -16,6 +16,11 @@ type UnderYtelse = {
   beløp: number;
 };
 
+type Trekk = {
+  trekk_type: string;
+  trekk_belop: number;
+};
+
 const UtbetalingDetaljeSide = () => {
   const { utbetalingsId } = useParams();
   const { data, isLoading, error } = useSWRImmutable(
@@ -62,7 +67,7 @@ const UtbetalingDetaljeSide = () => {
           Detaljer
         </BodyShort>
         <ul>
-          {data.underytelse.map((ytelse) => (
+          {data.underytelse.map((ytelse: UnderYtelse) => (
             <DetaljeElement label={ytelse.beskrivelse} beløp={ytelse.beløp} />
           ))}
           {harTrekk && (
@@ -73,7 +78,7 @@ const UtbetalingDetaljeSide = () => {
             />
           )}
           {harTrekk &&
-            trekk.map((trekk) => (
+            trekk.map((trekk: Trekk) => (
               <DetaljeElement
                 label={trekk.trekk_type}
                 beløp={trekk.trekk_belop}
