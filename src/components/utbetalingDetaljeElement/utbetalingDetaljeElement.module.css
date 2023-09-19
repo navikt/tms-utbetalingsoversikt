@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem 0 0.5rem 0;
+  border-bottom: 1px solid var(--a-border-divider);
+}
+.sumContainer {
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 480px) {
+  .container {
+    padding: 0.5rem 0 0.5rem 0;
+  }
+}

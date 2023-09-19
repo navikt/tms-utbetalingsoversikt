@@ -7,22 +7,14 @@ import { fetcher } from "../../api/api";
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 import { formatToDetailedDate } from "../../utils/date";
 import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje";
+import DetaljeElement from "../../components/utbetalingDetaljeElement/UtbetalingDetaljeElement";
 
-interface DetaljeElementProps {
-  label: "string";
-  beløp: "number";
-  isBold: boolean;
-}
-const DetaljeElement = ({
-  label,
-  beløp,
-  isBold = false,
-}: DetaljeElementProps) => (
-  <li>
-    <BodyShort weight={isBold ? "semibold" : "regular"}>{label}</BodyShort>
-    <BodyShort weight={isBold ? "semibold" : "regular"}>{beløp}</BodyShort>
-  </li>
-);
+type UnderYtelse = {
+  beskrivelse: string;
+  sats: number;
+  antall: number;
+  beløp: number;
+};
 
 const UtbetalingDetaljeSide = () => {
   const { utbetalingsId } = useParams();
@@ -43,7 +35,7 @@ const UtbetalingDetaljeSide = () => {
   const brutto = data.bruttoUtbetalt;
   const sumUtbetalt = data.nettoUtbetalt;
   const trekk = data.trekk;
-  const harTrekk = data.length > 0;
+  const harTrekk = trekk.length > 0;
 
   return (
     <>
@@ -59,51 +51,61 @@ const UtbetalingDetaljeSide = () => {
           {`${formaterTallUtenDesimaler(sumUtbetalt)} kr`}
         </Heading>
       </div>
-      <BodyShort weight="semibold" className={style.detaljerLabel}>
-        Detaljer
-      </BodyShort>
-      <ul>
-        <div>
-          {data.underytelser.map((ytelse) => (
-            <DetaljeElement label={ytelse.beskrivelse} belop={ytelse.beløp} />
+      <div className={style.detaljeListeContainer}>
+        <BodyShort weight="semibold" className={style.detaljerLabel}>
+          Detaljer
+        </BodyShort>
+        <ul>
+          {data.underytelse.map((ytelse) => (
+            <DetaljeElement label={ytelse.beskrivelse} beløp={ytelse.beløp} />
           ))}
           {harTrekk && (
-            <DetaljeElement label={"Brutto utbetalt"} belop={brutto} />
+            <DetaljeElement
+              isSum={true}
+              label={"Brutto utbetalt"}
+              beløp={brutto}
+            />
           )}
-        </div>
-        <div>
           {harTrekk &&
-            data.trekk.map((trekk) => (
+            trekk.map((trekk) => (
               <DetaljeElement
                 label={trekk.trekk_type}
-                belop={trekk.trekk_belop}
+                beløp={trekk.trekk_belop}
               />
             ))}
-          {<DetaljeElement label={"Netto utbetalt"} belop={brutto} />}
-        </div>
-        {data?.melding && (
-          <li>
-            <BodyShort weight="semibold" className={style.meldingLabel}>
-              Melding
-            </BodyShort>
-            <BodyShort>{data.melding}</BodyShort>
-          </li>
-        )}
-        {
-          <li>
-            <BodyShort weight="semibold" className={style.periodeLabel}>
-              Periode
-            </BodyShort>
-            <BodyShort className={style.periodeDato}>
-              {`${formatToDetailedDate(
-                data.ytelsePeriode.fom
-              )} - ${formatToDetailedDate(data.ytelsePeriode.tom)} til konto ${
-                data.kontonummer
-              }`}
-            </BodyShort>
-          </li>
-        }
-      </ul>
+          {
+            <DetaljeElement
+              isSum={true}
+              label="Netto utbetalt"
+              beløp={brutto}
+            />
+          }
+          {data?.melding && (
+            <li className={style.addedDetailElement}>
+              <BodyShort weight="semibold" className={style.meldingLabel}>
+                Melding
+              </BodyShort>
+              <BodyShort>{data.melding}</BodyShort>
+            </li>
+          )}
+          {
+            <li className={style.addedDetailElement}>
+              <BodyShort weight="semibold" className={style.periodeLabel}>
+                Periode
+              </BodyShort>
+              <BodyShort className={style.periodeDato}>
+                {`${formatToDetailedDate(
+                  data.ytelsePeriode.fom
+                )} - ${formatToDetailedDate(
+                  data.ytelsePeriode.tom
+                )} til konto ${data.kontonummer}`}
+              </BodyShort>
+            </li>
+          }
+        </ul>
+      </div>
     </>
   );
 };
+
+export default UtbetalingDetaljeSide;
