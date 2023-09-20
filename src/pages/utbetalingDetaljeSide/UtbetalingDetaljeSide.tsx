@@ -63,9 +63,9 @@ const UtbetalingDetaljeSide = () => {
         </div>
       </div>
       <div className={style.detaljeListeContainer}>
-        <BodyShort weight="semibold" className={style.detaljerLabel}>
+        <Heading level="2" size="xsmall" className={style.detaljerHeading}>
           Detaljer
-        </BodyShort>
+        </Heading>
         <ul>
           {data.underytelse.map((ytelse: UnderYtelse) => (
             <DetaljeElement label={ytelse.beskrivelse} beløp={ytelse.beløp} />
@@ -92,29 +92,26 @@ const UtbetalingDetaljeSide = () => {
               beløp={nettoUtbetalt}
             />
           }
-          {data?.melding && (
-            <li className={style.meldingElement}>
-              <BodyShort weight="semibold" className={style.meldingLabel}>
-                Melding
-              </BodyShort>
-              <BodyLong className={style.meldingTekst}>{data.melding}</BodyLong>
-            </li>
-          )}
-          {
-            <li className={style.periodeElement}>
-              <BodyShort weight="semibold" className={style.periodeLabel}>
-                Periode
-              </BodyShort>
-              <BodyShort className={style.periodeDato}>
-                {`${formatToDetailedDate(
-                  data.ytelsePeriode.fom
-                )} - ${formatToDetailedDate(
-                  data.ytelsePeriode.tom
-                )} til konto ${data.kontonummer}`}
-              </BodyShort>
-            </li>
-          }
         </ul>
+        {data?.melding && (
+          <>
+            <Heading level="2" size="xsmall" className={style.meldingHeading}>
+              Melding
+            </Heading>
+            <BodyLong className={style.meldingTekst}>{data.melding}</BodyLong>
+          </>
+        )}
+
+        <Heading level="2" size="xsmall" className={style.periodeHeading}>
+          Periode
+        </Heading>
+        <BodyShort className={style.periodeDato}>
+          {`${formatToDetailedDate(
+            data.ytelsePeriode.fom
+          )} - ${formatToDetailedDate(data.ytelsePeriode.tom)} til konto ${
+            data.kontonummer
+          }`}
+        </BodyShort>
       </div>
     </>
   );

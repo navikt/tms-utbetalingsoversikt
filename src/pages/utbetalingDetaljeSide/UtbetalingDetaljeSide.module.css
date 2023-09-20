@@ -18,13 +18,13 @@ ul {
   border-radius: 8px;
 }
 
-.detaljerLabel {
+.detaljerHeading {
   margin-top: 2rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--a-border-divider);
 }
 
-.meldingElement, .periodeElement {
+.periodeHeading, .meldingHeading {
   margin-top: 2.5rem;
 }
 
