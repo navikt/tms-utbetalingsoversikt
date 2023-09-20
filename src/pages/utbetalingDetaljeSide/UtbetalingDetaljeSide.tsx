@@ -38,7 +38,7 @@ const UtbetalingDetaljeSide = () => {
   const pageTittel = data.ytelse;
   const ytelseDato = data.ytelseDato;
   const brutto = data.bruttoUtbetalt;
-  const sumUtbetalt = data.nettoUtbetalt;
+  const nettoUtbetalt = data.nettoUtbetalt;
   const trekk = data.trekk;
   const harTrekk = trekk.length > 0;
 
@@ -58,7 +58,7 @@ const UtbetalingDetaljeSide = () => {
             level="2"
             size="xlarge"
           >
-            {`${formaterTallUtenDesimaler(sumUtbetalt)} kr`}
+            {`${formaterTallUtenDesimaler(nettoUtbetalt)} kr`}
           </Heading>
         </div>
       </div>
@@ -89,7 +89,7 @@ const UtbetalingDetaljeSide = () => {
             <DetaljeElement
               isSum={true}
               label="Netto utbetalt"
-              beløp={brutto}
+              beløp={nettoUtbetalt}
             />
           }
           {data?.melding && (
