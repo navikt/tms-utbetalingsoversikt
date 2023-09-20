@@ -75,6 +75,7 @@ const UtbetalingDetaljeSide = () => {
               isSum={true}
               label={"Brutto utbetalt"}
               beløp={brutto}
+              className="bruttoElement"
             />
           )}
           {harTrekk &&
@@ -100,7 +101,7 @@ const UtbetalingDetaljeSide = () => {
             </li>
           )}
           {
-            <li>
+            <li className={style.periodeElement}>
               <BodyShort weight="semibold" className={style.periodeLabel}>
                 Periode
               </BodyShort>

@@ -5,12 +5,8 @@
   padding: 0.5rem 0 0.5rem 0;
   border-bottom: 1px solid var(--a-border-divider);
 }
-.sumContainer {
-  margin-bottom: 2rem;
+
+.bruttoElement{
+  margin-bottom: 1.5rem;
 }
 
-@media (min-width: 480px) {
-  .container {
-    padding: 0.5rem 0 0.5rem 0;
-  }
-}
