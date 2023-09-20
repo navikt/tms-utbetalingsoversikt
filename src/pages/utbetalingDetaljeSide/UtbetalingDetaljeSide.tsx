@@ -96,7 +96,7 @@ const UtbetalingDetaljeSide = () => {
               <BodyShort weight="semibold" className={style.meldingLabel}>
                 Melding
               </BodyShort>
-              <BodyShort className={style.meldingTekst}>{data.melding}</BodyShort>
+              <BodyLong className={style.meldingTekst}>{data.melding}</BodyLong>
             </li>
           )}
           {
