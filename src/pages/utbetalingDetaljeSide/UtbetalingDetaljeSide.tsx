@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { enkelUtbetalingAPIUrl } from "../../utils/urls";
 import style from "./UtbetalingDetaljeSide.module.css";
 import useSWRImmutable from "swr/immutable";
-import { BodyShort, Heading, Loader } from "@navikt/ds-react";
+import { BodyLong, BodyShort, Heading, Loader } from "@navikt/ds-react";
 import { fetcher } from "../../api/api";
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 import { formatToDetailedDate } from "../../utils/date";
@@ -96,7 +96,7 @@ const UtbetalingDetaljeSide = () => {
               <BodyShort weight="semibold" className={style.meldingLabel}>
                 Melding
               </BodyShort>
-              <BodyShort>{data.melding}</BodyShort>
+              <BodyShort className={style.meldingTekst}>{data.melding}</BodyShort>
             </li>
           )}
           {
