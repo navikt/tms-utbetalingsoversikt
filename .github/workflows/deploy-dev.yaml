@@ -1,0 +1,9 @@
+name: Deploy dev
+on: workflow_dispatch
+
+env:
+  IMAGE: ghcr.io/github.repository }}/tms-utbetalingsoversikt:github.sha
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
