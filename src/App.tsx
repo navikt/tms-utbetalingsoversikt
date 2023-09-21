@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import styles from "./App.module.css";
 import Landingsside from "./pages/landingsside/Landingsside";
-import UtbetalingSide from "./pages/utbetalingSide/UtbetalingSide";
+import UtbetalingDetaljeSide from "./pages/utbetalingDetaljeSide/UtbetalingDetaljeSide";
 import { initializeAmplitude } from "./utils/amplitude";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
             <Route path={BASE_PATH} element={<Landingsside />} />
             <Route
               path={BASE_PATH + "/utbetaling/:utbetalingsId"}
-              element={<UtbetalingSide />}
+              element={<UtbetalingDetaljeSide />}
             />
           </Routes>
         </Router>

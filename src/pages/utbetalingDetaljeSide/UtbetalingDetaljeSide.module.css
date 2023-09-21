@@ -1,0 +1,45 @@
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.detaljeListeContainer {
+  padding: 0 0.5rem;
+}
+
+.beløpOgDatoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 1.25rem;
+  background: var(--a-surface-subtle);
+  padding: 32px 40px 28px 40px;
+  border-radius: 8px;
+}
+
+.detaljerHeading {
+  margin-top: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--a-border-divider);
+}
+
+.periodeHeading, .meldingHeading {
+  margin-top: 2.5rem;
+}
+
+.meldingTekst, .periodeDato{
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--a-border-divider);
+  border-top: 1px solid var(--a-border-divider);
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 480px) {
+  .beløpOgDatoContainer {
+    margin-top: 2rem;
+  }
+  .detaljerLabel {
+    margin-top: 2.75rem;
+  }
+}

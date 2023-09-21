@@ -91,7 +91,7 @@ export const utbetalingerAPIUrl = (period: string) =>
   `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}/utbetalinger/alle${period}`;
 
 export const enkelUtbetalingAPIUrl = (id: string) =>
-  `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}/utbetaling?ytelseId=${id}`;
+  `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}/utbetalinger/${id}`;
 
 export const baseUrl = `${BASE_URL[getEnvironment()]}`;
 export const loginUrl = `${
