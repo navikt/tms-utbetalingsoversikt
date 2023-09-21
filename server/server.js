@@ -10,7 +10,13 @@ const server = express();
 
 server.disable("x-powered-by");
 
-server.use(basePath, express.static(buildPath, { index: false }));
+server.use(
+  basePath,
+  expressStaticGzip(buildPath, {
+    enableBrotli: true,
+    orderPreference: ["br"],
+  })
+);
 
 server.get(`${basePath}/internal/isAlive`, async (req, res) => {
   res.sendStatus(200);
