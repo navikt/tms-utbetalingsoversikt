@@ -7,6 +7,7 @@ const getHtmlWithDecorator = require("./dekorator");
 const basePath = "/tms-utbetalingsoversikt";
 const buildPath = path.resolve(__dirname, "../dist");
 const server = express();
+const expressStaticGzip = require("express-static-gzip");
 
 server.disable("x-powered-by");
 
