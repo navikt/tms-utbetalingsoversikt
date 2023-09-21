@@ -23,10 +23,10 @@
   ],
   "trekk": [
     {
-      "trekk_type": "Skattetrekk",
-      "trekk_belop": -4104
+      "type": "Skattetrekk",
+      "beløp": -4104
     },
-    { "trekk_type": "Test-trekk", "trekk_belop": -503 }
+    { "type": "Test-trekk", "beløp": -503 }
   ],
   "melding": "210823-030923 (10 dager a kr 912), Skatt %: 50,00,",
   "bruttoUtbetalt": 9213,

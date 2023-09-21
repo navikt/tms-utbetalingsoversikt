@@ -17,8 +17,8 @@ type UnderYtelse = {
 };
 
 type Trekk = {
-  trekk_type: string;
-  trekk_belop: number;
+  type: string;
+  beløp: number;
 };
 
 const UtbetalingDetaljeSide = () => {
@@ -68,7 +68,7 @@ const UtbetalingDetaljeSide = () => {
         </Heading>
         <ul>
           {data.underytelse.map((ytelse: UnderYtelse) => (
-            <DetaljeElement label={ytelse.beskrivelse} beløp={ytelse.beløp} />
+            <DetaljeElement key={ytelse.beskrivelse+ytelse.beløp} label={ytelse.beskrivelse} beløp={ytelse.beløp} />
           ))}
           {harTrekk && (
             <DetaljeElement
@@ -81,8 +81,8 @@ const UtbetalingDetaljeSide = () => {
           {harTrekk &&
             trekk.map((trekk: Trekk) => (
               <DetaljeElement
-                label={trekk.trekk_type}
-                beløp={trekk.trekk_belop}
+                label={trekk.type}
+                beløp={trekk.beløp}
               />
             ))}
           {
