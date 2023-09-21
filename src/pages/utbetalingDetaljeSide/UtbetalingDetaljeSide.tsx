@@ -23,7 +23,7 @@ type Trekk = {
 
 const UtbetalingDetaljeSide = () => {
   const { utbetalingsId } = useParams();
-  const { data, isLoading, error } = useSWRImmutable(
+  const { data, isLoading } = useSWRImmutable(
     { path: enkelUtbetalingAPIUrl(utbetalingsId ? utbetalingsId : "") },
     fetcher,
     {
