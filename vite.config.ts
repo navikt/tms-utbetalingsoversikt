@@ -1,7 +1,8 @@
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { terser } from "rollup-plugin-terser";
 import { rollupImportMapPlugin } from "rollup-plugin-import-map";
+import { terser } from "rollup-plugin-terser";
+import { defineConfig } from "vite";
+import viteCompression from "vite-plugin-compression";
 import importmap from "./importmap.json" assert { type: "json" };
 
 export default defineConfig(({ command }) => ({
@@ -12,6 +13,9 @@ export default defineConfig(({ command }) => ({
       enforce: "pre",
       apply: "build",
     },
+    viteCompression({
+      algorithm: "brotliCompress",
+    }),
     terser(),
   ],
   css: {
