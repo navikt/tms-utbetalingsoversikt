@@ -1,6 +1,10 @@
 name: Deploy dev
 on: workflow_dispatch
 
+permissions:
+  packages: write
+  contents: read
+
 env:
   IMAGE: ghcr.io/github.repository }}/tms-utbetalingsoversikt:github.sha
 
