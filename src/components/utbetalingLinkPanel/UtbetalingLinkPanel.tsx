@@ -1,10 +1,10 @@
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort } from "@navikt/ds-react";
-import { formatToReadableDate } from "../../utils/date.js";
-import { baseUrl } from "../../utils/urls.js";
-import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje.js";
+import { logEvent } from "../../utils/amplitude";
+import { formatToReadableDate } from "../../utils/date";
+import { baseUrl } from "../../utils/urls";
+import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje";
 import style from "./UtbetalingLinkPanel.module.css";
-import { logEvent } from "../../utils/amplitude.js";
 
 export type UtbetalingType = {
   id: string;
