@@ -17,9 +17,9 @@ jobs:
         run: npm run build
       - name: Build and publish image
         run:
-          docker build --pull --tag ${IMAGE} . && echo $GITHUB_TOKEN | docker login\
+          "docker build --pull --tag ${IMAGE} . && echo $GITHUB_TOKEN | docker login\
           \ --username $GITHUB_REPOSITORY --password-stdin https://ghcr.io\
-          \ && docker push ${IMAGE}
+          \ && docker push ${IMAGE}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   deploy:
