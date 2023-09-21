@@ -16,6 +16,9 @@ export default defineConfig(({ command }) => ({
     viteCompression({
       algorithm: "brotliCompress",
     }),
+    viteCompression({
+      algorithm: "gzip",
+    }),
     terser(),
   ],
   css: {
