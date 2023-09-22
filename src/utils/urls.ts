@@ -87,6 +87,12 @@ const OM_UTBETALINGER_URL = {
   production: "https://www.nav.no/utbetalinger",
 };
 
+const LEGACY_URL = {
+  local: "http://localhost:3000/utbetalingsoversikt",
+  development: "https://www.intern.dev.nav.no/utbetalingsoversikt",
+  production: "https://tjenester.nav.no/utbetalingsoversik",
+}
+
 export const utbetalingerAPIUrl = (period: string) =>
   `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}/utbetalinger/alle${period}`;
 
@@ -108,3 +114,4 @@ export const dagpengerUrl = DAGPENGER_URL[getEnvironment()];
 export const årsoppgaverUrl = ÅRSOPPGAVER_URL[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const omUtbetalinger = OM_UTBETALINGER_URL[getEnvironment()];
+export const legacyUrl = LEGACY_URL[getEnvironment()];

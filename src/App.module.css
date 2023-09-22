@@ -1,4 +1,4 @@
-.pageWrapper{
+.pageWrapper {
   display: flex;
   justify-content: center;
   padding-left: 1rem;
@@ -6,8 +6,18 @@
   margin-bottom: 6.67rem;
 }
 
-.pageContainer{
+.pageContainer {
   flex-grow: 1;
   max-width: 632px;
   margin: 0 auto 0 auto;
+}
+
+.infoAlert {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 480px) {
+  .infoAlert {
+    margin-top: 3.5rem;
+  }
 }
