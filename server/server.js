@@ -16,6 +16,7 @@ server.use(
   expressStaticGzip(buildPath, {
     enableBrotli: true,
     orderPreference: ["br"],
+    index: false
   })
 );
 
