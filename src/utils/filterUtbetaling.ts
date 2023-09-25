@@ -1,4 +1,4 @@
-import { UtbetalingGroupProps } from "../components/UtbetalingGroup/UtbetalingGroup";
+import { UtbetalingGroupProps } from "~components/UtbetalingGroup/UtbetalingGroup";
 import { SelectedYtelser } from "../store/filter";
 
 const filterUtbetalinger = (

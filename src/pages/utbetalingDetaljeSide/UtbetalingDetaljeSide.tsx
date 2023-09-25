@@ -4,14 +4,14 @@ import style from "./UtbetalingDetaljeSide.module.css";
 import useSWRImmutable from "swr/immutable";
 import { BodyLong, BodyShort, Heading, Loader } from "@navikt/ds-react";
 import { fetcher } from "../../api/api";
-import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
+import Breadcrumbs from "~components/breadcrumbs/Breadcrumbs";
 import { formatToDetailedDate } from "../../utils/date";
 import {
   formaterTallUtenDesimaler,
   isUtbetalingWithSats,
   satsDescription,
 } from "~utils/utbetalingDetalje";
-import DetaljeElement from "../../components/utbetalingDetaljeElement/UtbetalingDetaljeElement";
+import DetaljeElement from "~components/utbetalingDetaljeElement/UtbetalingDetaljeElement";
 import { UnderYtelse } from "src/types/utbetalingTypes";
 
 type Trekk = {

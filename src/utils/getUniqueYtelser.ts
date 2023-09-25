@@ -1,4 +1,4 @@
-import { UtbetalingType } from "../components/utbetalingLinkPanel/UtbetalingLinkPanel";
+import { UtbetalingType } from "~components/utbetalingLinkPanel/UtbetalingLinkPanel";
 
 
 export type YtelserListFilter = { [key: string]: boolean };
