@@ -6,7 +6,10 @@ import {
 } from "../utils/urls";
 import autentication from "./mockData/autentication.json" assert { type: "json" };
 import alleUtbetalinger from "./mockData/alleUtbetalinger.json";
-import utbetalingDetalje from "./mockData/utbetalingDetalje.json";
+import betaltUtbetalingDetalje from "./mockData/betaltUtbetalingDetalje.json";
+import kommendetUtbetalingDetalje from "./mockData/kommendeUtbetalingDetaljer.json";
+
+
 
 const handleGet = (url, response) =>
   rest.get(url, (_, res, ctx) => res(ctx.json(response)));
@@ -14,5 +17,6 @@ const handleGet = (url, response) =>
 export const handlers = [
   handleGet(authenticationUrl, autentication),
   handleGet(utbetalingerAPIUrl(""), alleUtbetalinger),
-  handleGet(enkelUtbetalingAPIUrl("e33f402fa"), utbetalingDetalje),
+  handleGet(enkelUtbetalingAPIUrl("ut-*"), betaltUtbetalingDetalje),
+  handleGet(enkelUtbetalingAPIUrl("ko-*"), kommendetUtbetalingDetalje),
 ];
