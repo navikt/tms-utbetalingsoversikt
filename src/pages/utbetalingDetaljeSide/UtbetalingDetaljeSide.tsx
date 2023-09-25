@@ -40,8 +40,9 @@ const UtbetalingDetaljeSide = () => {
   const brutto = data.bruttoUtbetalt;
   const nettoUtbetalt = data.nettoUtbetalt;
   const trekk = data.trekk;
-  const harTrekk = trekk.length > 0;
-
+  const hasTrekk = trekk.length > 0;
+  const erUtbetaltText = data.erUtbetalt ? "Utbetalt" : "Forventet overføring til bank";
+ 
   return (
     <>
       <Breadcrumbs showUtbetalinger={true} />
@@ -52,7 +53,7 @@ const UtbetalingDetaljeSide = () => {
         <div>
           <BodyShort
             className={style.utbetaltDato}
-          >{`Utbetalt ${formatToDetailedDate(ytelseDato)}`}</BodyShort>
+          >{`${erUtbetaltText} ${formatToDetailedDate(ytelseDato)}`}</BodyShort>
           <Heading
             className={style.belopUtbetaltHeader}
             level="2"
@@ -70,7 +71,7 @@ const UtbetalingDetaljeSide = () => {
           {data.underytelse.map((ytelse: UnderYtelse) => (
             <DetaljeElement key={ytelse.beskrivelse+ytelse.beløp} label={ytelse.beskrivelse} beløp={ytelse.beløp} />
           ))}
-          {harTrekk && (
+          {hasTrekk && (
             <DetaljeElement
               isSum={true}
               label={"Brutto utbetalt"}
@@ -78,7 +79,7 @@ const UtbetalingDetaljeSide = () => {
               className="bruttoElement"
             />
           )}
-          {harTrekk &&
+          {hasTrekk &&
             trekk.map((trekk: Trekk) => (
               <DetaljeElement
                 label={trekk.type}
