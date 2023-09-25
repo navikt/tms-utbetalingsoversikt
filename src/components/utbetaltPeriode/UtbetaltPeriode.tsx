@@ -1,5 +1,5 @@
 import { BodyShort, Heading } from "@navikt/ds-react";
-import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje";
+import { formaterTallUtenDesimaler } from "~utils/utbetalingDetalje";
 import style from "./UtbetaltPeriode.module.css";
 
 export type Ytelse = { ytelse: string; beløp: number };

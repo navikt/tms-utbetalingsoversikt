@@ -1,4 +1,4 @@
-import { getDateThreemonthsBack } from "./../utils";
+import { getDateThreemonthsBack } from "~utils";
 import { atom } from "nanostores";
 
 export const showFilterAtom = atom<boolean>(false);

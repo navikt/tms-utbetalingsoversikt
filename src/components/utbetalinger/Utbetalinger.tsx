@@ -8,8 +8,8 @@ import {
   selctedPeriodeAtom,
   setYtelseFilter,
 } from "../../store/filter";
-import getUniqueYtelser from "../../utils/getUniqueYtelser";
-import { utbetalingerAPIUrl } from "../../utils/urls";
+import getUniqueYtelser from "~utils/getUniqueYtelser";
+import { utbetalingerAPIUrl } from "~utils/urls";
 import ContentLoader from "../contentLoader/ContentLoader";
 import YtelserFilter from "../filter/ytelseFilter/YtelserFilter";
 import KommendeUtbetalinger from "../kommendeUtbetalinger/KommendeUtbetalinger";

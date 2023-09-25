@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { enkelUtbetalingAPIUrl } from "../../utils/urls";
+import { enkelUtbetalingAPIUrl } from "~utils/urls";
 import style from "./UtbetalingDetaljeSide.module.css";
 import useSWRImmutable from "swr/immutable";
 import { BodyLong, BodyShort, Heading, Loader } from "@navikt/ds-react";

@@ -1,7 +1,7 @@
 import { BodyLong, Heading, Link } from "@navikt/ds-react";
 import style from "./NoUtbetalinger.module.css";
-import { omUtbetalinger } from "../../utils/urls";
-import { logEvent } from "../../utils/amplitude";
+import { omUtbetalinger } from "~utils/urls";
+import { logEvent } from "~utils/amplitude";
 
 const NoUtbetalinger = () => {
   return (

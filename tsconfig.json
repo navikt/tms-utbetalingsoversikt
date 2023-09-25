@@ -21,8 +21,8 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "~utils": ["~/src/utils/*"],
-      "~components/*": ["~/src/compoennts/*"]
+      "~utils/*":["./src/utils/*"],
+      "~components/*": ["./src/compoennts/*"]
     },
   },
   "include": ["src", "src/*.json"],

@@ -1,6 +1,6 @@
 import useSWRImmutable from "swr/immutable";
 import ContentLoader from "../contentLoader/ContentLoader";
-import { authenticationUrl, baseUrl, loginUrl } from "../../utils/urls.ts";
+import { authenticationUrl, baseUrl, loginUrl } from "~utils/urls.ts";
 import { fetcher } from "../../api/api.ts";
 import React from "react";
 

@@ -8,8 +8,8 @@ import {
   dagpengerUrl,
   årsoppgaverUrl,
   sosialhjelpUrl,
-} from "../../utils/urls";
-import { logEvent } from "../../utils/amplitude";
+} from "~utils/urls";
+import { logEvent } from "~utils/amplitude";
 
 const relatertInnholdLinks = [
   {

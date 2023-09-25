@@ -6,11 +6,11 @@ import {
   getDateCurrentlyThisYear,
   getDateLastYear,
   getDateThreemonthsBack,
-} from "../../../utils";
+} from "~utils";
 import style from "./PeriodeFilter.module.css";
 import EgendefinertPeriode from "./egendefinertPeriode/EgendefinertPeriode";
 import { useStore } from "@nanostores/react";
-import { logEvent } from "../../../utils/amplitude";
+import { logEvent } from "~utils/amplitude";
 
 type PeriodeOptionsType = {
   label: string;

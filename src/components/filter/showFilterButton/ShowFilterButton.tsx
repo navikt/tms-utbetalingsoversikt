@@ -3,7 +3,7 @@ import { showFilterAtom, toggleShowFilter } from "../../../store/filter";
 import { FilterIcon } from "@navikt/aksel-icons";
 import { Button } from "@navikt/ds-react";
 import style from "./ShowFilterButton.module.css";
-import { logEvent } from "../../../utils/amplitude";
+import { logEvent } from "~utils/amplitude";
 
 const ShowFilterButton = () => {
   const selected = useStore(showFilterAtom);

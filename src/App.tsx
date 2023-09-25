@@ -2,9 +2,9 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import styles from "./App.module.css";
 import Landingsside from "./pages/landingsside/Landingsside";
 import UtbetalingDetaljeSide from "./pages/utbetalingDetaljeSide/UtbetalingDetaljeSide";
-import { initializeAmplitude } from "./utils/amplitude";
+import { initializeAmplitude } from "~utils/amplitude";
 import { Alert, Link } from "@navikt/ds-react";
-import { legacyUrl } from "./utils/urls";
+import { legacyUrl } from "~utils/urls";
 
 function App() {
   const BASE_PATH = "/tms-utbetalingsoversikt";

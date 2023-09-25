@@ -1,5 +1,5 @@
 import { Alert, BodyLong, Heading, Link } from "@navikt/ds-react";
-import { baseUrl } from "../../utils/urls";
+import { baseUrl } from "~utils/urls";
 import style from "./ErrorPanel.module.css"
 
 const ErrorPanel = () => (
