@@ -12,13 +12,16 @@
       "beskrivelse": "AAP",
       "sats": 2052,
       "antall": 4,
-      "beløp": 8208
+      "beløp": 8208,
+      "satstype":"***"
     },
     {
       "beskrivelse": "Testytelse",
       "sats": 0,
       "antall": 0,
-      "beløp": 1005
+      "beløp": 1005,
+      "satstype":""
+
     }
   ],
   "trekk": [

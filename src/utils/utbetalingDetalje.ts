@@ -2,7 +2,7 @@ import { UnderYtelse } from "../types/utbetalingTypes";
 
 const utbetalingerMedSats = ['ARBEIDSAVKLARINGSPENGER', 'DAGPENGER'];
 
-export function visSatsForUtbetaling(type: string): boolean {
+export function isUtbetalingWithSats(type: string): boolean {
 
   for (const ytelse of utbetalingerMedSats) {
       if (ytelse.toUpperCase() === type.toUpperCase()) {
@@ -11,6 +11,14 @@ export function visSatsForUtbetaling(type: string): boolean {
   }
 
   return false;
+}
+
+export function satsDescription(ytelse: UnderYtelse): string {
+  if (ytelse.satstype == 'Prosent') {
+      return `(${formaterTallTilKomma({tall: ytelse.antall, maxDesimaler: 4})} kroner à ${formaterTallUtenDesimaler(ytelse.sats)}%)`
+  } else {
+      return `(${formaterTallTilKomma({tall: ytelse.antall, maxDesimaler: 4})} dager à ${formaterTallUtenDesimaler(ytelse.sats)} kroner)`
+  }
 }
 
 export function formaterTallTilKomma(
@@ -44,12 +52,4 @@ export function formaterVekkTommeMeldinger(tekster: { [key: string]: string }) {
   }
 
   return tekster;
-}
-
-export function satsBeskrivelse(ytelse: UnderYtelse): string {
-  if (ytelse.satstype == 'Prosent') {
-      return `(${formaterTallTilKomma({tall: ytelse.antall, maxDesimaler: 4})} kroner à ${formaterTallUtenDesimaler(ytelse.sats)}%)`
-  } else {
-      return `(${formaterTallTilKomma({tall: ytelse.antall, maxDesimaler: 4})} dager à ${formaterTallUtenDesimaler(ytelse.sats)} kroner)`
-  }
 }
