@@ -22,7 +22,8 @@
     "baseUrl": ".",
     "paths": {
       "~utils/*":["./src/utils/*"],
-      "~components/*": ["./src/compoennts/*"]
+      "~components/*": ["./src/components/*"],
+      "~store/*": ["./src/store/*"]
     },
   },
   "include": ["src", "src/*.json"],

@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react";
-import { showFilterAtom, toggleShowFilter } from "../../../store/filter";
+import { showFilterAtom, toggleShowFilter } from "~store/filter";
 import { FilterIcon } from "@navikt/aksel-icons";
 import { Button } from "@navikt/ds-react";
 import style from "./ShowFilterButton.module.css";

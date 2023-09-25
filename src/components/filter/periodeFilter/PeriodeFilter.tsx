@@ -4,7 +4,7 @@ import {
   setPeriodeFilter,
   setSelectedPeriode,
   showFilterAtom,
-} from "../../../store/filter";
+} from "~store/filter";
 import {
   GetDatePeriodType,
   getDateCurrentlyThisYear,

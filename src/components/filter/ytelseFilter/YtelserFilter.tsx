@@ -4,7 +4,7 @@ import {
   showFilterAtom,
   toggleYtelseFilter,
   ytelserFilterAtom,
-} from "../../../store/filter";
+} from "~store/filter";
 import style from "./YtelserFilter.module.css";
 import { logEvent } from "~utils/amplitude";
 

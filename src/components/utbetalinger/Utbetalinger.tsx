@@ -7,7 +7,7 @@ import {
   periodeFilterAtom,
   selctedPeriodeAtom,
   setYtelseFilter,
-} from "../../store/filter";
+} from "~store/filter";
 import getUniqueYtelser from "~utils/getUniqueYtelser";
 import { utbetalingerAPIUrl } from "~utils/urls";
 import ContentLoader from "../contentLoader/ContentLoader";

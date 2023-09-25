@@ -8,7 +8,7 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import { formatDateToDayjs } from "~utils/date";
 import style from "./Egendefinert.module.css";
-import { setPeriodeFilter, setSelectedPeriode } from "../../../../store/filter";
+import { setPeriodeFilter, setSelectedPeriode } from "~store/filter";
 
 const EgendefinertPeriode = () => {
   const [costumDate, setCostumDate] = useState({ fom: "", tom: "" });
