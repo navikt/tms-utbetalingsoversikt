@@ -50,8 +50,12 @@ const UtbetalingDetaljeSide = () => {
       <Heading className={style.pageTitle} level="1" size="xlarge">
         {pageTittel}
       </Heading>
-      <div className={style.beløpOgDatoContainer}>
-        <div>
+      <div
+        className={`${style.beløpOgDatoWrapper} ${
+          !data.erUtbetalt && style.kommendeUtbetalingWrapper
+        }`}
+      >
+        <div className={style.beløpOgDatoContainer}>
           <BodyShort
             className={style.utbetaltDato}
           >{`${isUtbetaltText} ${formatToDetailedDate(ytelseDato)}`}</BodyShort>
