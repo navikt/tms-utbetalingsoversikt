@@ -1,9 +1,9 @@
 import { useStore } from "@nanostores/react";
-import { ytelserFilterAtom } from "../../store/filter";
-import filterUtbetalinger from "../../utils/filterUtbetaling";
+import { ytelserFilterAtom } from "~store/filter";
+import filterUtbetalinger from "~utils/filterUtbetaling";
 import UtbetalingGroup, {
   UtbetalingGroupProps,
-} from "../UtbetalingGroup/UtbetalingGroup";
+} from "../utbetalingGroup/UtbetalingGroup";
 import style from "./TidligereUtbetalinger.module.css";
 
 interface Props {

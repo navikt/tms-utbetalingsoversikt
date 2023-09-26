@@ -1,6 +1,6 @@
 import { BodyShort } from "@navikt/ds-react";
 import style from "./utbetalingDetaljeElement.module.css";
-import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje";
+import { formaterTallUtenDesimaler } from "~utils/utbetalingDetalje";
 
 interface DetaljeElementProps {
   label: string;

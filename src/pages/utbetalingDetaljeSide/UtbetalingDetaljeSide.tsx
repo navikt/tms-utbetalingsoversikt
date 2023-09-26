@@ -1,20 +1,18 @@
 import { useParams } from "react-router-dom";
-import { enkelUtbetalingAPIUrl } from "../../utils/urls";
+import { enkelUtbetalingAPIUrl } from "~utils/urls";
 import style from "./UtbetalingDetaljeSide.module.css";
 import useSWRImmutable from "swr/immutable";
 import { BodyLong, BodyShort, Heading, Loader } from "@navikt/ds-react";
 import { fetcher } from "../../api/api";
-import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
+import Breadcrumbs from "~components/breadcrumbs/Breadcrumbs";
 import { formatToDetailedDate } from "../../utils/date";
-import { formaterTallUtenDesimaler } from "../../utils/utbetalingDetalje";
-import DetaljeElement from "../../components/utbetalingDetaljeElement/UtbetalingDetaljeElement";
-
-type UnderYtelse = {
-  beskrivelse: string;
-  sats: number;
-  antall: number;
-  beløp: number;
-};
+import {
+  formaterTallUtenDesimaler,
+  isUtbetalingWithSats,
+  satsDescription,
+} from "~utils/utbetalingDetalje";
+import DetaljeElement from "~components/utbetalingDetaljeElement/UtbetalingDetaljeElement";
+import { UnderYtelse } from "src/types/utbetalingTypes";
 
 type Trekk = {
   type: string;
@@ -41,8 +39,11 @@ const UtbetalingDetaljeSide = () => {
   const nettoUtbetalt = data.nettoUtbetalt;
   const trekk = data.trekk;
   const hasTrekk = trekk.length > 0;
-  const erUtbetaltText = data.erUtbetalt ? "Utbetalt" : "Forventet overføring til bank";
-  
+  const isUtbetaltText = data.erUtbetalt
+    ? "Utbetalt"
+    : "Forventet overføring til bank";
+  const showSats = isUtbetalingWithSats(data.ytelse);
+
   return (
     <>
       <Breadcrumbs showUtbetalinger={true} />
@@ -57,7 +58,7 @@ const UtbetalingDetaljeSide = () => {
         <div className={style.beløpOgDatoContainer}>
           <BodyShort
             className={style.utbetaltDato}
-          >{`${erUtbetaltText} ${formatToDetailedDate(ytelseDato)}`}</BodyShort>
+          >{`${isUtbetaltText} ${formatToDetailedDate(ytelseDato)}`}</BodyShort>
           <Heading
             className={style.belopUtbetaltHeader}
             level="2"
@@ -72,13 +73,19 @@ const UtbetalingDetaljeSide = () => {
           Detaljer
         </Heading>
         <ul>
-          {data.underytelse.map((ytelse: UnderYtelse) => (
-            <DetaljeElement
-              key={ytelse.beskrivelse + ytelse.beløp}
-              label={ytelse.beskrivelse}
-              beløp={ytelse.beløp}
-            />
-          ))}
+          {data.underytelse.map((ytelse: UnderYtelse) => {
+            return (
+              <DetaljeElement
+                key={ytelse.beskrivelse + ytelse.beløp}
+                label={`${ytelse.beskrivelse} ${
+                  showSats && ytelse.sats && ytelse.antall
+                    ? satsDescription(ytelse)
+                    : ""
+                }`}
+                beløp={ytelse.beløp}
+              />
+            );
+          })}
           {hasTrekk && (
             <DetaljeElement
               isSum={true}
@@ -89,9 +96,7 @@ const UtbetalingDetaljeSide = () => {
           )}
           {hasTrekk &&
             trekk.map((trekk: Trekk) => (
-              <DetaljeElement 
-                label={trekk.type}
-                beløp={trekk.beløp} />
+              <DetaljeElement label={trekk.type} beløp={trekk.beløp} />
             ))}
           {
             <DetaljeElement

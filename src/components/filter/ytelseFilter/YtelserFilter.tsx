@@ -4,9 +4,9 @@ import {
   showFilterAtom,
   toggleYtelseFilter,
   ytelserFilterAtom,
-} from "../../../store/filter";
+} from "~store/filter";
 import style from "./YtelserFilter.module.css";
-import { logEvent } from "../../../utils/amplitude";
+import { logEvent } from "~utils/amplitude";
 
 const YtelserFilter = () => {
   const ytelser = useStore(ytelserFilterAtom);

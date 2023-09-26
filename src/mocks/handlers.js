@@ -3,7 +3,7 @@ import {
   authenticationUrl,
   utbetalingerAPIUrl,
   enkelUtbetalingAPIUrl,
-} from "../utils/urls";
+} from "~utils/urls";
 import autentication from "./mockData/autentication.json" assert { type: "json" };
 import alleUtbetalinger from "./mockData/alleUtbetalinger.json";
 import betaltUtbetalingDetalje from "./mockData/betaltUtbetalingDetalje.json";

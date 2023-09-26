@@ -2,7 +2,7 @@ import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler/csr";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import Authentication from "./components/authentication/Authentication.tsx";
+import Authentication from "~components/authentication/Authentication.tsx";
 import "./index.css";
 
 if (process.env.NODE_ENV === "development") {

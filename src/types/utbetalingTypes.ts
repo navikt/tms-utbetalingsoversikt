@@ -3,7 +3,7 @@ export interface UnderYtelse {
   satstype: string;
   sats: number;
   antall: number;
-  belop: number;
+  beløp: number;
 }
 
 export interface Trekk {

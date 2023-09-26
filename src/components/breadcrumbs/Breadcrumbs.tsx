@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { minSideUrl } from "../../utils/urls";
+import { minSideUrl } from "~utils/urls";
 import style from "./Breadcrumbs.module.css";
-import { logEvent } from "../../utils/amplitude";
+import { logEvent } from "~utils/amplitude";
 
 const Breadcrumbs = ({ showUtbetalinger }: { showUtbetalinger: boolean }) => (
   <div className={style.container}>
