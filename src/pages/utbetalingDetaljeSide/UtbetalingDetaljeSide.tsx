@@ -42,14 +42,18 @@ const UtbetalingDetaljeSide = () => {
   const trekk = data.trekk;
   const hasTrekk = trekk.length > 0;
   const erUtbetaltText = data.erUtbetalt ? "Utbetalt" : "Forventet overføring til bank";
- 
+  
   return (
     <>
       <Breadcrumbs showUtbetalinger={true} />
       <Heading className={style.pageTitle} level="1" size="xlarge">
         {pageTittel}
       </Heading>
-      <div className={style.beløpOgDatoWrapper}>
+      <div
+        className={`${style.beløpOgDatoWrapper} ${
+          !data.erUtbetalt && style.kommendeUtbetalingWrapper
+        }`}
+      >
         <div className={style.beløpOgDatoContainer}>
           <BodyShort
             className={style.utbetaltDato}
@@ -69,7 +73,11 @@ const UtbetalingDetaljeSide = () => {
         </Heading>
         <ul>
           {data.underytelse.map((ytelse: UnderYtelse) => (
-            <DetaljeElement key={ytelse.beskrivelse+ytelse.beløp} label={ytelse.beskrivelse} beløp={ytelse.beløp} />
+            <DetaljeElement
+              key={ytelse.beskrivelse + ytelse.beløp}
+              label={ytelse.beskrivelse}
+              beløp={ytelse.beløp}
+            />
           ))}
           {hasTrekk && (
             <DetaljeElement
@@ -81,10 +89,9 @@ const UtbetalingDetaljeSide = () => {
           )}
           {hasTrekk &&
             trekk.map((trekk: Trekk) => (
-              <DetaljeElement
+              <DetaljeElement 
                 label={trekk.type}
-                beløp={trekk.beløp}
-              />
+                beløp={trekk.beløp} />
             ))}
           {
             <DetaljeElement
