@@ -1,10 +1,11 @@
 import { Heading } from "@navikt/ds-react";
 import Breadcrumbs from "~components/breadcrumbs/Breadcrumbs.tsx";
 import PeriodeFilter from "~components/filter/periodeFilter/PeriodeFilter.tsx";
+import ShowFilterButton from "~components/filter/showFilterButton/ShowFilterButton.tsx";
+import InfoAlertLegacyApp from "~components/infoAlertLegacyApp/InfoAlertLegacyApp";
 import RelatertInnhold from "~components/relatertInnhold/RelatertInnhold.tsx";
 import Utbetalinger from "~components/utbetalinger/Utbetalinger.tsx";
 import style from "./Landingsside.module.css";
-import ShowFilterButton from "~components/filter/showFilterButton/ShowFilterButton.tsx";
 
 function Landingsside() {
   return (
@@ -17,6 +18,7 @@ function Landingsside() {
         <ShowFilterButton />
         <PeriodeFilter />
         <Utbetalinger />
+        <InfoAlertLegacyApp />
         <RelatertInnhold />
       </div>
     </>
