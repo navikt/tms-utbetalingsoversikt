@@ -89,7 +89,7 @@ const UtbetalingDetaljeSide = () => {
           {hasTrekk && (
             <DetaljeElement
               isSum={true}
-              label={"Brutto utbetalt"}
+              label={"Brutto"}
               beløp={brutto}
               className="bruttoElement"
             />
