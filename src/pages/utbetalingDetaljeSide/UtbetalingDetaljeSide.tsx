@@ -39,10 +39,14 @@ const UtbetalingDetaljeSide = () => {
   const nettoUtbetalt = data.nettoUtbetalt;
   const trekk = data.trekk;
   const hasTrekk = trekk.length > 0;
+  const hasUnderytelser = data.underytelse.length > 0;
+  const showSats = isUtbetalingWithSats(data.ytelse);
+  const showBrutto = hasTrekk && hasUnderytelser;
+
+  const sumUtbetaltLabel = hasUnderytelser ? "Netto utbetalt" : "Sum";
   const isUtbetaltText = data.erUtbetalt
     ? "Utbetalt"
     : "Forventet overføring til bank";
-  const showSats = isUtbetalingWithSats(data.ytelse);
 
   return (
     <>
@@ -73,20 +77,21 @@ const UtbetalingDetaljeSide = () => {
           Detaljer
         </Heading>
         <ul>
-          {data.underytelse.map((ytelse: UnderYtelse) => {
-            return (
-              <DetaljeElement
-                key={ytelse.beskrivelse + ytelse.beløp}
-                label={`${ytelse.beskrivelse} ${
-                  showSats && ytelse.sats && ytelse.antall
-                    ? satsDescription(ytelse)
-                    : ""
-                }`}
-                beløp={ytelse.beløp}
-              />
-            );
-          })}
-          {hasTrekk && (
+          {hasUnderytelser &&
+            data.underytelse.map((ytelse: UnderYtelse) => {
+              return (
+                <DetaljeElement
+                  key={ytelse.beskrivelse + ytelse.beløp}
+                  label={`${ytelse.beskrivelse} ${
+                    showSats && ytelse.sats && ytelse.antall
+                      ? satsDescription(ytelse)
+                      : ""
+                  }`}
+                  beløp={ytelse.beløp}
+                />
+              );
+            })}
+          {showBrutto && (
             <DetaljeElement
               isSum={true}
               label={"Brutto"}
@@ -101,7 +106,7 @@ const UtbetalingDetaljeSide = () => {
           {
             <DetaljeElement
               isSum={true}
-              label="Netto utbetalt"
+              label={sumUtbetaltLabel}
               beløp={nettoUtbetalt}
             />
           }
