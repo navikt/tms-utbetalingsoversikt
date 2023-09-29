@@ -7,7 +7,9 @@ import importmap from "./importmap.json" assert { type: "json" };
 import path from "path";
 
 export default defineConfig(({ command }) => ({
-  publicDir: false,
+  build: {
+    copyPublicDir: false,
+  },
   plugins: [
     react(),
     {
@@ -23,7 +25,7 @@ export default defineConfig(({ command }) => ({
     }),
     terser(),
   ],
-  resolve:{
+  resolve: {
     alias: {
       "~utils": path.resolve(__dirname, "./src/utils/"),
       "~components": path.resolve(__dirname, "./src/components"),
