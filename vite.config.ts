@@ -7,6 +7,7 @@ import importmap from "./importmap.json" assert { type: "json" };
 import path from "path";
 
 export default defineConfig(({ command }) => ({
+  publicDir: false,
   plugins: [
     react(),
     {
