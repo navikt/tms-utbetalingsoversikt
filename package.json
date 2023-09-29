@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 3000 --strictPort --base /tms-utbetalingsoversikt --outDir dist",
-    "build": "tsc && vite build --base=tms-utbetalingsoversikt",
+    "dev": "vite --port 3000 --strictPort --base /tms-utbetalingsoversikt",
+    "build": "tsc && vite build --base=tms-utbetalingsoversikt --outDir dist",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
