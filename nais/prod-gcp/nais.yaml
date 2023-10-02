@@ -12,16 +12,17 @@ spec:
   image: {{image}}
   port: 8080
   liveness:
-    path: /tms-utbetalingsoversikt/internal/isAlive
+    path: /utbetalingsoversikt/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /tms-utbetalingsoversikt/internal/isReady
+    path: /utbetalingsoversikt/internal/isReady
     initialDelay: 10
   replicas:
     min: 2
     max: 6
   ingresses:
-    - "https://www.intern.nav.no/tms-utbetalingsoversikt"
+    - "https://tjenester.nav.no/utbetalingsoversikt"
+    - "https://www.intern.nav.no/utbetalingsoversikt"
     - "https://www.nav.no/utbetalingsoversikt"
   accessPolicy:
     outbound:
