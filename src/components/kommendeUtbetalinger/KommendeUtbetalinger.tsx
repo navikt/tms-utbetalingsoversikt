@@ -15,8 +15,8 @@ const KommendeUtbetalinger = ({ utbetalinger }: Props) => {
         Neste utbetaling
       </Heading>{" "}
       <ul className={style.kommendeUtbetlaingList}>
-        {utbetalinger.map((u: UtbetalingType) => (
-          <li key={u.id} className={style.kommendeUtbetlaingElement}>
+        {utbetalinger.map((u: UtbetalingType, index) => (
+          <li key={index} className={style.kommendeUtbetlaingElement}>
             <UtbetalingLinkPanel
               ytelse={u.ytelse}
               beløp={u.beløp}

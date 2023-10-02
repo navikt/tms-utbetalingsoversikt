@@ -22,9 +22,9 @@ const UtbetalingGroup = ({ måned, år, utbetalinger }: UtbetalingGroupProps) =>
         <span>{formaterTallUtenDesimaler(sumYtelser) + " kr"}</span>
       </Heading>
       <ul className={style.utbetalingPeriodList}>
-        {utbetalinger.map((o) => {
+        {utbetalinger.map((o, index) => {
           return (
-            <li className={style.utbetalingListElement} key={o.id}>
+            <li className={style.utbetalingListElement} key={index}>
               <UtbetalingLinkPanel
                 ytelse={o.ytelse}
                 dato={o.dato}
