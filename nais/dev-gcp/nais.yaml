@@ -18,7 +18,7 @@ spec:
     min: 2
     max: 4
   ingresses:
-    - "https://www.intern.dev.nav.no/tms-utbetalingsoversikt"
+    - "https://www.intern.dev.nav.no/utbetalingsoversikt"
   accessPolicy:
     outbound:
       external:
