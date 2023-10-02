@@ -13,6 +13,7 @@ import {
 } from "~utils/utbetalingDetalje";
 import DetaljeElement from "~components/utbetalingDetaljeElement/UtbetalingDetaljeElement";
 import { UnderYtelse } from "src/types/utbetalingTypes";
+import ErrorPanel from "~components/errorPanel/ErrorPanel";
 
 type Trekk = {
   type: string;
@@ -21,7 +22,7 @@ type Trekk = {
 
 const UtbetalingDetaljeSide = () => {
   const { utbetalingsId } = useParams();
-  const { data, isLoading } = useSWRImmutable(
+  const { data, isLoading, error } = useSWRImmutable(
     { path: enkelUtbetalingAPIUrl(utbetalingsId ? utbetalingsId : "") },
     fetcher,
     {
@@ -31,6 +32,10 @@ const UtbetalingDetaljeSide = () => {
 
   if (isLoading) {
     return <Loader size="3xlarge" title="Henter data..." />;
+  }
+
+  if (error) {
+    return <ErrorPanel isLandingsside={false} />;
   }
 
   const pageTittel = data.ytelse;

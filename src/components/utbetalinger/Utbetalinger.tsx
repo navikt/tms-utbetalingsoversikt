@@ -82,7 +82,7 @@ const Utbetalinger = () => {
             <NoUtbetalinger />
           )}
           {
-            error ? <ErrorPanel /> : null
+            error ? <ErrorPanel isLandingsside/> : null
           }
         </>
       }
