@@ -9,10 +9,10 @@ spec:
   image: {{image}}
   port: 8080
   liveness:
-    path: /tms-utbetalingsoversikt/internal/isAlive
+    path: /utbetalingsoversikt/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /tms-utbetalingsoversikt/internal/isReady
+    path: /utbetalingsoversikt/internal/isReady
     initialDelay: 10
   replicas:
     min: 2
