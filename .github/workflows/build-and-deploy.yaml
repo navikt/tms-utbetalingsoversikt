@@ -6,7 +6,7 @@ on:
 permissions:
   packages: write
   contents: write
-  
+
 env:
   "IMAGE": "ghcr.io/${{ github.repository }}/tms-utbetalingsoversikt:${{ github.sha }}"
 jobs:
@@ -14,8 +14,8 @@ jobs:
     name: "build"
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "actions/checkout@v2"
-      - uses: "actions/setup-node@v3"
+      - uses: "actions/checkout@v3"
+      
       - name: "Install dependencies"
         run: "npm ci"
       - name: "Build application"
@@ -34,7 +34,7 @@ jobs:
       matrix:
         cluster: [dev-gcp, prod-gcp]
     steps:
-      - uses: "actions/checkout@v2"
+      - uses: "actions/checkout@v3"
       - name: "Deploy to ${{ matrix.cluster }}"
         uses: "nais/deploy/actions/deploy@v1"
         env:

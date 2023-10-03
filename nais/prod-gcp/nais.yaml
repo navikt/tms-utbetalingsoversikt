@@ -25,6 +25,7 @@ spec:
     - "https://tjenester.nav.no/utbetalingsoversikt"
     - "https://www.intern.nav.no/utbetalingsoversikt"
     - "https://www.nav.no/utbetalingsoversikt"
+
   accessPolicy:
     outbound:
       external:
