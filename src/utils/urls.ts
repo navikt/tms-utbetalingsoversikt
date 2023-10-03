@@ -90,7 +90,7 @@ const OM_UTBETALINGER_URL = {
 const LEGACY_URL = {
   local: "http://localhost:3000/utbetalingsoversikt",
   development: "https://www.intern.dev.nav.no/utbetalingsoversikt-gammel",
-  production: "https://tjenester.nav.no/utbetalingsoversik-gammel",
+  production: "https://www.nav.no/utbetalingsoversikt-gammel",
 }
 
 export const utbetalingerAPIUrl = (period: string) =>
