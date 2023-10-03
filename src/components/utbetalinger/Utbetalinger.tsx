@@ -18,6 +18,7 @@ import TidligereUtbetalinger from "../tidligereUtbetalinger/TidligereUtbetalinge
 import UtbetaltPeriode from "../utbetaltPeriode/UtbetaltPeriode";
 import style from "./Ubtetalinger.module.css";
 import ErrorPanel from "../errorPanel/ErrorPanel";
+import { logEvent } from "~utils/amplitude";
 
 const Utbetalinger = () => {
   const utbetalingerPeriod = useStore(selctedPeriodeAtom);
@@ -35,6 +36,7 @@ const Utbetalinger = () => {
     fetcher,
     {
       shouldRetryOnError: false,
+      onError: () => logEvent("fikk-feilmelding-forside")
     }
   );
 

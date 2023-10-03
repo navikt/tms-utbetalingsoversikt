@@ -14,6 +14,7 @@ import {
 import DetaljeElement from "~components/utbetalingDetaljeElement/UtbetalingDetaljeElement";
 import { UnderYtelse } from "src/types/utbetalingTypes";
 import ErrorPanel from "~components/errorPanel/ErrorPanel";
+import { logEvent } from "~utils/amplitude";
 
 type Trekk = {
   type: string;
@@ -27,6 +28,7 @@ const UtbetalingDetaljeSide = () => {
     fetcher,
     {
       shouldRetryOnError: false,
+      onError: () => logEvent("fikk-feilmelding-detaljeside")
     }
   );
 
