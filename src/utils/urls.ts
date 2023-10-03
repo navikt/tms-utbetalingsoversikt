@@ -1,6 +1,6 @@
 const isProduction =
   window.location.href.includes("www.nav.no") ||
-  window.location.href.includes("www.intern.nav.no");
+  window.location.href.includes("www.intern.nav.no") || window.location.href.includes("tjenester.nav.no");
 const isDevelopment = window.location.href.includes("www.intern.dev.nav.no");
 
 export const getEnvironment = () => {
@@ -89,8 +89,8 @@ const OM_UTBETALINGER_URL = {
 
 const LEGACY_URL = {
   local: "http://localhost:3000/utbetalingsoversikt",
-  development: "https://www.intern.dev.nav.no/utbetalingsoversikt/gammel",
-  production: "https://tjenester.nav.no/utbetalingsoversik/gammel",
+  development: "https://www.intern.dev.nav.no/utbetalingsoversikt-gammel",
+  production: "https://tjenester.nav.no/utbetalingsoversik-gammel",
 }
 
 export const utbetalingerAPIUrl = (period: string) =>

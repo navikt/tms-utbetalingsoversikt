@@ -21,8 +21,11 @@ spec:
     min: 2
     max: 6
   ingresses:
+    - "https://tjenester.intern.nav.no/utbetalingsoversikt"
+    - "https://tjenester.nav.no/utbetalingsoversikt"
     - "https://www.intern.nav.no/utbetalingsoversikt"
     - "https://www.nav.no/utbetalingsoversikt"
+
   accessPolicy:
     outbound:
       external:
