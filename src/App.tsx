@@ -5,7 +5,7 @@ import Landingsside from "./pages/landingsside/Landingsside";
 import UtbetalingDetaljeSide from "./pages/utbetalingDetaljeSide/UtbetalingDetaljeSide";
 
 function App() {
-  const BASE_PATH = "/tms-utbetalingsoversikt";
+  const BASE_PATH = "/utbetalingsoversikt";
   initializeAmplitude();
 
   return (

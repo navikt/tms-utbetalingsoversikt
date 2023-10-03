@@ -16,9 +16,9 @@ export const getEnvironment = () => {
 };
 
 const BASE_URL = {
-  local: "http://localhost:3000/tms-utbetalingsoversikt",
-  development: "https://www.intern.dev.nav.no/tms-utbetalingsoversikt",
-  production: "https://www.intern.nav.no/tms-utbetalingsoversikt",
+  local: "http://localhost:3000/utbetalingsoversikt",
+  development: "https://www.intern.dev.nav.no/utbetalingsoversikt",
+  production: "https://www.intern.nav.no/utbetalingsoversikt",
 };
 
 const MIN_SIDE_URL = {
