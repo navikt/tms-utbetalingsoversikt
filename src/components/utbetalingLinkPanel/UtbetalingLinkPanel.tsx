@@ -2,7 +2,6 @@ import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort } from "@navikt/ds-react";
 import { logEvent } from "~utils/amplitude";
 import { formatToReadableDate } from "~utils/date";
-import { baseUrl } from "~utils/urls";
 import { formaterTallUtenDesimaler } from "~utils/utbetalingDetalje";
 import style from "./UtbetalingLinkPanel.module.css";
 import { Link } from "react-router-dom";
