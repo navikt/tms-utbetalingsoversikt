@@ -25,6 +25,14 @@ export default defineConfig(({ command }) => ({
     }),
     terser(),
   ],
+  test: {
+    global: true,
+    environment: "jsdom",
+    deps: {
+      inline: ["@testing-library/user-event"],
+    },
+    setupFiles: ["vitest-setup.ts"],
+  },
   resolve: {
     alias: {
       "~utils": path.resolve(__dirname, "./src/utils/"),

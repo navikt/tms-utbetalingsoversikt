@@ -26,7 +26,7 @@
       "~store/*": ["./src/store/*"]
     },
   },
-  "include": ["src", "src/*.json"],
+  "include": ["src", "src/*.json","vitest-setup.ts"],
   "references": [{
     "path": "./tsconfig.node.json"
   }]
