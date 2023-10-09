@@ -11,7 +11,7 @@ import kommendetUtbetalingDetalje from "./mockData/kommendeUtbetalingDetaljer.js
 
 
 
-const handleGet = (url, response) =>
+const handleGet = (url:string, response:object) =>
   rest.get(url, (_, res, ctx) => res(ctx.json(response)));
 
 export const handlers = [

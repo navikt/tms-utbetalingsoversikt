@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "vitest-axe";
-import { expect, test, vi } from "vitest";
-import Landingsside from "./Landingsside";
 import { SWRConfig } from "swr";
+import { expect, test } from "vitest";
+import { axe } from "vitest-axe";
+import Landingsside from "./Landingsside";
 
 test("Test av innhold i Landingsside", async () => {
   const { container } = render(

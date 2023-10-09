@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { SWRConfig } from "swr";
-import UtbetalingDetaljeSide from "./UtbetalingDetaljeSide";
+import { expect, test } from "vitest";
 import { axe } from "vitest-axe";
-import { expect, test, vi } from "vitest";
+import UtbetalingDetaljeSide from "./UtbetalingDetaljeSide";
 
 
 
