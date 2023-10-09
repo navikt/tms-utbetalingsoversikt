@@ -12,8 +12,6 @@ expect.extend(axeMatchers);
 HTMLCanvasElement.prototype.getContext = vi.fn();
 
 beforeAll(() => {
-  console.log("aaaaaaa");
-  server.printHandlers();
   server.listen({ onUnhandledRequest: "warn" });
 });
 
