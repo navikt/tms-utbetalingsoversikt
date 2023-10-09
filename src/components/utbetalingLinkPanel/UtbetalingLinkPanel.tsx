@@ -2,9 +2,9 @@ import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort } from "@navikt/ds-react";
 import { logEvent } from "~utils/amplitude";
 import { formatToReadableDate } from "~utils/date";
-import { baseUrl } from "~utils/urls";
 import { formaterTallUtenDesimaler } from "~utils/utbetalingDetalje";
 import style from "./UtbetalingLinkPanel.module.css";
+import { Link } from "react-router-dom";
 
 export type UtbetalingType = {
   id: string;
@@ -26,9 +26,9 @@ const UtbetalingLinkPanel = ({
     ? style.nesteUtbetalingLink
     : style.tidligereUtbetalingLink;
   return (
-    <a
+    <Link
       className={"navds-panel navds-link-panel " + linkClassName}
-      href={`${baseUrl}/utbetaling/${id}`}
+      to={`/utbetalingsoversikt/utbetaling/${id}`}
       onClick={() =>
         logEvent(
           "utbetaling-link-panel",
@@ -54,7 +54,7 @@ const UtbetalingLinkPanel = ({
           className="navds-link-panel__chevron chevronRight"
         />
       </div>
-    </a>
+    </Link>
   );
 };
 
