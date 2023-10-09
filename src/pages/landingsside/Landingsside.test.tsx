@@ -3,12 +3,15 @@ import { SWRConfig } from "swr";
 import { expect, test } from "vitest";
 import { axe } from "vitest-axe";
 import Landingsside from "./Landingsside";
+import { BrowserRouter } from "react-router-dom";
 
 test("Test av innhold i Landingsside", async () => {
   const { container } = render(
-    <SWRConfig value={{ provider: () => new Map() }}>
-      <Landingsside />
-    </SWRConfig>
+    <BrowserRouter>
+      <SWRConfig value={{ provider: () => new Map() }}>
+        <Landingsside />
+      </SWRConfig>
+    </BrowserRouter>
   );
 
   expect(await axe(container)).toHaveNoViolations();
@@ -29,18 +32,17 @@ test("Test av innhold i Landingsside", async () => {
   ).toBeInTheDocument();
 
   expect(
-    await screen.findByRole("heading", { name: "Utbetalt i perioden", level: 2 })
+    await screen.findByRole("heading", {
+      name: "Utbetalt i perioden",
+      level: 2,
+    })
   ).toBeInTheDocument();
 
   expect(
     await screen.findByRole("heading", { name: "Relatert innhold", level: 2 })
   ).toBeInTheDocument();
 
-  expect(
-    await screen.findByText("Velg periode")
-  ).toBeInTheDocument();
+  expect(await screen.findByText("Velg periode")).toBeInTheDocument();
 
-  expect(
-    await screen.findByText("Velg pengestøtte")
-  ).toBeInTheDocument();
+  expect(await screen.findByText("Velg pengestøtte")).toBeInTheDocument();
 });
