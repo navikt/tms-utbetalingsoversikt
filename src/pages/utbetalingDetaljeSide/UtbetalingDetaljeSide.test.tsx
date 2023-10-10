@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import { expect, test } from "vitest";
 import { axe } from "vitest-axe";
 import UtbetalingDetaljeSide from "./UtbetalingDetaljeSide";
-import { render } from "../../../vitest-setup";
+import { render } from "~vitest-setup";
 
 test("Viser seksjoner på detaljeside", async () => {
   const { container } = render(<UtbetalingDetaljeSide />);

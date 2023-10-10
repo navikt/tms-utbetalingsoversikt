@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import { expect, test } from "vitest";
 import { axe } from "vitest-axe";
 import Landingsside from "./Landingsside";
-import { render } from "../../../vitest-setup";
+import { render } from "~vitest-setup";
 
 test("Viser innhold på landingsside", async () => {
   const { container } = render(<Landingsside />);

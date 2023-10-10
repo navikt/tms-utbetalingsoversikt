@@ -23,7 +23,8 @@
     "paths": {
       "~utils/*":["./src/utils/*"],
       "~components/*": ["./src/components/*"],
-      "~store/*": ["./src/store/*"]
+      "~store/*": ["./src/store/*"],
+      "~vitest-setup": ["vitest-setup.tsx"]
     },
   },
   "include": ["src", "src/*.json","vitest-setup.tsx"],
