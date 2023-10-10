@@ -1,10 +1,13 @@
-import "vitest-axe/extend-expect";
 import matchers from "@testing-library/jest-dom/matchers";
-import * as axeMatchers from "vitest-axe/matchers";
-import { afterAll, afterEach, beforeAll, expect, vi } from "vitest";
-import { server } from "./src/mocks/server.js";
 import { cleanup, render } from "@testing-library/react";
+import { afterAll, afterEach, beforeAll, expect, vi } from "vitest";
+import "vitest-axe/extend-expect";
+import * as axeMatchers from "vitest-axe/matchers";
 import "whatwg-fetch";
+import { server } from "./src/mocks/server.js";
+import { BrowserRouter } from "react-router-dom";
+import { SWRConfig } from "swr";
+
 expect.extend(matchers);
 expect.extend(axeMatchers);
 
@@ -24,12 +27,11 @@ afterAll(() => {
   server.close();
 });
 
-const customRender = (ui: any, options = {}) =>
-  render(ui, {
-    // wrap provider(s) here if needed
-    wrapper: ({ children }) => children,
-    ...options,
-  });
-
+const customRender = ( children: React.ReactNode ) =>
+  render(
+    <BrowserRouter>
+      <SWRConfig value={{ provider: () => new Map() }}>{children}</SWRConfig>
+    </BrowserRouter>
+  );
 // override render export
 export { customRender as render };

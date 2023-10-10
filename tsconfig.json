@@ -26,5 +26,5 @@
       "~store/*": ["./src/store/*"]
     },
   },
-  "include": ["src", "src/*.json","vitest-setup.ts"],
+  "include": ["src", "src/*.json","vitest-setup.tsx"],
 }

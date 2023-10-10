@@ -1,18 +1,11 @@
-import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import { SWRConfig } from "swr";
+import { screen } from "@testing-library/react";
 import { expect, test } from "vitest";
 import { axe } from "vitest-axe";
 import UtbetalingDetaljeSide from "./UtbetalingDetaljeSide";
+import { render } from "../../../vitest-setup";
 
-test("Test av innhold i UtbetalingDetaljeSide", async () => {
-  const { container } = render(
-    <BrowserRouter>
-      <SWRConfig value={{ provider: () => new Map() }}>
-        <UtbetalingDetaljeSide />
-      </SWRConfig>
-    </BrowserRouter>
-  );
+test("Viser seksjoner på detaljeside", async () => {
+  const { container } = render(<UtbetalingDetaljeSide />);
 
   expect(await axe(container)).toHaveNoViolations();
 
@@ -26,7 +19,21 @@ test("Test av innhold i UtbetalingDetaljeSide", async () => {
   expect(await screen.findByText("Utbetalt 07.09.2023")).toBeInTheDocument();
   expect(
     await screen.findByRole("heading", {
-      name: /4\s104 kr/,
+      name: "Detaljer",
+      level: 2,
+    })
+  ).toBeInTheDocument();
+
+  expect(
+    await screen.findByRole("heading", {
+      name: "Melding",
+      level: 2,
+    })
+  ).toBeInTheDocument();
+
+  expect(
+    await screen.findByRole("heading", {
+      name: "Periode",
       level: 2,
     })
   ).toBeInTheDocument();

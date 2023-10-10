@@ -1,18 +1,11 @@
-import { render, screen } from "@testing-library/react";
-import { SWRConfig } from "swr";
+import { screen } from "@testing-library/react";
 import { expect, test } from "vitest";
 import { axe } from "vitest-axe";
 import Landingsside from "./Landingsside";
-import { BrowserRouter } from "react-router-dom";
+import { render } from "../../../vitest-setup";
 
-test("Test av innhold i Landingsside", async () => {
-  const { container } = render(
-    <BrowserRouter>
-      <SWRConfig value={{ provider: () => new Map() }}>
-        <Landingsside />
-      </SWRConfig>
-    </BrowserRouter>
-  );
+test("Viser innhold på landingsside", async () => {
+  const { container } = render(<Landingsside />);
 
   expect(await axe(container)).toHaveNoViolations();
 
@@ -23,13 +16,9 @@ test("Test av innhold i Landingsside", async () => {
     })
   ).toBeInTheDocument();
 
-  expect(
-    await screen.findByRole("heading", { name: "Neste utbetaling", level: 2 })
-  ).toBeInTheDocument();
+  expect(await screen.findByRole("heading", { name: "Neste utbetaling", level: 2 })).toBeInTheDocument();
 
-  expect(
-    await screen.findByRole("heading", { name: "Siste 3 måneder", level: 2 })
-  ).toBeInTheDocument();
+  expect(await screen.findByRole("heading", { name: "Siste 3 måneder", level: 2 })).toBeInTheDocument();
 
   expect(
     await screen.findByRole("heading", {
@@ -38,9 +27,7 @@ test("Test av innhold i Landingsside", async () => {
     })
   ).toBeInTheDocument();
 
-  expect(
-    await screen.findByRole("heading", { name: "Relatert innhold", level: 2 })
-  ).toBeInTheDocument();
+  expect(await screen.findByRole("heading", { name: "Relatert innhold", level: 2 })).toBeInTheDocument();
 
   expect(await screen.findByText("Velg periode")).toBeInTheDocument();
 

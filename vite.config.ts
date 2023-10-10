@@ -31,7 +31,7 @@ export default defineConfig(() => ({
     deps: {
       inline: ["@testing-library/user-event"],
     },
-    setupFiles: ["vitest-setup.ts"],
+    setupFiles: ["vitest-setup.tsx"],
   },
   resolve: {
     alias: {
