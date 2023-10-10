@@ -6,7 +6,7 @@ import viteCompression from "vite-plugin-compression";
 import importmap from "./importmap.json" assert { type: "json" };
 import path from "path";
 
-export default defineConfig(({ command }) => ({
+export default defineConfig(() => ({
   build: {
     copyPublicDir: false,
   },
