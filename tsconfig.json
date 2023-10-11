@@ -24,7 +24,8 @@
       "~utils/*":["./src/utils/*"],
       "~components/*": ["./src/components/*"],
       "~store/*": ["./src/store/*"],
-      "~vitest-setup": ["vitest-setup.tsx"]
+      "~vitest-setup": ["./vitest-setup.tsx"],
+      "~mocks/*": ["./src/mocks/*"]
     },
   },
   "include": ["src", "src/*.json","vitest-setup.tsx"],

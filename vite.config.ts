@@ -38,7 +38,8 @@ export default defineConfig(() => ({
       "~utils": path.resolve(__dirname, "./src/utils/"),
       "~components": path.resolve(__dirname, "./src/components"),
       "~store": path.resolve(__dirname, "./src/store"),
-      "~vitest-setup": path.resolve(__dirname, "./vitest-setup")
+      "~vitest-setup": path.resolve(__dirname, "./vitest-setup"),
+      "~mocks": path.resolve(__dirname, "./src/mocks")
     },
   },
   css: {
