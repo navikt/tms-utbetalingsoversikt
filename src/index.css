@@ -7,3 +7,9 @@ body {
   background-color: var(--a-bg-default);
   align-items: center;
 }
+
+@media print{
+  .decorator-wrapper{
+    display: none;
+  }
+}
