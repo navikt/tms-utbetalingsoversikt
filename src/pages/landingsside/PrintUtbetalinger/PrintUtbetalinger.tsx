@@ -8,6 +8,7 @@ import { formaterTallUtenDesimaler } from "~utils/utbetalingDetalje";
 import { fetcher } from "../../../api/api";
 import styles from "./PrintUtbetalinger.module.css";
 import logo from "./nav-logo.png";
+import { UtbetalingGroupType, UtbetalingType } from "src/types/types";
 
 //TODO legge inn navn og fnr
 const PrintUtbetalinger = () => {
@@ -30,13 +31,13 @@ const PrintUtbetalinger = () => {
     <div id={styles.container}>
       <img src={logo} alt="Logo" />
       <BodyShort className={styles.pageTitle}>UTBETALINGSOVERSIKT</BodyShort>
-      <BodyShort className={styles.name}>NAVN</BodyShort> 
+      <BodyShort className={styles.name}>NAVN</BodyShort>
       <BodyShort className={styles.fnr}>FNR</BodyShort>
       <BodyShort className={styles.date}>{`Utskrift fra ${dayjs().format("DD.MM.YYYY")}`}</BodyShort>
       <BodyShort className={styles.utbetaltIperiode}>Utbetalt i periode</BodyShort>{" "}
-      <Heading className={styles.periodeDate}level="1" size="small">{`${periodFom} - ${periodTom}`}</Heading>
-      {utbetalingerGroups?.map((g) => {
-        return g.utbetalinger.map((u) => (
+      <Heading className={styles.periodeDate} level="1" size="small">{`${periodFom} - ${periodTom}`}</Heading>
+      {utbetalingerGroups?.map((g: UtbetalingGroupType) => {
+        return g.utbetalinger.map((u: UtbetalingType) => (
           <div className={styles.utbetaling}>
             <Heading level="2" size="small" className={styles.utbetalingHeading}>
               <span className={styles.ytelse}>{u.ytelse}</span>

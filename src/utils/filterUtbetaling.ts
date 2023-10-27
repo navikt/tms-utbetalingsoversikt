@@ -1,8 +1,8 @@
-import { UtbetalingGroupProps } from "~components/utbetalingGroup/UtbetalingGroup";
+import { UtbetalingGroupType } from "src/types/types";
 import { SelectedYtelser } from "~store/filter";
 
 const filterUtbetalinger = (
-  utbetalingGroups: UtbetalingGroupProps[],
+  utbetalingGroups: UtbetalingGroupType[],
   selectedYtelser: SelectedYtelser
 ) => {
   const showAll = Object.values(selectedYtelser).every(
@@ -11,7 +11,7 @@ const filterUtbetalinger = (
   if (showAll) return utbetalingGroups;
 
   const filteredGroups = utbetalingGroups.reduce(
-    (acc: UtbetalingGroupProps[], period: UtbetalingGroupProps) => {
+    (acc: UtbetalingGroupType[], period: UtbetalingGroupType) => {
       const filteredPeriod = period.utbetalinger.filter(
         (utbetaling) => selectedYtelser[utbetaling.ytelse]
       );

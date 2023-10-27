@@ -5,13 +5,7 @@ import { formatToReadableDate } from "~utils/date";
 import { formaterTallUtenDesimaler } from "~utils/utbetalingDetalje";
 import style from "./UtbetalingLinkPanel.module.css";
 import { Link } from "react-router-dom";
-
-export type UtbetalingType = {
-  id: string;
-  beløp: number;
-  dato: string;
-  ytelse: string;
-};
+import { UtbetalingType } from "src/types/types";
 
 type UtbetalingProps = UtbetalingType & { nesteUtbetaling: boolean };
 

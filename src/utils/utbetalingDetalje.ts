@@ -1,4 +1,4 @@
-import { UnderYtelse } from "../types/utbetalingTypes";
+import { UnderYtelseType } from "../types/types";
 
 const utbetalingerMedSats = ['ARBEIDSAVKLARINGSPENGER', 'DAGPENGER'];
 
@@ -13,7 +13,7 @@ export function isUtbetalingWithSats(type: string): boolean {
   return false;
 }
 
-export function satsDescription(ytelse: UnderYtelse): string {
+export function satsDescription(ytelse: UnderYtelseType): string {
   if (ytelse.satstype == 'Prosent') {
       return `(${formaterTallTilKomma({tall: ytelse.antall, maxDesimaler: 4})} kroner à ${formaterTallUtenDesimaler(ytelse.sats)}%)`
   } else {
