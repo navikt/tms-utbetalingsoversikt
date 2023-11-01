@@ -1,14 +1,15 @@
 import { useStore } from "@nanostores/react";
-import { BodyShort, Heading } from "@navikt/ds-react";
+import { Detail } from "@navikt/ds-react";
 import dayjs from "dayjs";
+import { UtbetalingGroupType, UtbetalingType } from "src/types/types";
 import useSWR from "swr";
+import UtbetaltPeriode from "~components/utbetaltPeriode/UtbetaltPeriode";
 import { periodeFilterAtom } from "~store/filter";
 import { utbetalingerAPIUrl } from "~utils/urls";
 import { formaterTallUtenDesimaler } from "~utils/utbetalingDetalje";
 import { fetcher } from "../../../api/api";
 import styles from "./PrintUtbetalinger.module.css";
 import logo from "./nav-logo.png";
-import { UtbetalingGroupType, UtbetalingType } from "src/types/types";
 
 //TODO legge inn navn og fnr
 const PrintUtbetalinger = () => {
@@ -25,28 +26,36 @@ const PrintUtbetalinger = () => {
     }
   );
 
+  if (utbetalinger === undefined) {
+    return null;
+  }
+
   const utbetalingerGroups = utbetalinger?.tidligere;
+  const fomTomDato = `${periodFom} - ${periodTom}`;
 
   return (
     <div id={styles.container}>
-      <img src={logo} alt="Logo" />
-      <BodyShort className={styles.pageTitle}>UTBETALINGSOVERSIKT</BodyShort>
-      <BodyShort className={styles.name}>NAVN</BodyShort>
-      <BodyShort className={styles.fnr}>FNR</BodyShort>
-      <BodyShort className={styles.date}>{`Utskrift fra ${dayjs().format("DD.MM.YYYY")}`}</BodyShort>
-      <BodyShort className={styles.utbetaltIperiode}>Utbetalt i periode</BodyShort>{" "}
-      <Heading className={styles.periodeDate} level="1" size="small">{`${periodFom} - ${periodTom}`}</Heading>
-      {utbetalingerGroups?.map((g: UtbetalingGroupType) => {
-        return g.utbetalinger.map((u: UtbetalingType) => (
-          <div className={styles.utbetaling}>
-            <Heading level="2" size="small" className={styles.utbetalingHeading}>
-              <span className={styles.ytelse}>{u.ytelse}</span>
-              <span className={styles.beløp}>{formaterTallUtenDesimaler(u.beløp) + " kr"}</span>
-            </Heading>
-            <BodyShort className={styles.utbetalingDato}>{`Utbetalt ${dayjs(u.dato).format("DD.MM.YYYY")}`}</BodyShort>
-          </div>
-        ));
-      })}
+      <img src={logo} width="90" alt="Logo" />
+      <Detail className={styles.pageTitle}>UTBETALINGSOVERSIKT</Detail>
+      <Detail className={styles.name}>NAVN</Detail>
+      <Detail className={styles.fnr}>FNR</Detail>
+      <Detail className={styles.utskriftsdato}>{`Utskriftsdato: ${dayjs().format("DD.MM.YYYY")}`}</Detail>
+      <Detail weight="semibold" className={styles.periodeText}>Periode</Detail>
+      <Detail weight="semibold" className={styles.periodeDate}>{fomTomDato}</Detail>
+      <ul className={styles.utbetalingListe}>
+        {utbetalingerGroups?.map((g: UtbetalingGroupType) => {
+          return g.utbetalinger.map((u: UtbetalingType) => (
+            <li className={styles.utbetalingElement}>
+              <Detail weight="semibold" className={styles.utbetalingElementHeading}>
+                <span className={styles.ytelse}>{u.ytelse}</span>
+                <span className={styles.beløp}>{formaterTallUtenDesimaler(u.beløp) + " kr"}</span>
+              </Detail>
+              <Detail className={styles.utbetalingElementDato}>{`Utbetalt ${dayjs(u.dato).format("DD.MM.YYYY")}`}</Detail>
+            </li>
+          ));
+        })}
+      </ul>
+      <UtbetaltPeriode isPrint data={utbetalinger?.utbetalingerIPeriode} periode={fomTomDato} />
     </div>
   );
 };

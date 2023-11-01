@@ -1,22 +1,38 @@
 #container {
   display: none;
-}
-
-.date{
-  padding-bottom: 1rem;
-  border-bottom: 2px solid var(--a-border-divider);
-}
-
-.utbetaling {
   margin-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid var(--a-border-divider);
 }
 
-.utbetalingHeading {
+.pageTitle {
+  margin-top: 16px;
+}
+
+.periodeText {
+  margin-top: 1.75rem;
+}
+
+.periodeDate {
+  margin-bottom: 1rem;
+}
+
+.utbetalingListe {
+  list-style-type: none;
+  padding: 0;
+  border-bottom: var(--custom-divider-line);
+}
+
+.utbetalingElement {
+  padding: 0.5rem 0;
+  border-top: var(--custom-divider-line);
+}
+
+.utbetalingElementHeading {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+}
+
+.utbetalingElementDato {
+  color: var(--a-grayalpha-600);
 }
 
 @media print {
