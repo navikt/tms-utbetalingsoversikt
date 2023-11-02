@@ -7,7 +7,7 @@ import CustomHeading from "./customHeading/CustomHeading";
 interface PropsType {
   data: UtbetalingerIPeriode;
   periode: string;
-  isPrint: boolean;
+  isPrint?: boolean;
 }
 
 const UtbetaltPeriode = ({ data, periode, isPrint }: PropsType) => {

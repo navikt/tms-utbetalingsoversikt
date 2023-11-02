@@ -1,6 +1,6 @@
 import { Detail, Heading } from "@navikt/ds-react";
 type props = {
-  isPrint: boolean;
+  isPrint?: boolean;
 };
 
 const CustomHeading = ({ isPrint }: props) => {
