@@ -1,5 +1,5 @@
 import { Heading } from "@navikt/ds-react";
-import UtbetalingLinkPanel from "../utbetalingLinkPanel/UtbetalingLinkPanel";
+import UtbetalingLinkPanel from "../utbetalinger/utbetalingLinkPanel/UtbetalingLinkPanel";
 import style from "./KommendeUtbetalinger.module.css";
 import { UtbetalingType } from "src/types/types";
 

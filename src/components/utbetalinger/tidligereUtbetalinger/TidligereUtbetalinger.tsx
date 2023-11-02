@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/react";
 import { ytelserFilterAtom } from "~store/filter";
 import filterUtbetalinger from "~utils/filterUtbetaling";
-import UtbetalingGroup from "../utbetalingGroup/UtbetalingGroup";
+import UtbetalingGroup from "./utbetalingGroup/UtbetalingGroup";
 import style from "./TidligereUtbetalinger.module.css";
 import { UtbetalingGroupType } from "src/types/types";
 
