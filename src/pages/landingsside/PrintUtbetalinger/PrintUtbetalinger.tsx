@@ -22,7 +22,12 @@ const PrintUtbetalinger = () => {
     },
     fetcher
   );
-  const { data: bruker } = useSWRImmutable(identNavnUrl, fetcher);
+  const { data: bruker } = useSWRImmutable(
+    {
+      path: identNavnUrl,
+    },
+    fetcher
+  );
 
   const utbetalingerGroups = utbetalinger?.tidligere;
   const fomTomDato = `${periodFom} - ${periodTom}`;
