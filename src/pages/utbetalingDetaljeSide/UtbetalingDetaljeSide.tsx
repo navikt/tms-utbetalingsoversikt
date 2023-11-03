@@ -12,7 +12,7 @@ import {
   satsDescription,
 } from "~utils/utbetalingDetalje";
 import DetaljeElement from "~components/utbetalingDetaljeElement/UtbetalingDetaljeElement";
-import { UnderYtelse } from "src/types/utbetalingTypes";
+import { UnderYtelseType } from "src/types/types";
 import ErrorPanel from "~components/errorPanel/ErrorPanel";
 import { logEvent } from "~utils/amplitude";
 
@@ -85,7 +85,7 @@ const UtbetalingDetaljeSide = () => {
         </Heading>
         <ul>
           {hasUnderytelser &&
-            data.underytelse.map((ytelse: UnderYtelse) => {
+            data.underytelse.map((ytelse: UnderYtelseType) => {
               return (
                 <DetaljeElement
                   key={ytelse.beskrivelse + ytelse.beløp}

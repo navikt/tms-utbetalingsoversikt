@@ -1,8 +1,7 @@
 import { Heading } from "@navikt/ds-react";
-import UtbetalingLinkPanel, {
-  UtbetalingType,
-} from "../utbetalingLinkPanel/UtbetalingLinkPanel";
+import UtbetalingLinkPanel from "../utbetalinger/utbetalingLinkPanel/UtbetalingLinkPanel";
 import style from "./KommendeUtbetalinger.module.css";
+import { UtbetalingType } from "src/types/types";
 
 interface Props {
   utbetalinger: UtbetalingType[];
@@ -17,13 +16,7 @@ const KommendeUtbetalinger = ({ utbetalinger }: Props) => {
       <ul className={style.kommendeUtbetlaingList}>
         {utbetalinger.map((u: UtbetalingType, index) => (
           <li key={index} className={style.kommendeUtbetlaingElement}>
-            <UtbetalingLinkPanel
-              ytelse={u.ytelse}
-              beløp={u.beløp}
-              dato={u.dato}
-              nesteUtbetaling={true}
-              id={u.id}
-            />
+            <UtbetalingLinkPanel ytelse={u.ytelse} beløp={u.beløp} dato={u.dato} nesteUtbetaling={true} id={u.id} />
           </li>
         ))}
       </ul>
