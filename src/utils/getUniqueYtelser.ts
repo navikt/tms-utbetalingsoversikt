@@ -1,8 +1,8 @@
-import { UtbetalingType } from "src/types/types";
+import { Ytelse } from "src/types/types";
 
 export type YtelserListFilter = { [key: string]: boolean };
-const getUniqueytelser = (ytelser: UtbetalingType[]): YtelserListFilter =>
-  ytelser.reduce((filteredList: YtelserListFilter, ytelse: UtbetalingType) => {
+const getUniqueytelser = (ytelser: Ytelse[]): YtelserListFilter =>
+  ytelser.reduce((filteredList: YtelserListFilter, ytelse: Ytelse) => {
     return {
       [ytelse.ytelse]: false,
       ...filteredList,

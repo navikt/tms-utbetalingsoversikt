@@ -19,6 +19,7 @@ import UtbetaltPeriode from "../utbetaltPeriode/UtbetaltPeriode";
 import style from "./Ubtetalinger.module.css";
 import ErrorPanel from "../errorPanel/ErrorPanel";
 import { logEvent } from "~utils/amplitude";
+import { UtbetalingerResponse } from "src/types/types";
 
 const Utbetalinger = () => {
   const utbetalingerPeriod = useStore(selctedPeriodeAtom);
@@ -27,7 +28,7 @@ const Utbetalinger = () => {
     "DD.MM.YYYY"
   )}-${dayjs(selectedPeriodFilter.tom).format("DD.MM.YYYY")}`;
 
-  const { data: utbetalinger, isLoading, error } = useSWR(
+  const { data: utbetalinger, isLoading, error } = useSWR<UtbetalingerResponse>(
     {
       path: utbetalingerAPIUrl(
         `?fom=${selectedPeriodFilter.fom}&tom=${selectedPeriodFilter.tom}`
@@ -43,9 +44,9 @@ const Utbetalinger = () => {
   if (isLoading) {
     return <ContentLoader />;
   }
-  const showKommendeUtbetalinger = utbetalinger?.neste.length > 0;
+  const showKommendeUtbetalinger = utbetalinger && utbetalinger?.neste.length > 0;
 
-  const hasTidligereUtbetalinger = utbetalinger?.tidligere.length > 0;
+  const hasTidligereUtbetalinger = utbetalinger && utbetalinger?.tidligere.length > 0;
 
   hasTidligereUtbetalinger &&
     setYtelseFilter(

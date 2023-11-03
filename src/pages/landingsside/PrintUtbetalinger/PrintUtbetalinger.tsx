@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/react";
 import { Detail } from "@navikt/ds-react";
 import dayjs from "dayjs";
-import { UtbetalingGroupType, UtbetalingType } from "src/types/types";
+import { UtbetalingGroupType, UtbetalingType, UtbetalingerResponse } from "src/types/types";
 import useSWR from "swr";
 import useSWRImmutable from "swr/immutable";
 import UtbetaltPeriode from "~components/utbetaltPeriode/UtbetaltPeriode";
@@ -16,7 +16,7 @@ const PrintUtbetalinger = () => {
   const selectedPeriodFilter = useStore(periodeFilterAtom);
   const periodFom = dayjs(selectedPeriodFilter.fom).format("DD.MM.YYYY");
   const periodTom = dayjs(selectedPeriodFilter.tom).format("DD.MM.YYYY");
-  const { data: utbetalinger } = useSWR(
+  const { data: utbetalinger } = useSWR<UtbetalingerResponse>(
     {
       path: utbetalingerAPIUrl(`?fom=${selectedPeriodFilter.fom}&tom=${selectedPeriodFilter.tom}`),
     },
