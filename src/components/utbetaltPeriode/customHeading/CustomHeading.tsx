@@ -4,10 +4,12 @@ type props = {
 };
 
 const CustomHeading = ({ isPrint }: props) => {
-  if (isPrint) return <Detail weight="semibold"> Periode </Detail>;
+  const text = "Utbetalt i perioden";
+
+  if (isPrint) return <Detail weight="semibold"> {text} </Detail>;
   return (
     <Heading className={`navds-body-short`} level="2" size="small">
-      Utbetalt i perioden
+      {text}
     </Heading>
   );
 };
