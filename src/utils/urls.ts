@@ -1,6 +1,7 @@
 const isProduction =
   window.location.href.includes("www.nav.no") ||
-  window.location.href.includes("www.intern.nav.no") || window.location.href.includes("tjenester.nav.no");
+  window.location.href.includes("www.intern.nav.no") ||
+  window.location.href.includes("tjenester.nav.no");
 const isDevelopment = window.location.href.includes("www.intern.dev.nav.no");
 
 export const getEnvironment = () => {
@@ -35,10 +36,8 @@ const UTBETALINGSOVERSIKT_API_URL = {
 
 const SATSERURL = {
   local: "http://localhost:3000/satser",
-  development:
-    "https://www.intern.dev.nav.no/no/nav-og-samfunn/kontakt-nav/oversikt-over-satser",
-  production:
-    "https://www.nav.no/no/nav-og-samfunn/kontakt-nav/oversikt-over-satser",
+  development: "https://www.intern.dev.nav.no/no/nav-og-samfunn/kontakt-nav/oversikt-over-satser",
+  production: "https://www.nav.no/no/nav-og-samfunn/kontakt-nav/oversikt-over-satser",
 };
 
 const UTBETALINGSDATOER_URL = {
@@ -59,8 +58,7 @@ const ENDRE_SKATTEKORT_URL = {
   local: "http://localhost:300/skattekort",
   development:
     "https://www.intern.dev.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/skattetrekk-p%C3%A5-ytelser-fra-nav",
-  production:
-    "https://www.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/skattetrekk-p%C3%A5-ytelser-fra-nav",
+  production: "https://www.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/skattetrekk-p%C3%A5-ytelser-fra-nav",
 };
 
 const SOSIALHJELP_URL = {
@@ -91,7 +89,13 @@ const LEGACY_URL = {
   local: "http://localhost:3000/utbetalingsoversikt",
   development: "https://www.intern.dev.nav.no/utbetalingsoversikt-gammel",
   production: "https://www.nav.no/utbetalingsoversikt-gammel",
-}
+};
+
+const IDENT_NAVN_URL = {
+  local: "http://localhost:3000/tms-min-side-proxy/navn",
+  development: "https://www.intern.dev.nav.no/tms-min-side-proxy/navn",
+  production: "https://www.nav.no/tms-min-side-proxy/navn",
+};
 
 export const utbetalingerAPIUrl = (period: string) =>
   `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}/utbetalinger/alle${period}`;
@@ -100,11 +104,8 @@ export const enkelUtbetalingAPIUrl = (id: string) =>
   `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}/utbetalinger/${id}`;
 
 export const baseUrl = `${BASE_URL[getEnvironment()]}`;
-export const loginUrl = `${
-  UTBETALINGSOVERSIKT_API_URL[getEnvironment()]
-}/login`;
+export const loginUrl = `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}/login`;
 export const authenticationUrl = `${loginUrl}/status`;
-
 export const satserUrl = SATSERURL[getEnvironment()];
 export const utbetalingsdatoerUrl = UTBETALINGSDATOER_URL[getEnvironment()];
 export const endreKontonummerUrl = ENDRE_KONTONUMMER_URL[getEnvironment()];
@@ -115,3 +116,4 @@ export const årsoppgaverUrl = ÅRSOPPGAVER_URL[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const omUtbetalinger = OM_UTBETALINGER_URL[getEnvironment()];
 export const legacyUrl = LEGACY_URL[getEnvironment()];
+export const identNavnUrl = IDENT_NAVN_URL[getEnvironment()];
