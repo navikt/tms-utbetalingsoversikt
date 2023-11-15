@@ -6,11 +6,7 @@ import { BodyLong, BodyShort, Heading, Loader } from "@navikt/ds-react";
 import { fetcher } from "../../api/api";
 import Breadcrumbs from "~components/breadcrumbs/Breadcrumbs";
 import { formatToDetailedDate } from "../../utils/date";
-import {
-  formaterTallUtenDesimaler,
-  isUtbetalingWithSats,
-  satsDescription,
-} from "~utils/utbetalingDetalje";
+import { formaterTallUtenDesimaler, isUtbetalingWithSats, satsDescription } from "~utils/utbetalingDetalje";
 import DetaljeElement from "~components/utbetalingDetaljeElement/UtbetalingDetaljeElement";
 import { UnderYtelseType } from "src/types/types";
 import ErrorPanel from "~components/errorPanel/ErrorPanel";
@@ -28,7 +24,7 @@ const UtbetalingDetaljeSide = () => {
     fetcher,
     {
       shouldRetryOnError: false,
-      onError: () => logEvent("fikk-feilmelding-detaljeside")
+      onError: () => logEvent("fikk-feilmelding-detaljeside"),
     }
   );
 
@@ -51,9 +47,7 @@ const UtbetalingDetaljeSide = () => {
   const showBrutto = hasTrekk && hasUnderytelser;
 
   const sumUtbetaltLabel = hasUnderytelser ? "Netto utbetalt" : "Sum";
-  const isUtbetaltText = data.erUtbetalt
-    ? "Utbetalt"
-    : "Forventet overføring til bank";
+  const isUtbetaltText = data.erUtbetalt ? "Utbetalt" : "Forventet overføring til bank";
 
   return (
     <>
@@ -61,20 +55,12 @@ const UtbetalingDetaljeSide = () => {
       <Heading className={style.pageTitle} level="1" size="xlarge">
         {pageTittel}
       </Heading>
-      <div
-        className={`${style.beløpOgDatoWrapper} ${
-          !data.erUtbetalt && style.kommendeUtbetalingWrapper
-        }`}
-      >
+      <div className={`${style.beløpOgDatoWrapper} ${!data.erUtbetalt && style.kommendeUtbetalingWrapper}`}>
         <div className={style.beløpOgDatoContainer}>
-          <BodyShort
-            className={style.utbetaltDato}
-          >{`${isUtbetaltText} ${formatToDetailedDate(ytelseDato)}`}</BodyShort>
-          <Heading
-            className={style.belopUtbetaltHeader}
-            level="2"
-            size="xlarge"
-          >
+          <BodyShort className={style.utbetaltDato}>{`${isUtbetaltText} ${formatToDetailedDate(
+            ytelseDato
+          )}`}</BodyShort>
+          <Heading className={style.belopUtbetaltHeader} level="2" size="xlarge">
             {`${formaterTallUtenDesimaler(nettoUtbetalt)} kr`}
           </Heading>
         </div>
@@ -90,33 +76,18 @@ const UtbetalingDetaljeSide = () => {
                 <DetaljeElement
                   key={ytelse.beskrivelse + ytelse.beløp}
                   label={`${ytelse.beskrivelse} ${
-                    showSats && ytelse.sats && ytelse.antall
-                      ? satsDescription(ytelse)
-                      : ""
+                    showSats && ytelse.sats && ytelse.antall ? satsDescription(ytelse) : ""
                   }`}
                   beløp={ytelse.beløp}
                 />
               );
             })}
-          {showBrutto && (
-            <DetaljeElement
-              isSum={true}
-              label={"Brutto"}
-              beløp={brutto}
-              className="bruttoElement"
-            />
-          )}
+          {showBrutto && <DetaljeElement isSum={true} label={"Brutto"} beløp={brutto} className="bruttoElement" />}
           {hasTrekk &&
             trekk.map((trekk: Trekk) => (
-              <DetaljeElement label={trekk.type} beløp={trekk.beløp} />
+              <DetaljeElement label={trekk.type} beløp={trekk.beløp} key={trekk.type + trekk.beløp} />
             ))}
-          {
-            <DetaljeElement
-              isSum={true}
-              label={sumUtbetaltLabel}
-              beløp={nettoUtbetalt}
-            />
-          }
+          {<DetaljeElement isSum={true} label={sumUtbetaltLabel} beløp={nettoUtbetalt} />}
         </ul>
         {data?.melding && (
           <>
@@ -131,11 +102,9 @@ const UtbetalingDetaljeSide = () => {
           Periode
         </Heading>
         <BodyShort className={style.periodeDato}>
-          {`${formatToDetailedDate(
-            data.ytelsePeriode.fom
-          )} - ${formatToDetailedDate(data.ytelsePeriode.tom)} til konto ${
-            data.kontonummer
-          }`}
+          {`${formatToDetailedDate(data.ytelsePeriode.fom)} - ${formatToDetailedDate(
+            data.ytelsePeriode.tom
+          )} til konto ${data.kontonummer}`}
         </BodyShort>
       </div>
     </>
