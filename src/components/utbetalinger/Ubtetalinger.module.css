@@ -2,6 +2,10 @@
   margin: 2rem 0 0.75rem;
 }
 
+.skrivUtButton{
+  margin-top: 2.25rem;;
+}
+
 @media (min-width: 480px) {
   .tidligereUtbetalingerHeading {
     margin-top: 3rem;
