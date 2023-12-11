@@ -1,13 +1,9 @@
 import { useStore } from "@nanostores/react";
-import { Heading } from "@navikt/ds-react";
+import { Button, Heading } from "@navikt/ds-react";
 import dayjs from "dayjs";
 import useSWR from "swr";
 import { fetcher } from "../../api/api";
-import {
-  periodeFilterAtom,
-  selctedPeriodeAtom,
-  setYtelseFilter,
-} from "~store/filter";
+import { periodeFilterAtom, selctedPeriodeAtom, setYtelseFilter } from "~store/filter";
 import getUniqueYtelser from "~utils/getUniqueYtelser";
 import { utbetalingerAPIUrl } from "~utils/urls";
 import ContentLoader from "../contentLoader/ContentLoader";
@@ -20,24 +16,27 @@ import style from "./Ubtetalinger.module.css";
 import ErrorPanel from "../errorPanel/ErrorPanel";
 import { logEvent } from "~utils/amplitude";
 import { UtbetalingerResponse } from "src/types/types";
+import { PrinterSmallIcon } from "@navikt/aksel-icons";
 
 const Utbetalinger = () => {
   const utbetalingerPeriod = useStore(selctedPeriodeAtom);
   const selectedPeriodFilter = useStore(periodeFilterAtom);
-  const utbetalingerPeriodDato = `${dayjs(selectedPeriodFilter.fom).format(
-    "DD.MM.YYYY"
-  )}-${dayjs(selectedPeriodFilter.tom).format("DD.MM.YYYY")}`;
+  const utbetalingerPeriodDato = `${dayjs(selectedPeriodFilter.fom).format("DD.MM.YYYY")}-${dayjs(
+    selectedPeriodFilter.tom
+  ).format("DD.MM.YYYY")}`;
 
-  const { data: utbetalinger, isLoading, error } = useSWR<UtbetalingerResponse>(
+  const {
+    data: utbetalinger,
+    isLoading,
+    error,
+  } = useSWR<UtbetalingerResponse>(
     {
-      path: utbetalingerAPIUrl(
-        `?fom=${selectedPeriodFilter.fom}&tom=${selectedPeriodFilter.tom}`
-      ),
+      path: utbetalingerAPIUrl(`?fom=${selectedPeriodFilter.fom}&tom=${selectedPeriodFilter.tom}`),
     },
     fetcher,
     {
       shouldRetryOnError: false,
-      onError: () => logEvent("fikk-feilmelding-forside")
+      onError: () => logEvent("fikk-feilmelding-forside"),
     }
   );
 
@@ -48,45 +47,34 @@ const Utbetalinger = () => {
 
   const hasTidligereUtbetalinger = utbetalinger && utbetalinger?.tidligere.length > 0;
 
-  hasTidligereUtbetalinger &&
-    setYtelseFilter(
-      getUniqueYtelser(utbetalinger.utbetalingerIPeriode.ytelser)
-    );
+  hasTidligereUtbetalinger && setYtelseFilter(getUniqueYtelser(utbetalinger.utbetalingerIPeriode.ytelser));
 
   return (
     <>
       {hasTidligereUtbetalinger && <YtelserFilter />}
-      {showKommendeUtbetalinger && (
-        <KommendeUtbetalinger utbetalinger={utbetalinger.neste} />
-      )}
+      {showKommendeUtbetalinger && <KommendeUtbetalinger utbetalinger={utbetalinger.neste} />}
       {
         <>
-          <Heading
-            level="2"
-            size="small"
-            className={`navds-body-short ${style.tidligereUtbetalingerHeading}`}
-          >
-            {utbetalingerPeriod === "Egendefinert"
-              ? utbetalingerPeriodDato
-              : utbetalingerPeriod}
+          <Heading level="2" size="small" className={`navds-body-short ${style.tidligereUtbetalingerHeading}`}>
+            {utbetalingerPeriod === "Egendefinert" ? utbetalingerPeriodDato : utbetalingerPeriod}
           </Heading>
           {hasTidligereUtbetalinger ? (
             <>
               {" "}
-              <TidligereUtbetalinger
-                utbetalingGroups={utbetalinger.tidligere}
-              />
-              <UtbetaltPeriode
-                data={utbetalinger.utbetalingerIPeriode}
-                periode={utbetalingerPeriodDato}
-              />
+              <TidligereUtbetalinger utbetalingGroups={utbetalinger.tidligere} />
+              <UtbetaltPeriode data={utbetalinger.utbetalingerIPeriode} periode={utbetalingerPeriodDato} />
+              <Button
+                className={style.skrivUtButton}
+                onClick={() => window.print()}
+                icon={<PrinterSmallIcon aria-hidden />}
+              >
+                Skriv ut
+              </Button>
             </>
           ) : (
             <NoUtbetalinger />
           )}
-          {
-            error ? <ErrorPanel isLandingsside/> : null
-          }
+          {error ? <ErrorPanel isLandingsside /> : null}
         </>
       }
     </>
