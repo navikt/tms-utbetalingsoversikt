@@ -31,7 +31,7 @@ ul {
 .detaljerHeading {
   margin-top: 2rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--a-border-divider);
+  border-bottom: var(--custom-divider-line);
 }
 
 .periodeHeading, .meldingHeading {
@@ -40,8 +40,8 @@ ul {
 
 .meldingTekst, .periodeDato{
   padding: 0.5rem 0;
-  border-bottom: 1px solid var(--a-border-divider);
-  border-top: 1px solid var(--a-border-divider);
+  border-bottom: var(--custom-divider-line);
+  border-top: var(--custom-divider-line);
   margin-top: 0.75rem;
 }
 
