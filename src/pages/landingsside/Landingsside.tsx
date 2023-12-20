@@ -6,7 +6,7 @@ import InfoAlertLegacyApp from "~components/infoAlertLegacyApp/InfoAlertLegacyAp
 import RelatertInnhold from "~components/relatertInnhold/RelatertInnhold.tsx";
 import Utbetalinger from "~components/utbetalinger/Utbetalinger.tsx";
 import style from "./Landingsside.module.css";
-import PrintUtbetalinger from "./PrintUtbetalinger/PrintUtbetalinger";
+import PrintUtbetalinger from "./printUtbetalinger/PrintUtbetalinger";
 
 function Landingsside() {
   return (

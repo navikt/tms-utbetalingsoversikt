@@ -9,7 +9,7 @@ import { utbetalingerAPIUrl } from "~utils/urls";
 import { formaterTallUtenDesimaler } from "~utils/utbetalingDetalje";
 import { fetcher } from "../../../api/api";
 import styles from "./PrintUtbetalinger.module.css";
-import PrintWrapper from "../../printWrapper/PrintWrapper";
+import PrintPageHeading from "../../printPageHeading/PrintPageHeading";
 
 const PrintUtbetalinger = () => {
   const selectedPeriodFilter = useStore(periodeFilterAtom);
@@ -26,7 +26,8 @@ const PrintUtbetalinger = () => {
   const fomTomDato = `${periodFom} - ${periodTom}`;
 
   return (
-    <PrintWrapper>
+    <>
+      <PrintPageHeading />
       <Detail weight="semibold" className={styles.periodeText}>
         Periode
       </Detail>
@@ -53,7 +54,7 @@ const PrintUtbetalinger = () => {
           <UtbetaltPeriode isPrint data={utbetalinger?.utbetalingerIPeriode} periode={fomTomDato} />
         </>
       )}
-    </PrintWrapper>
+    </>
   );
 };
 
