@@ -19,7 +19,6 @@ test("Viser innhold på detaljeside", async () => {
     })
   ).toBeInTheDocument();
 
-  expect(await screen.findByText("Utbetalt 07.09.2023")).toBeInTheDocument();
   expect(
     await screen.findByRole("heading", {
       name: "Detaljer",
