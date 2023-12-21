@@ -12,6 +12,8 @@ import SummaryPanel from "./summaryPanel/SummaryPanel";
 import UtbetalingCalculations from "./utbetalingCalculations/UtbetalingCalculations";
 import UtbetalingDescription from "./utbetalingDescription/UtbetalingDescription";
 import PrintPageHeading from "../printPageHeading/PrintPageHeading";
+import PrintUtbetalinger from "../landingsside/printUtbetalinger/PrintUtbetalinger";
+import PrintButton from "../../components/prinButton/PrintButton";
 
 const UtbetalingDetaljeSide = () => {
   const { utbetalingsId } = useParams();
@@ -53,6 +55,7 @@ const UtbetalingDetaljeSide = () => {
             data.ytelsePeriode.tom
           )} til konto ${data.kontonummer}`}
         />
+        <PrintButton />
       </div>
     </>
   );
