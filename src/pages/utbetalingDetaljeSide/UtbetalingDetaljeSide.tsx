@@ -43,7 +43,7 @@ const UtbetalingDetaljeSide = () => {
       <Heading className={style.pageTitle} level="1" size="xlarge">
         {pageTittel}
       </Heading>
-      <SummaryPanel erUtbetalt={data.erUtbetalt} utbetalingsDato={ytelseDato} nettoUtbetalt={nettoUtbetalt} />
+      <SummaryPanel erUtbetalt={data.erUtbetalt} utbetalingsDato={ytelseDato} nettoUtbetalt={nettoUtbetalt} ytelse={pageTittel} />
       <div className={style.detailsContainer}>
         {<UtbetalingCalculations data={data} />}
         {data?.melding && <UtbetalingDescription heading={"Melding"} bodyText={data.melding} />}

@@ -1,3 +1,12 @@
-.detailsContainer{
+.detailsContainer {
   padding: 0 0.5rem;
+}
+
+@media print {
+  .pageTitle {
+    display: none;
+  }
+  .detailsContainer {
+    padding: 0;
+  }
 }
