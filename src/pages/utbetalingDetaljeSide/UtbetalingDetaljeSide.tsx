@@ -11,6 +11,7 @@ import style from "./UtbetalingDetaljeSide.module.css";
 import SummaryPanel from "./summaryPanel/SummaryPanel";
 import UtbetalingCalculations from "./utbetalingCalculations/UtbetalingCalculations";
 import UtbetalingDescription from "./utbetalingDescription/UtbetalingDescription";
+import PrintPageHeading from "../printPageHeading/PrintPageHeading";
 
 const UtbetalingDetaljeSide = () => {
   const { utbetalingsId } = useParams();
@@ -38,6 +39,7 @@ const UtbetalingDetaljeSide = () => {
   return (
     <>
       <Breadcrumbs showUtbetalinger={true} />
+      <PrintPageHeading />
       <Heading className={style.pageTitle} level="1" size="xlarge">
         {pageTittel}
       </Heading>
