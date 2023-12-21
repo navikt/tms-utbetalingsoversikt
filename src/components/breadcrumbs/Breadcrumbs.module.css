@@ -32,3 +32,8 @@
     margin-bottom: 1.5rem;
   }
 }
+@media print {
+  .container {
+    display: none;
+  }
+}
