@@ -6,6 +6,11 @@ export type UnderYtelseType = {
   beløp: number;
 };
 
+export type Trekk = {
+  type: string;
+  beløp: number;
+};
+
 export type UtbetalingType = {
   id: string;
   beløp: number;

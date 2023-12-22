@@ -3,14 +3,13 @@ import { Detail } from "@navikt/ds-react";
 import dayjs from "dayjs";
 import { UtbetalingGroupType, UtbetalingType, UtbetalingerResponse } from "src/types/types";
 import useSWR from "swr";
-import useSWRImmutable from "swr/immutable";
 import UtbetaltPeriode from "~components/utbetaltPeriode/UtbetaltPeriode";
 import { periodeFilterAtom } from "~store/filter";
-import { identNavnUrl, utbetalingerAPIUrl } from "~utils/urls";
+import { utbetalingerAPIUrl } from "~utils/urls";
 import { formaterTallUtenDesimaler } from "~utils/utbetalingDetalje";
 import { fetcher } from "../../../api/api";
 import styles from "./PrintUtbetalinger.module.css";
-import logo from "./nav-logo.png";
+import PrintPageHeading from "../../printPageHeading/PrintPageHeading";
 
 const PrintUtbetalinger = () => {
   const selectedPeriodFilter = useStore(periodeFilterAtom);
@@ -22,23 +21,13 @@ const PrintUtbetalinger = () => {
     },
     fetcher
   );
-  const { data: bruker } = useSWRImmutable(
-    {
-      path: identNavnUrl,
-    },
-    fetcher
-  );
 
   const utbetalingerGroups = utbetalinger?.tidligere;
   const fomTomDato = `${periodFom} - ${periodTom}`;
 
   return (
     <div id={styles.container}>
-      <img src={logo} width="90" alt="Logo" />
-      <Detail className={styles.pageTitle}>UTBETALINGSOVERSIKT</Detail>
-      <Detail className={styles.name}>{bruker?.navn}</Detail>
-      <Detail className={styles.fnr}>{bruker?.ident}</Detail>
-      <Detail className={styles.utskriftsdato}>{`Utskriftsdato: ${dayjs().format("DD.MM.YYYY")}`}</Detail>
+      <PrintPageHeading />
       <Detail weight="semibold" className={styles.periodeText}>
         Periode
       </Detail>

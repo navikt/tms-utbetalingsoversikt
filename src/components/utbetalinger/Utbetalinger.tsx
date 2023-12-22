@@ -1,22 +1,22 @@
 import { useStore } from "@nanostores/react";
-import { Button, Heading } from "@navikt/ds-react";
+import { Heading } from "@navikt/ds-react";
 import dayjs from "dayjs";
+import { UtbetalingerResponse } from "src/types/types";
 import useSWR from "swr";
-import { fetcher } from "../../api/api";
 import { periodeFilterAtom, selctedPeriodeAtom, setYtelseFilter } from "~store/filter";
+import { logEvent } from "~utils/amplitude";
 import getUniqueYtelser from "~utils/getUniqueYtelser";
 import { utbetalingerAPIUrl } from "~utils/urls";
+import { fetcher } from "../../api/api";
 import ContentLoader from "../contentLoader/ContentLoader";
+import ErrorPanel from "../errorPanel/ErrorPanel";
 import YtelserFilter from "../filter/ytelseFilter/YtelserFilter";
 import KommendeUtbetalinger from "../kommendeUtbetalinger/KommendeUtbetalinger";
-import NoUtbetalinger from "./noUtbetalinger/NoUtbetalinger";
-import TidligereUtbetalinger from "./tidligereUtbetalinger/TidligereUtbetalinger";
+import PrintButton from "../prinButton/PrintButton";
 import UtbetaltPeriode from "../utbetaltPeriode/UtbetaltPeriode";
 import style from "./Ubtetalinger.module.css";
-import ErrorPanel from "../errorPanel/ErrorPanel";
-import { logEvent } from "~utils/amplitude";
-import { UtbetalingerResponse } from "src/types/types";
-import { PrinterSmallIcon } from "@navikt/aksel-icons";
+import NoUtbetalinger from "./noUtbetalinger/NoUtbetalinger";
+import TidligereUtbetalinger from "./tidligereUtbetalinger/TidligereUtbetalinger";
 
 const Utbetalinger = () => {
   const utbetalingerPeriod = useStore(selctedPeriodeAtom);
@@ -63,13 +63,7 @@ const Utbetalinger = () => {
               {" "}
               <TidligereUtbetalinger utbetalingGroups={utbetalinger.tidligere} />
               <UtbetaltPeriode data={utbetalinger.utbetalingerIPeriode} periode={utbetalingerPeriodDato} />
-              <Button
-                className={style.skrivUtButton}
-                onClick={() => window.print()}
-                icon={<PrinterSmallIcon aria-hidden />}
-              >
-                Skriv ut
-              </Button>
+              <PrintButton />
             </>
           ) : (
             <NoUtbetalinger />
