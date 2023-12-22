@@ -6,14 +6,13 @@ import ErrorPanel from "~components/errorPanel/ErrorPanel";
 import { logEvent } from "~utils/amplitude";
 import { enkelUtbetalingAPIUrl } from "~utils/urls";
 import { fetcher } from "../../api/api";
+import PrintButton from "../../components/prinButton/PrintButton";
 import { formatToDetailedDate } from "../../utils/date";
+import PrintPageHeading from "../printPageHeading/PrintPageHeading";
 import style from "./UtbetalingDetaljeSide.module.css";
 import SummaryPanel from "./summaryPanel/SummaryPanel";
 import UtbetalingCalculations from "./utbetalingCalculations/UtbetalingCalculations";
 import UtbetalingDescription from "./utbetalingDescription/UtbetalingDescription";
-import PrintPageHeading from "../printPageHeading/PrintPageHeading";
-import PrintUtbetalinger from "../landingsside/printUtbetalinger/PrintUtbetalinger";
-import PrintButton from "../../components/prinButton/PrintButton";
 
 const UtbetalingDetaljeSide = () => {
   const { utbetalingsId } = useParams();
