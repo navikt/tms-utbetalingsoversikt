@@ -26,7 +26,7 @@ const PrintUtbetalinger = () => {
   const fomTomDato = `${periodFom} - ${periodTom}`;
 
   return (
-    <>
+    <div id={styles.container}>
       <PrintPageHeading />
       <Detail weight="semibold" className={styles.periodeText}>
         Periode
@@ -54,7 +54,7 @@ const PrintUtbetalinger = () => {
           <UtbetaltPeriode isPrint data={utbetalinger?.utbetalingerIPeriode} periode={fomTomDato} />
         </>
       )}
-    </>
+    </div>
   );
 };
 
