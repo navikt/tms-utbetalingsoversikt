@@ -50,7 +50,7 @@ const Utbetalinger = () => {
   const hasTidligereUtbetalinger = utbetalinger && utbetalinger?.tidligere.length > 0;
 
   hasTidligereUtbetalinger && setYtelseFilter(getUniqueYtelser(utbetalinger.utbetalingerIPeriode.ytelser));
-  const hasSkattAlert =  hasTidligereUtbetalinger && utbetalinger.utbetalingerIPeriode.ytelser.map(elm => showSkattAlert(elm.ytelse))
+  const hasSkattAlert =  hasTidligereUtbetalinger && utbetalinger.utbetalingerIPeriode.ytelser.some(elm => showSkattAlert(elm.ytelse))
 
   return (
     <>
