@@ -10,10 +10,11 @@ const OvertrukketSkattAlert = ({ isOnDetaljeSide }: props) => {
   return (
     <Alert className={className} variant="info">
       <Heading spacing size="small" level="2">
-        NAV har trukket for mye skatt på utbetaling av AAP og dagpenger 2. januar
+        For mye trukket skatt på utbetaling av AAP og dagpenger
       </Heading>
-      Feilen blir rettet og NAV vil etterbetale for mye trukket skatt innen kort tid. Vi har oversikt over hvem dette
-      gjelder, så du trenger derfor ikke ta kontakt med oss.
+      NAV har trukket for mye skatt på utbetaling av AAP og dagpenger som ble utbetalt 2.januar. Vi har oversikt over
+      hvem dette gjelder, så du trenger derfor ikke ta kontakt med oss. Feilen er rettet. NAV forventer å utbetale for
+      mye trukket skatt i løpet av fredag 5. januar. Når pengene er inne på konto, avhenger av hvilken bank du har.
     </Alert>
   );
 };
