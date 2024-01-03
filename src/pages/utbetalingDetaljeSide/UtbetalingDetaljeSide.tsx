@@ -13,8 +13,6 @@ import style from "./UtbetalingDetaljeSide.module.css";
 import SummaryPanel from "./summaryPanel/SummaryPanel";
 import UtbetalingCalculations from "./utbetalingCalculations/UtbetalingCalculations";
 import UtbetalingDescription from "./utbetalingDescription/UtbetalingDescription";
-import OvertrukketSkattAlert from "../../components/overtrukketSkattAlert/OvertrukketSkattAlert";
-import showSkattAlert from "../../utils/showSkattAlert";
 
 const UtbetalingDetaljeSide = () => {
   const { utbetalingsId } = useParams();
@@ -46,7 +44,6 @@ const UtbetalingDetaljeSide = () => {
       <Heading className={style.pageTitle} level="1" size="xlarge">
         {pageTittel}
       </Heading>
-      {showSkattAlert(pageTittel) && <OvertrukketSkattAlert isOnDetaljeSide />}
       <SummaryPanel erUtbetalt={data.erUtbetalt} utbetalingsDato={ytelseDato} nettoUtbetalt={nettoUtbetalt} ytelse={pageTittel} />
       <div className={style.detailsContainer}>
         {<UtbetalingCalculations data={data} />}
