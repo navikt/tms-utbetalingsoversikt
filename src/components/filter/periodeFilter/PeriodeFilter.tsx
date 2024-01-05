@@ -1,21 +1,11 @@
+import { useStore } from "@nanostores/react";
 import { BodyShort, Chips } from "@navikt/ds-react";
 import { useState } from "react";
-import {
-  selctedPeriodeAtom,
-  setPeriodeFilter,
-  setSelectedPeriode,
-  showFilterAtom,
-} from "~store/filter";
-import {
-  GetDatePeriodType,
-  getDateCurrentlyThisYear,
-  getDateLastYear,
-  getDateThreemonthsBack,
-} from "~utils/date";
+import { selctedPeriodeAtom, setPeriodeFilter, setSelectedPeriode, showFilterAtom } from "~store/filter";
+import { logEvent } from "~utils/amplitude";
+import { GetDatePeriodType, getDateCurrentlyThisYear, getDateLastYear, getDateThreemonthsBack } from "~utils/date";
 import style from "./PeriodeFilter.module.css";
 import EgendefinertPeriode from "./egendefinertPeriode/EgendefinertPeriode";
-import { useStore } from "@nanostores/react";
-import { logEvent } from "~utils/amplitude";
 
 type PeriodeOptionsType = {
   label: string;
@@ -32,13 +22,9 @@ const periodeOptions: PeriodeOptionsType[] = [
 const PeriodeFilter = () => {
   const showContent = useStore(showFilterAtom);
   const initialSelectedPeriode = useStore(selctedPeriodeAtom);
-
   const [selected, setSelected] = useState(initialSelectedPeriode);
 
-  const handlePeriodeClick = (
-    selectedOption: string,
-    periodeTomFom?: GetDatePeriodType
-  ) => {
+  const handlePeriodeClick = (selectedOption: string, periodeTomFom?: GetDatePeriodType) => {
     logEvent("filter-periode", selectedOption);
     setSelected(selectedOption);
     if (selectedOption !== "Egendefinert") {
@@ -48,11 +34,7 @@ const PeriodeFilter = () => {
   };
 
   return (
-    <div
-      className={`${style.periodeFilterContainer} ${
-        !showContent && style.hideContent
-      }`}
-    >
+    <div className={`${style.periodeFilterContainer} ${!showContent && style.hideContent}`}>
       <BodyShort weight="semibold" className={style.periodeFilterLabel}>
         Velg periode
       </BodyShort>
