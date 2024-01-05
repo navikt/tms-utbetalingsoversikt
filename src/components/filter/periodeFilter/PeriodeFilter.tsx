@@ -1,6 +1,7 @@
 import { BodyShort, Chips } from "@navikt/ds-react";
 import { useState } from "react";
 import {
+  selctedPeriodeAtom,
   setPeriodeFilter,
   setSelectedPeriode,
   showFilterAtom,
@@ -30,7 +31,9 @@ const periodeOptions: PeriodeOptionsType[] = [
 
 const PeriodeFilter = () => {
   const showContent = useStore(showFilterAtom);
-  const [selected, setSelected] = useState("Siste 3 måneder");
+  const initialSelectedPeriode = useStore(selctedPeriodeAtom);
+
+  const [selected, setSelected] = useState(initialSelectedPeriode);
 
   const handlePeriodeClick = (
     selectedOption: string,
