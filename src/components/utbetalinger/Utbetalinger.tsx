@@ -17,8 +17,6 @@ import UtbetaltPeriode from "../utbetaltPeriode/UtbetaltPeriode";
 import style from "./Ubtetalinger.module.css";
 import NoUtbetalinger from "./noUtbetalinger/NoUtbetalinger";
 import TidligereUtbetalinger from "./tidligereUtbetalinger/TidligereUtbetalinger";
-import OvertrukketSkattAlert from "../overtrukketSkattAlert/OvertrukketSkattAlert";
-import showSkattAlert from "../../utils/showSkattAlert";
 
 const Utbetalinger = () => {
   const utbetalingerPeriod = useStore(selctedPeriodeAtom);
@@ -50,12 +48,10 @@ const Utbetalinger = () => {
   const hasTidligereUtbetalinger = utbetalinger && utbetalinger?.tidligere.length > 0;
 
   hasTidligereUtbetalinger && setYtelseFilter(getUniqueYtelser(utbetalinger.utbetalingerIPeriode.ytelser));
-  const hasSkattAlert =  hasTidligereUtbetalinger && utbetalinger.utbetalingerIPeriode.ytelser.some(elm => showSkattAlert(elm.ytelse))
 
   return (
     <>
       {hasTidligereUtbetalinger && <YtelserFilter />}
-      {hasSkattAlert && <OvertrukketSkattAlert />}
       {showKommendeUtbetalinger && <KommendeUtbetalinger utbetalinger={utbetalinger.neste} />}
       {
         <>
