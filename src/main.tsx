@@ -8,7 +8,15 @@ import "./index.css";
 if (process.env.NODE_ENV === "development") {
   const newLocal = "./mocks/browser";
   const msw = await import(newLocal);
-  await msw.worker.start({ onUnhandledRequest: "bypass" });
+  await msw.worker.start({
+    onUnhandledRequest: "bypass",
+    serviceWorker: {
+      url: `${import.meta.env.BASE_URL}/mockServiceWorker.js`,
+      options: {
+        scope: '/utbetalingsoversikt/', 
+      },
+    },
+  });
   msw.worker.printHandlers();
 
   await injectDecoratorClientSide({
