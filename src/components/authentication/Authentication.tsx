@@ -26,7 +26,7 @@ const Authentication = ({ children }: Props) => {
   }
 
   if(!data?.authenticated || error){
-    redirectToIdPorten;
+    redirectToIdPorten();
     return null;
   }
   return <React.Fragment>{children}</React.Fragment>;
