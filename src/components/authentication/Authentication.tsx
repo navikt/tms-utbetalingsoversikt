@@ -1,15 +1,15 @@
-import useSWRImmutable from "swr/immutable";
-import ContentLoader from "../contentLoader/ContentLoader";
-import { authenticationUrl, baseUrl, loginUrl } from "~utils/urls.ts";
-import { fetcher } from "../../api/api.ts";
 import React from "react";
+import useSWRImmutable from "swr/immutable";
+import { authAndRedirectUrl, authenticationUrl } from "~utils/urls.ts";
+import { fetcher } from "../../api/api.ts";
+import ContentLoader from "../contentLoader/ContentLoader";
 
 type Props = {
   children?: React.ReactNode;
 };
 
-const redirectToIdPorten = (redirectUri: string) => {
-  window.location.assign(`${loginUrl}?redirect_uri=${redirectUri}`);
+const redirectToIdPorten = () => {
+  window.location.assign(authAndRedirectUrl());
 };
 
 const Authentication = ({ children }: Props) => {
@@ -20,14 +20,13 @@ const Authentication = ({ children }: Props) => {
       shouldRetryOnError: false,
     }
   );
-  const redirectUrl = baseUrl;
 
   if (isLoading) {
     return <ContentLoader />;
   }
 
   if(!data?.authenticated || error){
-    redirectToIdPorten(redirectUrl);
+    redirectToIdPorten();
     return null;
   }
   return <React.Fragment>{children}</React.Fragment>;

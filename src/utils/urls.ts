@@ -17,7 +17,7 @@ export const getEnvironment = () => {
 };
 
 const BASE_URL = {
-  local: "http://localhost:3000/utbetalingsoversikt",
+  local: "http://localhost:3000/utbetalingsoversikt/",
   development: "https://www.intern.dev.nav.no/utbetalingsoversikt",
   production: "https://www.nav.no/utbetalingsoversikt",
 };
@@ -117,3 +117,7 @@ export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const omUtbetalinger = OM_UTBETALINGER_URL[getEnvironment()];
 export const legacyUrl = LEGACY_URL[getEnvironment()];
 export const identNavnUrl = IDENT_NAVN_URL[getEnvironment()];
+
+export const authAndRedirectUrl = () => {
+  return getEnvironment() === "local" ? baseUrl : `${loginUrl}?redirect_uri=${baseUrl}`;
+};
