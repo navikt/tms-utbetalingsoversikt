@@ -1,8 +1,8 @@
-import useSWRImmutable from "swr/immutable";
-import ContentLoader from "../contentLoader/ContentLoader";
-import { authAndRedirectUrl, authenticationUrl, baseUrl, loginUrl } from "~utils/urls.ts";
-import { fetcher } from "../../api/api.ts";
 import React from "react";
+import useSWRImmutable from "swr/immutable";
+import { authAndRedirectUrl, authenticationUrl } from "~utils/urls.ts";
+import { fetcher } from "../../api/api.ts";
+import ContentLoader from "../contentLoader/ContentLoader";
 
 type Props = {
   children?: React.ReactNode;
