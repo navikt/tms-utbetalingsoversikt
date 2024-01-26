@@ -19,7 +19,7 @@ spec:
     initialDelay: 10
   replicas:
     min: 2
-    max: 6
+    max: 4
   ingresses:
     - "https://tjenester.intern.nav.no/utbetalingsoversikt"
     - "https://tjenester.nav.no/utbetalingsoversikt"
