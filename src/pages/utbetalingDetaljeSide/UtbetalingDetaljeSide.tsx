@@ -49,7 +49,7 @@ const UtbetalingDetaljeSide = () => {
         <BodyLong weight="semibold" >
           Har du fått en uventet utbetaling av sykepenger fra NAV?
         </BodyLong>
-        NAV utbetaler nå feriepenger som ble opptjent på foreldrepenger, sykepenger, pleiepenger, opplæringspenger og svangerskapspenger i 2023. Utbetalingen er merket "Sykepenger, arbeidstaker feriepenger", uavhengig av pengestøtte. Selve utbetalingen er riktig, selv om teksten kan være misvisende.
+        {'NAV utbetaler nå feriepenger som ble opptjent på foreldrepenger, sykepenger, pleiepenger, opplæringspenger og svangerskapspenger i 2023. Utbetalingen er merket "Sykepenger, arbeidstaker feriepenger", uavhengig av pengestøtte. Selve utbetalingen er riktig, selv om teksten kan være misvisende.'}
       </Alert>}
       <SummaryPanel erUtbetalt={data.erUtbetalt} utbetalingsDato={ytelseDato} nettoUtbetalt={nettoUtbetalt} ytelse={pageTittel} />
       <div className={style.detailsContainer}>
