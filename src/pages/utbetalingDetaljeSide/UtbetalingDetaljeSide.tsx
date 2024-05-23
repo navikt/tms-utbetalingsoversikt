@@ -1,4 +1,4 @@
-import {Alert, Heading, Loader} from "@navikt/ds-react";
+import {Alert, BodyLong, Heading, Loader} from "@navikt/ds-react";
 import { useParams } from "react-router-dom";
 import useSWRImmutable from "swr/immutable";
 import Breadcrumbs from "~components/breadcrumbs/Breadcrumbs";
@@ -46,8 +46,10 @@ const UtbetalingDetaljeSide = () => {
         {pageTittel}
       </Heading>
       {showFeriePenferAlert && <Alert className={style.feriepengerInfomelding} variant="info">
-          NAV utbetaler i disse dager feriepenger til de som hadde opptjent rett på dette fra foreldrepenger, sykepenger, pleiepenger, opplæringspenger og svangerskapspenger i 2023.
-          Utbetalinger av denne typen er på denne siden markert som «Sykepenger, arbeidstaker feriepenger».
+        <BodyLong weight="semibold" >
+          Har du fått en uventet utbetaling av sykepenger fra NAV?
+        </BodyLong>
+        NAV utbetaler nå feriepenger som ble opptjent på foreldrepenger, sykepenger, pleiepenger, opplæringspenger og svangerskapspenger i 2023. Utbetalingen er merket "Sykepenger, arbeidstaker feriepenger", uavhengig av pengestøtte. Selve utbetalingen er riktig, selv om teksten kan være misvisende.
       </Alert>}
       <SummaryPanel erUtbetalt={data.erUtbetalt} utbetalingsDato={ytelseDato} nettoUtbetalt={nettoUtbetalt} ytelse={pageTittel} />
       <div className={style.detailsContainer}>
