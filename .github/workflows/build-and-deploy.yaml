@@ -43,6 +43,10 @@ jobs:
           team: min-side
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+
+    outputs:
+      image: ${{ steps.docker-build-push.outputs.image }}
+
   deploy:
     runs-on: "ubuntu-latest"
     needs: "build"
@@ -57,3 +61,4 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: ${{ matrix.cluster }}
           RESOURCE: nais/${{ matrix.cluster }}/nais.yaml
+          VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
