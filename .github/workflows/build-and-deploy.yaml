@@ -3,14 +3,17 @@ on:
   push:
     branches:
       - "main"
-permissions:
-  packages: write
-  contents: write
 
 jobs:
   build:
     name: "build"
     runs-on: "ubuntu-latest"
+
+    permissions:
+      contents: "read"
+      id-token: "write"
+      packages: "write"
+
     steps:
       - uses: "actions/checkout@v4"
       - uses: "actions/setup-node@v4"
