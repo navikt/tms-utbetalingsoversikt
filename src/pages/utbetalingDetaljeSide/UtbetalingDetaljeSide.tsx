@@ -1,4 +1,4 @@
-import { Heading, Loader } from "@navikt/ds-react";
+import {Alert, Heading, Loader} from "@navikt/ds-react";
 import { useParams } from "react-router-dom";
 import useSWRImmutable from "swr/immutable";
 import Breadcrumbs from "~components/breadcrumbs/Breadcrumbs";
@@ -36,14 +36,19 @@ const UtbetalingDetaljeSide = () => {
   const pageTittel = data.ytelse;
   const ytelseDato = data.ytelseDato;
   const nettoUtbetalt = data.nettoUtbetalt;
+  const showFeriePenferAlert = data?.melding && data.melding.toLowerCase().includes("sykepenger") && data.melding.toLowerCase().includes("arbeidstaker feriepenger")
 
-  return (
+    return (
     <>
       <Breadcrumbs showUtbetalinger={true} />
       <PrintPageHeading />
       <Heading className={style.pageTitle} level="1" size="xlarge">
         {pageTittel}
       </Heading>
+      {showFeriePenferAlert && <Alert className={style.feriepengerInfomelding} variant="info">
+          NAV utbetaler i disse dager feriepenger til de som hadde opptjent rett på dette fra foreldrepenger, sykepenger, pleiepenger, opplæringspenger og svangerskapspenger i 2023.
+          Utbetalinger av denne typen er på denne siden markert som «Sykepenger, arbeidstaker feriepenger».
+      </Alert>}
       <SummaryPanel erUtbetalt={data.erUtbetalt} utbetalingsDato={ytelseDato} nettoUtbetalt={nettoUtbetalt} ytelse={pageTittel} />
       <div className={style.detailsContainer}>
         {<UtbetalingCalculations data={data} />}
