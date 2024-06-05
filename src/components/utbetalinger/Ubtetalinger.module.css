@@ -2,11 +2,6 @@
   margin: 2rem 0 0.75rem;
 }
 
-.infoMelding{
-  margin-top: 32px;
-  max-width: 100%;
-}
-
 @media (min-width: 480px) {
   .tidligereUtbetalingerHeading {
     margin-top: 3rem;

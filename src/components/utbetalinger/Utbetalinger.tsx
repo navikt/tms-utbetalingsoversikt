@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react";
-import {Alert, BodyLong, Heading} from "@navikt/ds-react";
+import { Heading } from "@navikt/ds-react";
 import dayjs from "dayjs";
 import { UtbetalingerResponse } from "src/types/types";
 import useSWR from "swr";
@@ -52,15 +52,6 @@ const Utbetalinger = () => {
   return (
     <>
       {hasTidligereUtbetalinger &&  <YtelserFilter />}
-        {<Alert className={style.infoMelding} variant="info">
-            <BodyLong spacing>Brukere som har levert meldekort på lørdag og søndag vil denne gang få utbetaling tirsdag 4. juni.
-                Vi har hatt en feil som nå er rettet. Vi beklager ulempen dette medfører.
-            </BodyLong>
-            <BodyLong>
-                Etterbetaling av trygdeoppgjøret for AAP og dagpenger er utbetalt. De fleste vil ha pengene på konto 3.
-                eller 4. juni. På etterbetalingen trekkes det skatt etter prosentdelen av skattekortet.
-            </BodyLong>
-        </Alert>}
       {showKommendeUtbetalinger && <KommendeUtbetalinger utbetalinger={utbetalinger.neste} />}
       {
         <>
