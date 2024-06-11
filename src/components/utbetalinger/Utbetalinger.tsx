@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react";
-import { Heading } from "@navikt/ds-react";
+import {Alert, BodyLong, Heading} from "@navikt/ds-react";
 import dayjs from "dayjs";
 import { UtbetalingerResponse } from "src/types/types";
 import useSWR from "swr";
@@ -52,6 +52,11 @@ const Utbetalinger = () => {
   return (
     <>
       {hasTidligereUtbetalinger &&  <YtelserFilter />}
+      {<Alert className={style.infoMelding} variant="info">
+          <BodyLong>Brukere som leverte meldekort søndag kveld og mandag, vil få utbetaling onsdag
+              12.juni.
+          </BodyLong>
+      </Alert>}
       {showKommendeUtbetalinger && <KommendeUtbetalinger utbetalinger={utbetalinger.neste} />}
       {
         <>
