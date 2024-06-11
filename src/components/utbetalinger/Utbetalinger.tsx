@@ -53,7 +53,7 @@ const Utbetalinger = () => {
     <>
       {hasTidligereUtbetalinger &&  <YtelserFilter />}
       {<Alert className={style.infoMelding} variant="info">
-          <BodyLong>Brukere som leverte meldekort søndag kveld og mandag, vil få utbetaling onsdag
+          <BodyLong>De som leverte meldekort søndag kveld og mandag, vil få utbetaling onsdag
               12.juni.
           </BodyLong>
       </Alert>}
