@@ -46,16 +46,17 @@ const Utbetalinger = () => {
   const showKommendeUtbetalinger = utbetalinger && utbetalinger?.neste.length > 0;
 
   const hasTidligereUtbetalinger = utbetalinger && utbetalinger?.tidligere.length > 0;
-
   hasTidligereUtbetalinger && setYtelseFilter(getUniqueYtelser(utbetalinger.utbetalingerIPeriode.ytelser));
+
+  const infoMeldingTekst : string = "De som leverte meldekort søndag kveld og mandag, vil få utbetaling onsdag 12.juni.";
+  const showInfoMelding: boolean = false;
 
   return (
     <>
       {hasTidligereUtbetalinger &&  <YtelserFilter />}
-      {<Alert className={style.infoMelding} variant="info">
-          <BodyLong>De som leverte meldekort søndag kveld og mandag, vil få utbetaling onsdag
-              12.juni.
-          </BodyLong>
+
+      {showInfoMelding && <Alert className={style.infoMelding} variant="info">
+        <BodyLong>{infoMeldingTekst}</BodyLong>
       </Alert>}
       {showKommendeUtbetalinger && <KommendeUtbetalinger utbetalinger={utbetalinger.neste} />}
       {
