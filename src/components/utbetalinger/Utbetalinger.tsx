@@ -48,7 +48,7 @@ const Utbetalinger = () => {
   const hasTidligereUtbetalinger = utbetalinger && utbetalinger?.tidligere.length > 0;
   hasTidligereUtbetalinger && setYtelseFilter(getUniqueYtelser(utbetalinger.utbetalingerIPeriode.ytelser));
 
-  const infoMeldingTekst : string = "De som leverte meldekort søndag kveld og mandag, vil få utbetaling onsdag 12.juni.";
+  const infoMeldingTekst : string = "De som leverte meldekort søndag kveld og mandag, fikk utbetaling onsdag 12.juni.";
   const showInfoMelding: boolean = false;
 
   return (
