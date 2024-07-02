@@ -67,12 +67,6 @@ const SOSIALHJELP_URL = {
   production: "https://www.nav.no/sosialhjelp/innsyn/utbetaling",
 };
 
-const DAGPENGER_URL = {
-  local: "https://www.nav.no/dagpenger/forskudd/oversikt",
-  development: "https://www.intern.dev.nav.no/dagpenger/forskudd/oversikt",
-  production: "https://www.nav.no/dagpenger/forskudd/oversikt",
-};
-
 const ÅRSOPPGAVER_URL = {
   local: "https://www.nav.no/dokumentarkiv/tema/STO",
   development: "https://intern.dev.nav.no/dokumentarkiv/tema/STO",
@@ -111,7 +105,6 @@ export const utbetalingsdatoerUrl = UTBETALINGSDATOER_URL[getEnvironment()];
 export const endreKontonummerUrl = ENDRE_KONTONUMMER_URL[getEnvironment()];
 export const endreSkattekortUrl = ENDRE_SKATTEKORT_URL[getEnvironment()];
 export const sosialhjelpUrl = SOSIALHJELP_URL[getEnvironment()];
-export const dagpengerUrl = DAGPENGER_URL[getEnvironment()];
 export const årsoppgaverUrl = ÅRSOPPGAVER_URL[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const omUtbetalinger = OM_UTBETALINGER_URL[getEnvironment()];
