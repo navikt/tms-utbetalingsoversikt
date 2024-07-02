@@ -5,6 +5,7 @@ import {
   utbetalingsdatoerUrl,
   endreKontonummerUrl,
   endreSkattekortUrl,
+  dagpengerUrl,
   årsoppgaverUrl,
   sosialhjelpUrl,
 } from "~utils/urls";
@@ -26,6 +27,10 @@ const relatertInnholdLinks = [
   {
     title: "Endre kontonummer",
     href: endreKontonummerUrl,
+  },
+  {
+    title: "Forskudd på dagpenger",
+    href: dagpengerUrl,
   },
   {
     title: "Se årsoppgavene mine",
