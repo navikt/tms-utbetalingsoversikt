@@ -28,8 +28,14 @@ spec:
 
   accessPolicy:
     outbound:
+      rules:
+        - application: nav-dekoratoren
+          namespace: personbruker
+        - application: decorator-next
+          namespace: personbruker
       external:
         - host: "www.nav.no"
+        - host: "decorator-next"
   resources:
     limits:
       memory: 768Mi
