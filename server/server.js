@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const express = require("express");
-const logger = require("./logger");
 const path = require("path");
 const getHtmlWithDecorator = require("./dekorator");
 const basePath = "/utbetalingsoversikt";
@@ -35,7 +34,7 @@ server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
       res.send(html);
     })
     .catch((e) => {
-      logger.error(e);
+      console.error(e)
       res.status(500).send(e);
     })
 );
