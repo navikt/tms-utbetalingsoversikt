@@ -7,7 +7,11 @@ const decoratorEnv = process.env.NAIS_CLUSTER_NAME === "prod-gcp" ? "prod" : "de
 const getHtmlWithDecorator = (filePath) =>
   injectDecoratorServerSide({
     env: decoratorEnv,
+    filePath: filePath,
+    enforceLogin: false,
     level: 'Level4',
+    redirectToApp: true,
+    urlLookupTable: false,
   });
 
 module.exports = getHtmlWithDecorator;
