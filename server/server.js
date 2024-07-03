@@ -31,6 +31,7 @@ server.get(`${basePath}/internal/isReady`, async (req, res) => {
 server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
   getHtmlWithDecorator(`${buildPath}/index.html`)
     .then((html) => {
+      console.error("Test error")
       res.send(html);
     })
     .catch((e) => {
