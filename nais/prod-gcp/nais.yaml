@@ -35,7 +35,6 @@ spec:
           namespace: personbruker
       external:
         - host: "www.nav.no"
-        - host: "decorator-next"
   resources:
     limits:
       memory: 768Mi
