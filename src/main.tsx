@@ -1,4 +1,4 @@
-import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler/csr";
+import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "development") {
     serviceWorker: {
       url: `${import.meta.env.BASE_URL}/mockServiceWorker.js`,
       options: {
-        scope: '/utbetalingsoversikt/', 
+        scope: '/utbetalingsoversikt/',
       },
     },
   });
@@ -21,8 +21,8 @@ if (process.env.NODE_ENV === "development") {
 
   await injectDecoratorClientSide({
     env: "dev",
-    urlLookupTable: false,
-  });
+    params: {}
+  })
 }
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
