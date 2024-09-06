@@ -9,7 +9,7 @@
   "author": "navikt",
   "license": "MIT",
   "dependencies": {
-    "@navikt/nav-dekoratoren-moduler": "https://registry.npmjs.org/@navikt/nav-dekoratoren-moduler/-/nav-dekoratoren-moduler-1.6.9.tgz",
+    "@navikt/nav-dekoratoren-moduler": "2.1.6",
     "cors": "2.8.5",
     "express": "4.19.2",
     "express-static-gzip": "2.1.7",
