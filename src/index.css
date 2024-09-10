@@ -16,7 +16,7 @@ body {
   :root {
     --custom-divider-line: 0.5px solid var(--a-border-default);
   }
-  .decorator-wrapper{
+  .decorator-wrapper, #decorator-header, #decorator-footer{
     display: none;
   }
 }
