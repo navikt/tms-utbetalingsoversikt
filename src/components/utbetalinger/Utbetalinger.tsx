@@ -48,13 +48,13 @@ const Utbetalinger = () => {
   const hasTidligereUtbetalinger = utbetalinger && utbetalinger?.tidligere.length > 0;
   hasTidligereUtbetalinger && setYtelseFilter(getUniqueYtelser(utbetalinger.utbetalingerIPeriode.ytelser));
 
-  const infoMeldingTekst : string = "De som leverte meldekort søndag kveld og mandag, fikk utbetaling onsdag 12.juni.";
-  const showInfoMelding: boolean = false;
+  const nullYtelser = utbetalinger?.tidligere.flatMap((utbetalingGroup) => utbetalingGroup.utbetalinger.map((utbetaling) => utbetaling.beløp === 0 && utbetaling.ytelse));
+  const infoMeldingTekst : string = "Fra 1. september 2024 økte ordinær barnetrygd for barn over 6 år til 1766 kroner. På grunn av en teknisk feil i korrigeringen, vil noen kunne se en liste med utbetalinger på \"0 kr\" i tillegg til utbetaling på 1766 kroner i September 2024. Dette påvirker ikke utbetalingen din. Vi beklager feilen";
+  const showInfoMelding: boolean = nullYtelser ? nullYtelser.includes("Barnetrygd") : false;
 
   return (
     <>
       {hasTidligereUtbetalinger &&  <YtelserFilter />}
-
       {showInfoMelding && <Alert className={style.infoMelding} variant="info">
         <BodyLong>{infoMeldingTekst}</BodyLong>
       </Alert>}
