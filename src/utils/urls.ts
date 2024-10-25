@@ -44,9 +44,9 @@ const UTBETALINGSOVERSIKT_API_URL = {
 
 const SATSERURL = {
   local: "http://localhost:3000/satser",
-  ansatt: "https://www.intern.dev.nav.no/no/nav-og-samfunn/kontakt-nav/oversikt-over-satser",
-  development: "https://www.intern.dev.nav.no/no/nav-og-samfunn/kontakt-nav/oversikt-over-satser",
-  production: "https://www.nav.no/no/nav-og-samfunn/kontakt-nav/oversikt-over-satser",
+  ansatt: "https://www.intern.dev.nav.no/satser",
+  development: "https://www.intern.dev.nav.no/satser",
+  production: "https://www.nav.no/satser",
 };
 
 const UTBETALINGSDATOER_URL = {
@@ -67,10 +67,9 @@ const ENDRE_KONTONUMMER_URL = {
 
 const ENDRE_SKATTEKORT_URL = {
   local: "http://localhost:300/skattekort",
-  ansatt: "https://www.intern.dev.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/skattetrekk-p%C3%A5-ytelser-fra-nav",
-  development:
-    "https://www.intern.dev.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/skattetrekk-p%C3%A5-ytelser-fra-nav",
-  production: "https://www.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/skattetrekk-p%C3%A5-ytelser-fra-nav",
+  ansatt: "https://www.intern.nav.no/skattetrekk",
+  development: "https://www.ansatt.dev.nav.no/skattetrekk",
+  production: "https://www.nav.no/skattetrekk",
 };
 
 const SOSIALHJELP_URL = {
